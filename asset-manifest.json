@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.60155e5f.chunk.css",
-    "main.js": "/static/js/main.822b0081.chunk.js",
-    "main.js.map": "/static/js/main.822b0081.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.5f052b60.js",
-    "runtime-main.js.map": "/static/js/runtime-main.5f052b60.js.map",
-    "static/js/2.928dd14c.chunk.js": "/static/js/2.928dd14c.chunk.js",
-    "static/js/2.928dd14c.chunk.js.map": "/static/js/2.928dd14c.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.07ca643d95f151c7583052b4441beb21.js": "/precache-manifest.07ca643d95f151c7583052b4441beb21.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.60155e5f.chunk.css.map": "/static/css/main.60155e5f.chunk.css.map",
-    "static/js/2.928dd14c.chunk.js.LICENSE.txt": "/static/js/2.928dd14c.chunk.js.LICENSE.txt",
-    "static/media/stylesheet.css": "/static/media/opensans-regular-webfont.d407a585.woff2"
+    "main.css": "/biographyofaportrait/static/css/main.f5425955.chunk.css",
+    "main.js": "/biographyofaportrait/static/js/main.6f941159.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.6f941159.chunk.js.map",
+    "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
+    "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
+    "static/js/2.928dd14c.chunk.js": "/biographyofaportrait/static/js/2.928dd14c.chunk.js",
+    "static/js/2.928dd14c.chunk.js.map": "/biographyofaportrait/static/js/2.928dd14c.chunk.js.map",
+    "index.html": "/biographyofaportrait/index.html",
+    "precache-manifest.8e07177f39da374635c9705d7b3d88e8.js": "/biographyofaportrait/precache-manifest.8e07177f39da374635c9705d7b3d88e8.js",
+    "service-worker.js": "/biographyofaportrait/service-worker.js",
+    "static/css/main.f5425955.chunk.css.map": "/biographyofaportrait/static/css/main.f5425955.chunk.css.map",
+    "static/js/2.928dd14c.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.928dd14c.chunk.js.LICENSE.txt",
+    "static/media/stylesheet.css": "/biographyofaportrait/static/media/opensans-regular-webfont.d407a585.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.5f052b60.js",
+    "static/js/runtime-main.2df0d599.js",
     "static/js/2.928dd14c.chunk.js",
-    "static/css/main.60155e5f.chunk.css",
-    "static/js/main.822b0081.chunk.js"
+    "static/css/main.f5425955.chunk.css",
+    "static/js/main.6f941159.chunk.js"
   ]
 }
