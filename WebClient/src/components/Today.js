@@ -4,12 +4,28 @@ import { Link } from 'react-router-dom'
 
 import Banner from './Banner.js'
 import CustomButton from './CustomButton.js'
+import { ReactComponent as User } from '../svg/banda.svg'
+import { color } from './CommonStyles.js'
 
 const RadiumLink = Radium(Link)
 
 const styles = {
   container: {
-    position: 'relative'
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center'
+  },
+
+  user: {
+    position: 'fixed',
+    width: '350px',
+    bottom: '-3%'
+  },
+
+  icon: {
+    width: '100%',
+    height: '100%',
+    fill: color.lightGrey
   }
 };
 
@@ -26,6 +42,9 @@ class Tomorrow extends React.Component {
     return (
       <div style={styles.container}>
         <Banner />
+        <div style={styles.user}>
+          <User style={styles.icon}/>
+        </div>
         {/* <CustomButton>
             <RadiumLink to="/Yesterday">Yesterday</RadiumLink>
         </CustomButton> */}

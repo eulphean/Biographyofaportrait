@@ -16,7 +16,7 @@ import Saturday from './Saturday.js'
 import Sunday from './Sunday.js'
 
 // Styles
-import { padding } from './CommonStyles.js'
+import { padding, color } from './CommonStyles.js'
 
 const RadiumLink = Radium(Link)
 
