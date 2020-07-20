@@ -3,7 +3,7 @@ import Radium from 'radium'
 import { Link } from 'react-router-dom'
 
 import Banner from './Banner.js'
-import CustomButton from './CustomButton.js'
+import Folder from './Folder.js'
 import { ReactComponent as User } from '../svg/banda.svg'
 import { padding, color } from './CommonStyles.js'
 
@@ -56,6 +56,12 @@ const styles = {
     width: '100%',
     height: '100%',
     fill: color.lightGrey
+  },
+
+  folder: {
+    position: 'fixed',
+    bottom: '5%',
+    right: '5%'
   }
 };
 
@@ -75,9 +81,11 @@ class Tomorrow extends React.Component {
         <div style={styles.user}>
           <User style={styles.icon}/>
         </div>
-        {/* <CustomButton>
-            <RadiumLink to="/Yesterday">Yesterday</RadiumLink>
-        </CustomButton> */}
+        <div style={styles.folder}>
+          <Folder target={'/Yesterday'}>
+            Yesterday
+          </Folder>
+        </div>
       </div>
     );
   }

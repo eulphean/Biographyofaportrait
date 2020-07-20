@@ -1,15 +1,21 @@
 import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
+import { color } from './CommonStyles'
+import TestVideo from '../videos/test.mp4'
 
 const RadiumLink = Radium(Link)
 
 const styles = {
   container: {
     position: 'relative',
-    backgroundColor: 'green',
-    width: '20%',
-    height: '100px'
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  video: {
+    width: '300px'
   }
 };
 
@@ -24,9 +30,11 @@ class Tomorrow extends React.Component {
 
   render() {
     return (
-     <RadiumLink style={styles.container} to="/">
-        I am Tomorrow. Click me to go back to the home page. 
-     </RadiumLink>
+      <RadiumLink style={styles.container} to="/">
+        <video style={styles.video} autoPlay>
+          <source src={TestVideo} type={'video/mp4'} />
+        </video>
+      </RadiumLink>
     );
   }
 }

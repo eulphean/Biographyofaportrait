@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
-import CustomButton from './CustomButton'
+import Folder from './Folder'
 
 const RadiumLink = Radium(Link)
 
@@ -27,10 +27,9 @@ class Thursday extends React.Component {
   render() {
     return (
       <div style={styles.container}>
-        I am Thursday
-        <CustomButton>
-            <RadiumLink to="/Friday">Friday</RadiumLink>
-        </CustomButton>
+        <Folder target={'/Friday'}>
+          FRIDAY
+        </Folder>
       </div>
     );
   }
