@@ -2,7 +2,7 @@
   "name": "biographyofaportrait",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://biographyofaportrait.art",
+  "homepage": "http://amaykataria.com/biographyofaportrait/",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "radium": "^0.26.0",

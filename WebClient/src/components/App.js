@@ -4,8 +4,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { withOrientationChange } from 'react-device-detect'
 
-import Banner from './Banner.js'
-import CustomButton from './CustomButton.js'
+import Today from './Today.js'
 import Yesterday from './Yesterday.js'
 import Tomorrow from './Tomorrow.js'
 import Monday from './Monday.js'
@@ -16,14 +15,19 @@ import Friday from './Friday.js'
 import Saturday from './Saturday.js'
 import Sunday from './Sunday.js'
 
+// Styles
+import { padding } from './CommonStyles.js'
+
 const RadiumLink = Radium(Link)
 
 const styles = {
   container: {
     position: 'relative',
-    alignItems: 'center',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    marginTop: padding.big,
+    marginLeft: padding.small,
+    marginRight: padding.small
   }
 };
 
@@ -72,13 +76,7 @@ class App extends React.Component {
               <Yesterday />
             </Route>
             <Route path="/">
-              <Banner />
-              <div>
-                Home Page Content (Camera Access Popup)
-              </div>
-              <CustomButton>
-                 <RadiumLink to="/Yesterday">Yesterday</RadiumLink>
-              </CustomButton>
+              <Today />
             </Route>
           </Switch>
         </Router>
