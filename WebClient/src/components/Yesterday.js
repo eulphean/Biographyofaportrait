@@ -1,9 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import { Link } from 'react-router-dom'
 import Folder from './Folder'
-
-const RadiumLink = Radium(Link)
 
 const styles = {
   container: {
@@ -17,11 +14,10 @@ const styles = {
 
 class Yesterday extends React.Component {
   constructor(props) {
-    super(props);
+super(props);
     this.state={
 
     };
-
   }
 
   render() {

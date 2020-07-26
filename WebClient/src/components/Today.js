@@ -1,13 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
-import { Link } from 'react-router-dom'
 
 import Banner from './Banner.js'
 import Folder from './Folder.js'
 import { ReactComponent as User } from '../svg/banda.svg'
 import { padding, color } from './CommonStyles.js'
-
-const RadiumLink = Radium(Link)
 
 const styles = {
   container: {
@@ -49,6 +46,12 @@ const styles = {
     '@media (min-width: 1200px)': {  
       width: '60vw',
       bottom: '-25%'
+    },
+
+
+    '@media (min-width: 1500px)': {  
+      width: '60vw',
+      bottom: '-25%'
     }
   },
 
@@ -83,7 +86,7 @@ class Tomorrow extends React.Component {
         </div>
         <div style={styles.folder}>
           <Folder target={'/Yesterday'}>
-            Yesterday
+            YESTERDAY
           </Folder>
         </div>
       </div>

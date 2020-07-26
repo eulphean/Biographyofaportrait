@@ -8,7 +8,33 @@ import clouds from '../images/banner.jpg'
 import { ReactComponent as Cloud } from '../svg/cloud.svg'
 import { ReactComponent as Close } from '../svg/close.svg'
 
-const RadiumLink = Radium(Link)
+const RadiumLink = Radium(Link);
+
+var bannerSlideState = {
+  Down: 0, 
+  Up: 1
+}; 
+const slideDuration = '3.0s';
+const resetDuration = '1.0s';
+
+// Custom slides. 
+const customSlideIn = Radium.keyframes({
+  from: {
+      top: '-100px'
+  },
+  to: {
+      top: '0px'
+  }
+}, 'slideIn'); 
+
+const customSlideOut = Radium.keyframes({
+  from: {
+      top: '0px'
+  },
+  to: {
+      top: '-100px'
+  }
+}, 'slideOut'); 
 
 const styles = {
   container: {
@@ -24,6 +50,20 @@ const styles = {
     width: '100%',
     height: '100%',
     justifyContent: 'center'
+  },
+
+  slideIn: {
+    animationName: customSlideIn,
+    animationDuration: slideDuration,
+    animationFillMode: 'forwards',
+    animationTimingFunction: 'ease-in'
+  },
+
+  slideOut: {
+    animationName: customSlideOut,
+    animationDuration: slideDuration,
+    animationFillMode: 'forwards',
+    animationTimingFunction: 'ease-out'
   },
 
   clouds: {
@@ -76,7 +116,8 @@ const styles = {
     height: fontSize.extraSmall,
     position: 'absolute',
     right: '2%',
-    top: '10%'
+    top: '10%',
+    zIndex: '2'
   },
 
   icon: {
@@ -90,30 +131,59 @@ class Banner extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-
+      slideState: bannerSlideState.Down
     };
   }
 
   render() {
+    let containerStyle; 
+    if (this.state.slideState === bannerSlideState.Down) {
+      containerStyle = [styles.container, styles.slideIn]; 
+    } else {
+      containerStyle = [styles.container, styles.slideOut]; 
+    }
+
     return (
-      <RadiumLink style={styles.container} to="/Tomorrow">
-       <div style={styles.banner}>
-         <div style={styles.glimpse}>
-            <div style={styles.glimpseText}>
-              glimpse here
+      <div style={containerStyle} onAnimationEnd={this.onAnimationEnded.bind(this)}>
+        <div onClick={this.handleOnClose.bind(this)} style={styles.close}>
+          <Close style={styles.icon} />
+        </div>
+        <RadiumLink to='/Tomorrow'>
+          <div style={styles.banner}>
+            <div style={styles.glimpse}>
+                <div style={styles.glimpseText}>
+                  glimpse here
+                </div>
+                <Cloud style={styles.icon}/>
             </div>
-            <Cloud style={styles.icon}/>
-         </div>
-         <div style={styles.close}>
-           <Close style={styles.icon} />
-         </div>
-         <div style={styles.tomorrow}>
-           TOMORROW<sup style={styles.tomorrowSuper}>TM</sup>
-         </div>
-       </div>
-       <img style={styles.clouds} alt={'clouds'} src={clouds} />
-      </RadiumLink>
+            <div style={styles.tomorrow}>
+              TOMORROW<sup style={styles.tomorrowSuper}>TM</sup>
+            </div>
+          </div>
+          <img style={styles.clouds} alt={'clouds'} src={clouds} />
+        </RadiumLink>
+      </div>
     );
+  }
+
+  handleOnClose(event) {
+    // Don't let this event propagate to the banner underneath the button. 
+    event.stopPropagation();
+    this.setState({
+      slideState: bannerSlideState.Up
+    }); 
+  }
+
+  onAnimationEnded() {
+    if (this.state.slideState === bannerSlideState.Up) {
+      setTimeout(this.resetBanner.bind(this), resetDuration); 
+    }
+  }
+
+  resetBanner() {
+    this.setState({
+      slideState: bannerSlideState.Down
+    }); 
   }
 }
 

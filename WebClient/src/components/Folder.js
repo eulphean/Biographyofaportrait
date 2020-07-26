@@ -1,7 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
-import CustomButton from './CustomButton'
 
 import { ReactComponent as FolderIcon } from '../svg/folder.svg'
 import { fontSize, color, padding, fontFamily } from './CommonStyles.js'

@@ -1,7 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
-import { color } from './CommonStyles'
 import TestVideo from '../videos/test.mp4'
 
 const RadiumLink = Radium(Link)

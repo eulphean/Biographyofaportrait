@@ -1,9 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import { Link } from 'react-router-dom'
 import Folder from './Folder'
-
-const RadiumLink = Radium(Link)
 
 const styles = {
   container: {

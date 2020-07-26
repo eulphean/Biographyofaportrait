@@ -1,7 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import { withOrientationChange } from 'react-device-detect'
 
 import Today from './Today.js'
@@ -16,9 +15,7 @@ import Saturday from './Saturday.js'
 import Sunday from './Sunday.js'
 
 // Styles
-import { padding, color } from './CommonStyles.js'
-
-const RadiumLink = Radium(Link)
+import { padding } from './CommonStyles.js'
 
 const styles = {
   container: {
