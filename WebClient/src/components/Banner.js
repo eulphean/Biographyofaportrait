@@ -7,6 +7,7 @@ import { fontFamily, color, fontSize, padding } from './CommonStyles.js'
 import clouds from '../images/banner.jpg'
 import { ReactComponent as Cloud } from '../svg/cloud.svg'
 import { ReactComponent as Close } from '../svg/close.svg'
+import { ReactComponent as Info } from '../svg/info.svg'
 
 const RadiumLink = Radium(Link);
 
@@ -15,7 +16,7 @@ var bannerSlideState = {
   Up: 1
 }; 
 const slideDuration = '3.0s';
-const resetDuration = '1.0s';
+const resetDuration = '0.5s';
 
 // Custom slides. 
 const customSlideIn = Radium.keyframes({
@@ -82,7 +83,9 @@ const styles = {
 
   tomorrowSuper: {
     fontSize: fontSize.small,
-    paddingLeft: padding.tiny
+    fontFamily: fontFamily.bebas,
+    paddingLeft: padding.tiny,
+    marginTop: padding.tiny
   },
   
   glimpse: {
@@ -106,7 +109,17 @@ const styles = {
     color: color.darkGrey
   },
 
-  close: {
+  menu: {
+    zIndex: '2',
+    display: 'flex', 
+    flexDirection: 'row',
+    justifyContent: 'center',
+    position: 'absolute',
+    right: '2%',
+    top: '10%'
+  }, 
+
+  svg: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -114,9 +127,7 @@ const styles = {
     backgroundColor: color.darkGrey,
     width: fontSize.extraSmall,
     height: fontSize.extraSmall,
-    position: 'absolute',
-    right: '2%',
-    top: '10%',
+    marginRight: padding.tiny,
     zIndex: '2'
   },
 
@@ -145,8 +156,13 @@ class Banner extends React.Component {
 
     return (
       <div style={containerStyle} onAnimationEnd={this.onAnimationEnded.bind(this)}>
-        <div onClick={this.handleOnClose.bind(this)} style={styles.close}>
-          <Close style={styles.icon} />
+        <div style={styles.menu}>
+          <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
+            <Info style={styles.icon} />
+          </div>
+          <div onClick={this.handleOnClose.bind(this)} style={styles.svg}>
+            <Close style={styles.icon} />
+          </div>
         </div>
         <RadiumLink to='/Tomorrow'>
           <div style={styles.banner}>
@@ -164,6 +180,11 @@ class Banner extends React.Component {
         </RadiumLink>
       </div>
     );
+  }
+
+  onShowPopup(event) {
+    event.stopPropagation();
+    this.props.onClickInfo(); 
   }
 
   handleOnClose(event) {

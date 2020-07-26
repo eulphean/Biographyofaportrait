@@ -2,13 +2,15 @@ const color = {
     pureTeal: '#055A85',
     liveRed: '#D0011B',
     sunLight: '#FCF0E1',
-    deepSky: '#02293C',
+    deepSky: '#87AFDC',
     disabled: '#7E8A90',
-    link: '#F7C98C',
+    link: '#BACBDF',
     white: '#FFFFFF',
     black: '#000000',
     darkGrey: '#969087',
-    lightGrey: '#FEFEFE'
+    lightGrey: '#FEFEFE',
+    deepGrey: '#343434',
+
 };
 
 const fontSize = {
@@ -71,7 +73,8 @@ const fontFamily = {
     opensansregular: 'open_sansregular',
     thermal: 'thermalregular',
     birada: 'biradaregular',
-    cursive: 'cursive'
+    cursive: 'cursive',
+    din: 'd-dinregular'
 };
 
 const boxShadow = {

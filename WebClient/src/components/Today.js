@@ -5,6 +5,7 @@ import Banner from './Banner.js'
 import Folder from './Folder.js'
 import { ReactComponent as User } from '../svg/banda.svg'
 import { padding, color } from './CommonStyles.js'
+import Popup from './Popup.js'
 
 const styles = {
   container: {
@@ -75,12 +76,16 @@ class Tomorrow extends React.Component {
 
     };
 
+    this.popupRef = React.createRef(); 
+
   }
 
   render() {
     return (
       <div style={styles.container}>
-        <Banner />
+        <Banner 
+          onClickInfo={this.handleInfoClick.bind(this)}
+        />
         <div style={styles.user}>
           <User style={styles.icon}/>
         </div>
@@ -89,8 +94,16 @@ class Tomorrow extends React.Component {
             YESTERDAY
           </Folder>
         </div>
+        <Popup 
+          ref={this.popupRef}
+          type={this.state.popupType}
+        />
       </div>
     );
+  }
+
+  handleInfoClick() {
+    this.popupRef.current.showPopup(); 
   }
 }
 
