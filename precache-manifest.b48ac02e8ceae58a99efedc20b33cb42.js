@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d4dc64aa8f81aa09ef5656cb8e4e44eb",
+    "revision": "78ec12cea224e64df06e2dcb7cf7901e",
     "url": "/biographyofaportrait/index.html"
   },
   {
-    "revision": "8b68fd7468da17bb5e99",
+    "revision": "11647a8fa8629e0b836a",
     "url": "/biographyofaportrait/static/css/main.15a464c6.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/js/2.044d44cd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8b68fd7468da17bb5e99",
-    "url": "/biographyofaportrait/static/js/main.c5e02bc8.chunk.js"
+    "revision": "11647a8fa8629e0b836a",
+    "url": "/biographyofaportrait/static/js/main.8c3bbda5.chunk.js"
   },
   {
     "revision": "e797ef941c42eb947915",
