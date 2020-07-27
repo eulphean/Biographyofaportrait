@@ -21,9 +21,10 @@ const styles = {
   },
 
   user: {
+    zIndex: '95',
     position: 'fixed',
-    width: '120vw',
-    bottom: '-5%',
+    width: '100vw',
+    bottom: '-10%',
     overflow:'none',
 
     '@media (min-width: 450px)': {  
@@ -64,6 +65,7 @@ const styles = {
   },
 
   folder: {
+    zIndex: 99,
     position: 'fixed',
     bottom: '5%',
     right: '5%'

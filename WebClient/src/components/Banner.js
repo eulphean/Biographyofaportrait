@@ -40,7 +40,8 @@ const customSlideOut = Radium.keyframes({
 const styles = {
   container: {
     position: 'absolute',
-    width: '100%'
+    width: '100%',
+    zIndex: '100'
   },
 
   banner: {
@@ -93,20 +94,21 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    left: '2%',
-    width: fontSize.extraEnormous
+    left: '0%',
+    width: '88px'
   },
 
   glimpseText: {
     position: 'absolute',
     textAlign: 'center',
     fontFamily: fontFamily.cursive,
-    fontStyle: 'italic',
     marginTop: padding.tiny,
-    fontSize: '10px',
+    fontSize: fontSize.small,
     padding: padding.small,
-    lineHeight: '12px',
-    color: color.darkGrey
+    marginLeft: padding.tiny,
+    marginRight: padding.tiny,
+    lineHeight: '16px',
+    color: color.black
   },
 
   menu: {
@@ -125,9 +127,9 @@ const styles = {
     justifyContent: 'center',
     padding: padding.tiny,
     backgroundColor: color.darkGrey,
-    width: fontSize.extraSmall,
-    height: fontSize.extraSmall,
-    marginRight: padding.tiny,
+    width: fontSize.small,
+    height: fontSize.small,
+    marginRight: padding.extraSmall,
     zIndex: '2'
   },
 
