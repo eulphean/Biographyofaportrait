@@ -111,7 +111,7 @@ const styles={
 
     content: {
         borderRadius: fontSize.tiny,
-        border: 'solid',
+        borderStyle: 'solid',
         borderColor: color.lightGrey,
         borderWidth: '1px',
         overflow: 'auto',
@@ -442,7 +442,7 @@ class Popup extends React.Component {
                 © Jennifer Traina-Dorge 2020
               </a>
               <div style={[styles.footer, styles.footerSecond]}>
-                  <span style={styles.developed}>Developed by </span>
+                  <span style={styles.developed}>Created by </span>
                   <a 
                     style={styles.developer} 
                     target='_blank' 

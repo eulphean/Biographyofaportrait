@@ -183,13 +183,10 @@ class Banner extends React.Component {
   }
 
   onShowPopup(event) {
-    event.stopPropagation();
     this.props.onClickInfo(); 
   }
 
   handleOnClose(event) {
-    // Don't let this event propagate to the banner underneath the button. 
-    event.stopPropagation();
     this.setState({
       slideState: bannerSlideState.Up
     }); 

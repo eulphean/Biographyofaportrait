@@ -6,6 +6,7 @@ import Folder from './Folder.js'
 import { ReactComponent as User } from '../svg/banda.svg'
 import { padding, color } from './CommonStyles.js'
 import Popup from './Popup.js'
+import { useHistory } from 'react-router-dom'
 
 const styles = {
   container: {
@@ -69,42 +70,76 @@ const styles = {
   }
 };
 
-class Tomorrow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state={
+const Tomorrow = () => {
+    let popupRef = React.createRef(); 
+    let folderRef = React.createRef();
+    let curHistory = useHistory(); 
 
-    };
-
-    this.popupRef = React.createRef(); 
-
-  }
-
-  render() {
     return (
-      <div style={styles.container}>
+      <div onClick={handleScreenClick.bind(this)} style={styles.container}>
         <Banner 
-          onClickInfo={this.handleInfoClick.bind(this)}
+          onClickInfo={handleInfoClick.bind(this)}
         />
         <div style={styles.user}>
           <User style={styles.icon}/>
         </div>
         <div style={styles.folder}>
-          <Folder target={'/Yesterday'}>
+          <Folder 
+            ref={folderRef} 
+            target={'/Yesterday'}
+            history={curHistory}
+          >
             YESTERDAY
           </Folder>
         </div>
         <Popup 
-          ref={this.popupRef}
-          type={this.state.popupType}
+          ref={popupRef}
         />
       </div>
     );
-  }
 
-  handleInfoClick() {
-    this.popupRef.current.showPopup(); 
-  }
+
+    function handleScreenClick(event) {
+      event.stopPropagation(); 
+      // if the folder is selected, deSelect it. 
+      let isSelected = folderRef.current.isSelected; 
+      if (isSelected) {
+         folderRef.current.deSelect(); 
+      }
+    }
+
+    function handleInfoClick() {
+      popupRef.current.showPopup(); 
+    }
 }
+
+// class Tomorrow extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state={
+
+//     };
+
+//     this.popupRef = React.createRef(); 
+//     this.folderRef = React.createRef(); 
+//   }
+
+//   render() {
+   
+//   }
+
+//   handleScreenClick(event) {
+//     event.stopPropagation(); 
+//     // if the folder is selected, deSelect it. 
+//     let isSelected = this.folderRef.current.isSelected; 
+//     if (isSelected) {
+//       this.folderRef.current.deSelect(); 
+//     }
+//   }
+
+//   handleInfoClick() {
+//     this.popupRef.current.showPopup(); 
+//   }
+// }
 
 export default Radium(Tomorrow);

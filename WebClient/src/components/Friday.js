@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import { useHistory } from 'react-router-dom'
 import Folder from './Folder.js'
 
 const styles = {
@@ -12,24 +13,38 @@ const styles = {
   }
 };
 
-class Friday extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state={
+const Friday = () => {
+  let curHistory = useHistory(); 
 
-    };
-
-  }
-
-  render() {
-    return (
-      <div style={styles.container}>
-        <Folder target={'/Saturday'}>
-          SATURDAY
-        </Folder>
-      </div>
-    );
-  }
+  return (
+    <div style={styles.container}>
+      <Folder 
+        history={curHistory}
+        target={'/Saturday'}>
+        SATURDAY
+      </Folder>
+    </div>
+  );
 }
+
+// class Friday extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state={
+
+//     };
+
+//   }
+
+//   render() {
+//     return (
+//       <div style={styles.container}>
+//         <Folder target={'/Saturday'}>
+//           SATURDAY
+//         </Folder>
+//       </div>
+//     );
+//   }
+// }
 
 export default Radium(Friday);

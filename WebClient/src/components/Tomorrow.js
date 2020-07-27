@@ -24,7 +24,6 @@ class Tomorrow extends React.Component {
     this.state={
 
     };
-
   }
 
   render() {

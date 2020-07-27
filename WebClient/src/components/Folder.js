@@ -1,11 +1,8 @@
 import React from 'react'
 import Radium from 'radium'
-import { Link } from 'react-router-dom'
 
 import { ReactComponent as FolderIcon } from '../svg/folder.svg'
 import { fontSize, color, padding, fontFamily } from './CommonStyles.js'
-
-const RadiumLink = Radium(Link)
 
 const styles = {
   container: {
@@ -16,8 +13,29 @@ const styles = {
     justifyContent: 'center'
   },
 
+  folderContainer: {
+    position: 'relative',
+    display: 'flex'
+  },
+
   folder: {
-    width: fontSize.extraMassive
+    width: fontSize.extraMassive,
+    padding: padding.verySmall
+  },
+
+  folderBg: {
+    position: 'absolute',
+    width: fontSize.extraMassive,
+    height: fontSize.extraMassive,
+    backgroundColor: color.darkGrey,
+    top: '0%',
+    zIndex: '-999',
+    padding: padding.verySmall,
+    opacity: '0.6'
+  },
+
+  folderBgHide: {
+    opacity: '0'
   },
 
   icon: {
@@ -26,11 +44,16 @@ const styles = {
   },
 
   title: {
+      marginTop: padding.tiny,
       backgroundColor: color.darkGrey,
       color: color.lightGrey,
       padding: padding.extraSmall,
       fontSize: fontSize.verySmall,
-      fontFamily: fontFamily.opensansregular
+      fontFamily: fontFamily.opensansregular,
+  },
+
+  titleSelected: {
+    backgroundColor: color.selected
   }
 };
 
@@ -38,22 +61,58 @@ class Folder extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-
+      isSelected: false
     };
 
+    this.clickCount = 0; 
   }
 
   render() {
+    let folderBgStyle = this.state.isSelected ? styles.folderBg : styles.folderBgHide; 
+    let titleStyle = this.state.isSelected ? [styles.title, styles.titleSelected] : styles.title;
     return (
-     <RadiumLink style={styles.container} to={this.props.target}>
-         <div style={styles.folder}>
-            <FolderIcon style={styles.icon} />
+      <div onClick={this.handleClick.bind(this)} style={styles.container}>
+         <div style={styles.folderContainer}>
+           <div style={styles.folder}>
+              <FolderIcon style={styles.icon} />
+           </div>
+           <div style={folderBgStyle}></div>
          </div>
-         <div style={styles.title}>
+         <div style={titleStyle}>
              {this.props.children}
          </div>
-      </RadiumLink>
+      </div>
     );
+  }
+
+  handleClick(event) {
+    event.stopPropagation(); 
+    this.clickCount += 1; 
+    this.setState({
+      isSelected: true
+    });
+
+    setTimeout(this.checkDoubleClick.bind(this), 200); 
+  }
+
+  checkDoubleClick() {
+    if (this.clickCount >= 2) {
+      // Double Click fired. 
+      this.props.history.push(this.props.target);
+    }
+
+    this.clickCount = 0; 
+  }
+
+  // Check the current selected state of the folder. 
+  isSelected() {
+    return this.state.isSelected; 
+  }
+
+  deSelect() {
+    this.setState({
+      isSelected: false
+    }); 
   }
 }
 

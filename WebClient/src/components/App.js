@@ -40,7 +40,7 @@ class App extends React.Component {
   render() {
     return (
       <div style={styles.container}>
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
           <Switch>
             <Route path="/Monday">
               <Monday />

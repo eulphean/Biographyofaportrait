@@ -10,6 +10,7 @@ const color = {
     darkGrey: '#969087',
     lightGrey: '#FEFEFE',
     deepGrey: '#343434',
+    selected: '#0091FF'
 
 };
 
