@@ -168,12 +168,12 @@ class Banner extends React.Component {
         </div>
         <RadiumLink to='/Tomorrow'>
           <div style={styles.banner}>
-            <div style={styles.glimpse}>
+            {/* <div style={styles.glimpse}>
                 <div style={styles.glimpseText}>
                   glimpse here
                 </div>
                 <Cloud style={styles.icon}/>
-            </div>
+            </div> */}
             <div style={styles.tomorrow}>
               TOMORROW<sup style={styles.tomorrowSuper}>TM</sup>
             </div>
