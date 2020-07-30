@@ -4,6 +4,7 @@ import Radium from 'radium'
 import Banner from './Banner.js'
 import Folder from './Folder.js'
 import { ReactComponent as User } from '../svg/banda.svg'
+import graph from '../images/graph.jpg'
 import { padding, color } from './CommonStyles.js'
 import Popup from './Popup.js'
 import { useHistory } from 'react-router-dom'
@@ -20,11 +21,16 @@ const styles = {
     },
   },
 
+  background: {
+    position: 'absolute',
+    width: '100%'
+  },
+
   user: {
     zIndex: '95',
     position: 'fixed',
-    width: '100vw',
-    bottom: '-10%',
+    width: '150vw',
+    bottom: '-2%',
     overflow:'none',
 
     '@media (min-width: 450px)': {  
@@ -61,14 +67,14 @@ const styles = {
   icon: {
     width: '100%',
     height: '100%',
-    fill: color.lightGrey
+    fill: color.greyBack,
   },
 
   folder: {
     zIndex: 99,
     position: 'fixed',
     bottom: '5%',
-    right: '5%'
+    left: '5%'
   }
 };
 
@@ -76,14 +82,11 @@ const Today = () => {
     let popupRef = React.createRef(); 
     let folderRef = React.createRef();
     let curHistory = useHistory(); 
-    let bannerRef = React.createRef(); 
 
     return (
       <div onClick={handleScreenClick.bind(this)} style={styles.container}>
-        <Banner 
-          ref={bannerRef}
-          onClickInfo={handleInfoClick.bind(this)}
-        />
+        <img style={styles.background} alt='graph' src={graph} />
+        <Banner onClickInfo={handleInfoClick.bind(this)}/>
         <div style={styles.user}>
           <User style={styles.icon}/>
         </div>
@@ -101,7 +104,6 @@ const Today = () => {
         />
       </div>
     );
-
 
     function handleScreenClick(event) {
       event.stopPropagation(); 
