@@ -72,14 +72,16 @@ const styles = {
   }
 };
 
-const Tomorrow = () => {
+const Today = () => {
     let popupRef = React.createRef(); 
     let folderRef = React.createRef();
     let curHistory = useHistory(); 
+    let bannerRef = React.createRef(); 
 
     return (
       <div onClick={handleScreenClick.bind(this)} style={styles.container}>
         <Banner 
+          ref={bannerRef}
           onClickInfo={handleInfoClick.bind(this)}
         />
         <div style={styles.user}>
@@ -115,33 +117,4 @@ const Tomorrow = () => {
     }
 }
 
-// class Tomorrow extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state={
-
-//     };
-
-//     this.popupRef = React.createRef(); 
-//     this.folderRef = React.createRef(); 
-//   }
-
-//   render() {
-   
-//   }
-
-//   handleScreenClick(event) {
-//     event.stopPropagation(); 
-//     // if the folder is selected, deSelect it. 
-//     let isSelected = this.folderRef.current.isSelected; 
-//     if (isSelected) {
-//       this.folderRef.current.deSelect(); 
-//     }
-//   }
-
-//   handleInfoClick() {
-//     this.popupRef.current.showPopup(); 
-//   }
-// }
-
-export default Radium(Tomorrow);
+export default Radium(Today);

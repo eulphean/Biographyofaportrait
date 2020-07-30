@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="2px" height="6px" viewBox="0 0 2 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>i</title>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="OriyaMN, Oriya MN" font-size="7.5" font-weight="normal" letter-spacing="1">
-        <g id="Info" transform="translate(-5.000000, -2.000000)" fill="#FEFEFE">
-            <text id="i">
-                <tspan x="5" y="8">i</tspan>
+<svg width="3px" height="7px" viewBox="0 0 3 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>I</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Kefa-Regular, Kefa" font-size="10" font-weight="normal" letter-spacing="1.33333333" line-spacing="10">
+        <g id="Info" transform="translate(-4.000000, -2.000000)" fill="#FEFEFE">
+            <text id="I">
+                <tspan x="4" y="9">I</tspan>
             </text>
         </g>
     </g>

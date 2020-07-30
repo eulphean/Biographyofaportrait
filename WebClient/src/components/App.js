@@ -21,10 +21,7 @@ const styles = {
   container: {
     position: 'relative',
     display: 'flex',
-    flexDirection: 'column',
-    marginTop: padding.big,
-    marginLeft: padding.small,
-    marginRight: padding.small
+    flexDirection: 'column'
   }
 };
 

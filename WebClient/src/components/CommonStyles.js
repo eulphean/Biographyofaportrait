@@ -1,21 +1,15 @@
 const color = {
-    pureTeal: '#055A85',
-    liveRed: '#D0011B',
     sunLight: '#FCF0E1',
-    deepSky: '#87AFDC',
-    disabled: '#7E8A90',
-    link: '#BACBDF',
-    white: '#FFFFFF',
-    black: '#000000',
     darkGrey: '#969087',
     lightGrey: '#FEFEFE',
     deepGrey: '#343434',
-    selected: '#0091FF'
-
+    selected: '#0091FF',
+    greyBack: '#8C97A5'
 };
 
 const fontSize = {
     extraSmall: '8px',
+    kindaSmall: '10px',
     verySmall: '12px',
     small: '16px',
     big: '20px',
@@ -42,6 +36,7 @@ const padding = {
     tiny: '2px',
     // Increments of 4
     extraSmall: '4px',
+    kindaSmall: '6px',
     verySmall: '8px',
     small: '12px',
     // Incremenets of 8

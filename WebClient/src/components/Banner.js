@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 // Styles
 import { fontFamily, color, fontSize, padding } from './CommonStyles.js'
 import clouds from '../images/banner.jpg'
-import { ReactComponent as Cloud } from '../svg/cloud.svg'
+import gif from '../images/clouds.gif'
 import { ReactComponent as Close } from '../svg/close.svg'
 import { ReactComponent as Info } from '../svg/info.svg'
 
@@ -15,27 +15,13 @@ var bannerSlideState = {
   Down: 0, 
   Up: 1
 }; 
-const slideDuration = '3.0s';
+const slideDuration = '2.0s';
 const resetDuration = '0.5s';
 
-// Custom slides. 
-const customSlideIn = Radium.keyframes({
-  from: {
-      top: '-100px'
-  },
-  to: {
-      top: '0px'
-  }
-}, 'slideIn'); 
-
-const customSlideOut = Radium.keyframes({
-  from: {
-      top: '0px'
-  },
-  to: {
-      top: '-100px'
-  }
-}, 'slideOut'); 
+// Radium keyframes that will need to updated
+// based on the height of the popup. 
+let customSlideIn; 
+let customSlideOut;
 
 const styles = {
   container: {
@@ -69,46 +55,23 @@ const styles = {
   },
 
   clouds: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain'
+    width: '100vw'
   },
 
   tomorrow: {
     display: 'flex',
     fontFamily: fontFamily.birada,
     color: color.lightGrey,
-    fontSize: fontSize.veryBig,
-    letterSpacing: 2.5
+    fontSize: fontSize.massive,
+    letterSpacing: 2.5,
+    opacity: '90%'
   },
 
   tomorrowSuper: {
-    fontSize: fontSize.small,
+    fontSize: fontSize.verySmall,
     fontFamily: fontFamily.bebas,
     paddingLeft: padding.tiny,
-    marginTop: padding.tiny
-  },
-  
-  glimpse: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    left: '0%',
-    width: '88px'
-  },
-
-  glimpseText: {
-    position: 'absolute',
-    textAlign: 'center',
-    fontFamily: fontFamily.cursive,
-    marginTop: padding.tiny,
-    fontSize: fontSize.small,
-    padding: padding.small,
-    marginLeft: padding.tiny,
-    marginRight: padding.tiny,
-    lineHeight: '16px',
-    color: color.black
+    marginTop: padding.small
   },
 
   menu: {
@@ -125,18 +88,19 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: padding.tiny,
-    backgroundColor: color.darkGrey,
-    width: fontSize.small,
-    height: fontSize.small,
+    backgroundColor: color.greyBack,
+    width: fontSize.extraSmall,
+    height: fontSize.extraSmall,
+    padding: padding.extraSmall,
     marginRight: padding.extraSmall,
-    zIndex: '2'
+    zIndex: '2',
+    opacity: '70%'
   },
 
   icon: {
     fill: color.lightGrey,
-    width: '80%',
-    height: '80%'
+    width: '100%',
+    height: '100%'
   }
 };
 
@@ -146,18 +110,60 @@ class Banner extends React.Component {
     this.state={
       slideState: bannerSlideState.Down
     };
+
+    this.bannerHeight = 0; // Update on componentDidMount
+    this.containerRef = React.createRef(); 
+  }
+
+  componentDidMount() {
+    setTimeout(this.updateStateNow.bind(this), 200); 
+  }
+
+  updateStateNow() {
+    // Use container ref to calculate the container height
+    this.bannerHeight = parseInt(this.containerRef.current.clientHeight); 
+   
+    customSlideIn = Radium.keyframes({
+      from: {
+        top: '-' + this.bannerHeight + 'px'
+      },
+      to: {
+          top: '0px'
+      }
+    }, 'slideIn'); 
+
+    customSlideOut = Radium.keyframes({
+      from: {
+          top: '0px'
+      },
+      to: {
+          top: '-' + this.bannerHeight + 'px'
+      }
+    }, 'slideOut'); 
+
+    this.setState({
+      animationStyle: {
+        animationName: customSlideIn,
+        animationDuration: slideDuration,
+        animationFillMode: 'forwards',
+        animationTimingFunction: 'ease-in'
+      }
+    }); 
   }
 
   render() {
     let containerStyle; 
     if (this.state.slideState === bannerSlideState.Down) {
-      containerStyle = [styles.container, styles.slideIn]; 
+      containerStyle = [styles.container, this.state.animationStyle]; 
     } else {
-      containerStyle = [styles.container, styles.slideOut]; 
+      containerStyle = [styles.container, this.state.animationStyle]; 
     }
 
     return (
-      <div style={containerStyle} onAnimationEnd={this.onAnimationEnded.bind(this)}>
+      <div 
+        ref={this.containerRef}
+        style={containerStyle} 
+        onAnimationEnd={this.onAnimationEnded.bind(this)}>
         <div style={styles.menu}>
           <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
             <Info style={styles.icon} />
@@ -168,17 +174,11 @@ class Banner extends React.Component {
         </div>
         <RadiumLink to='/Tomorrow'>
           <div style={styles.banner}>
-            {/* <div style={styles.glimpse}>
-                <div style={styles.glimpseText}>
-                  glimpse here
-                </div>
-                <Cloud style={styles.icon}/>
-            </div> */}
             <div style={styles.tomorrow}>
               TOMORROW<sup style={styles.tomorrowSuper}>TM</sup>
             </div>
           </div>
-          <img style={styles.clouds} alt={'clouds'} src={clouds} />
+          <img style={styles.clouds} alt={'clouds'} src={gif} />
         </RadiumLink>
       </div>
     );
@@ -190,7 +190,13 @@ class Banner extends React.Component {
 
   handleOnClose(event) {
     this.setState({
-      slideState: bannerSlideState.Up
+      slideState: bannerSlideState.Up,
+      animationStyle: {
+        animationName: customSlideOut,
+        animationDuration: slideDuration,
+        animationFillMode: 'forwards',
+        animationTimingFunction: 'ease-in'
+      }
     }); 
   }
 
@@ -202,7 +208,13 @@ class Banner extends React.Component {
 
   resetBanner() {
     this.setState({
-      slideState: bannerSlideState.Down
+      slideState: bannerSlideState.Down,
+      animationStyle: {
+        animationName: customSlideIn,
+        animationDuration: slideDuration,
+        animationFillMode: 'forwards',
+        animationTimingFunction: 'ease-in'
+      }
     }); 
   }
 }
