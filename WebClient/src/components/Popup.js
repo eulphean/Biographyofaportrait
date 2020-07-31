@@ -403,7 +403,7 @@ class Popup extends React.Component {
     getAuthorizeButton() {
         let buttonContainerStyle=[styles.buttonContainer, styles.mediaQueryOnText];
         return (
-            <div style={buttonContainerStyle} onClick={this.hidePopup.bind(this)}>
+            <div style={buttonContainerStyle} onClick={this.onAuthorize.bind(this)}>
                 Authorize
             </div>
         ); 
@@ -412,7 +412,7 @@ class Popup extends React.Component {
     getSkipButton() {
         let buttonContainerStyle=[styles.buttonContainer, styles.mediaQueryOnText];
         return (
-            <div style={buttonContainerStyle} onClick={this.hidePopup.bind(this)}>
+            <div style={buttonContainerStyle} onClick={this.onSkip.bind(this)}>
                 Skip
             </div>
         ); 
@@ -529,9 +529,33 @@ class Popup extends React.Component {
             popupState: PopupState.Close
         });
 
-        // We show main things because everything is hidden. 
+        // If they dismiss the popup, we presume user wants to skip only. 
         if (this.state.popupType === PopupType.Permissions) {
-            this.props.onShowContent(); 
+            this.props.onSkip(); 
+        }
+    }
+
+    onAuthorize(event) {
+        event.stopPropagation();
+
+        this.setState({
+            popupState: PopupState.Close
+        });
+
+        if (this.state.popupType === PopupType.Permissions) {
+            this.props.onAuthorize(); 
+        }
+    }
+
+    onSkip(event) { 
+        event.stopPropagation();
+
+        this.setState({
+            popupState: PopupState.Close
+        });
+        
+        if (this.state.popupType === PopupType.Permissions) {
+            this.props.onSkip(); 
         }
     }
 

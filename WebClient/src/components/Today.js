@@ -74,7 +74,8 @@ const Today = () => {
         </div>
         <Popup 
           ref={popupRef}
-          onShowContent={onShowContent.bind(this)}
+          onSkip={showSkipContent.bind(this)}
+          onAuthorize={showAuthorizeContent.bind(this)}
         />
       </div>
     );
@@ -92,10 +93,15 @@ const Today = () => {
       popupRef.current.showPopup(PopupType.About); 
     }
 
-    function onShowContent() {
+    function showSkipContent() {
       bannerRef.current.showBanner(); 
       folderRef.current.fadeIn();
       userIconRef.current.fadeIn();
+    }
+
+    function showAuthorizeContent() {
+      bannerRef.current.showBanner(); 
+      folderRef.current.fadeIn();
       cameraCanvas.current.fadeIn();
     }
 
