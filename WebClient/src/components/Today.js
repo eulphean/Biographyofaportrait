@@ -1,8 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
+import p5 from 'p5'
 import { useHistory } from 'react-router-dom'
 import { fadeIn } from 'react-animations'
 
+import CameraCanvas from './CameraCanvas.js'
 import UserIcon from './UserIcon.js'
 import Banner from './Banner.js'
 import Folder from './Folder.js'
@@ -49,11 +51,13 @@ const Today = () => {
     let bannerRef = React.createRef(); 
     let folderRef = React.createRef();
     let userIconRef = React.createRef(); 
+    let cameraCanvas = React.createRef();
     let curHistory = useHistory(); 
 
     return (
       <div onClick={handleScreenClick.bind(this)} style={styles.container}>
         <img style={styles.background} alt='graph' src={graph} />
+        <CameraCanvas ref={cameraCanvas} />
         <Banner
           ref={bannerRef} 
           onClickInfo={handleInfoClick.bind(this)}
@@ -92,6 +96,7 @@ const Today = () => {
       bannerRef.current.showBanner(); 
       folderRef.current.fadeIn();
       userIconRef.current.fadeIn();
+      cameraCanvas.current.fadeIn();
     }
 
 }
