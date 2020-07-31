@@ -117,7 +117,7 @@ class Banner extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.updateStateNow.bind(this), 200); 
+    setTimeout(this.updateStateNow.bind(this), 500); 
   }
 
   updateStateNow() {
