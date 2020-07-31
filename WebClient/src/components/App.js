@@ -14,9 +14,6 @@ import Friday from './Friday.js'
 import Saturday from './Saturday.js'
 import Sunday from './Sunday.js'
 
-// Styles
-import { padding } from './CommonStyles.js'
-
 const styles = {
   container: {
     position: 'relative',

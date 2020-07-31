@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 // Styles
 import { fontFamily, color, fontSize, padding } from './CommonStyles.js'
-import clouds from '../images/banner.jpg'
 import gif from '../images/clouds.gif'
 import { ReactComponent as Close } from '../svg/close.svg'
 import { ReactComponent as Info } from '../svg/info.svg'
@@ -13,7 +12,8 @@ const RadiumLink = Radium(Link);
 
 var bannerSlideState = {
   Down: 0, 
-  Up: 1
+  Up: 1,
+  None: 2
 }; 
 const slideDuration = '2.0s';
 const resetDuration = '0.5s';
@@ -27,7 +27,8 @@ const styles = {
   container: {
     position: 'absolute',
     width: '100%',
-    zIndex: '100'
+    zIndex: '100', 
+    top: '-999px' // Shift it up high
   },
 
   banner: {
@@ -108,7 +109,7 @@ class Banner extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      slideState: bannerSlideState.Down
+      slideState: bannerSlideState.None
     };
 
     this.bannerHeight = 0; // Update on componentDidMount
@@ -155,8 +156,10 @@ class Banner extends React.Component {
     let containerStyle; 
     if (this.state.slideState === bannerSlideState.Down) {
       containerStyle = [styles.container, this.state.animationStyle]; 
-    } else {
+    } else if (this.state.slideState === bannerSlideState.Up) {
       containerStyle = [styles.container, this.state.animationStyle]; 
+    } else {
+      containerStyle = [styles.container];
     }
 
     return (
@@ -202,11 +205,11 @@ class Banner extends React.Component {
 
   onAnimationEnded() {
     if (this.state.slideState === bannerSlideState.Up) {
-      setTimeout(this.resetBanner.bind(this), resetDuration); 
+      setTimeout(this.showBanner.bind(this), resetDuration); 
     }
   }
 
-  resetBanner() {
+  showBanner() {
     this.setState({
       slideState: bannerSlideState.Down,
       animationStyle: {

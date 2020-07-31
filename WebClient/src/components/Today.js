@@ -1,13 +1,16 @@
 import React from 'react'
 import Radium from 'radium'
+import { useHistory } from 'react-router-dom'
+import { fadeIn } from 'react-animations'
 
+import UserIcon from './UserIcon.js'
 import Banner from './Banner.js'
 import Folder from './Folder.js'
-import { ReactComponent as User } from '../svg/banda.svg'
 import graph from '../images/graph.jpg'
-import { padding, color } from './CommonStyles.js'
-import Popup from './Popup.js'
-import { useHistory } from 'react-router-dom'
+import { padding } from './CommonStyles.js'
+import Popup, { PopupType }  from './Popup.js'
+
+const fadeDuration = '0.5s'; 
 
 const styles = {
   container: {
@@ -21,53 +24,16 @@ const styles = {
     },
   },
 
+  fadeIn: {
+    animationName: Radium.keyframes(fadeIn, 'fadeInDown'),
+    animationDuration: fadeDuration,
+    animationFillMode: 'forwards',
+    animationTimingFunction:'ease-in'
+  },
+
   background: {
     position: 'absolute',
     width: '100%'
-  },
-
-  user: {
-    zIndex: '95',
-    position: 'fixed',
-    width: '150vw',
-    bottom: '-2%',
-    overflow:'none',
-
-    '@media (min-width: 450px)': {  
-      // no change.
-      width: '100vw',
-      bottom: '-15%'
-    },
-
-    '@media (min-width: 600px)': {  
-    },
-
-    '@media (min-width: 700px)': {  
-      width: '80vw',
-      bottom: '-10%'
-    },
-
-    '@media (min-width: 900px)': {  
-      width: '70vw',
-      bottom: '-20%'
-    },
-
-    '@media (min-width: 1200px)': {  
-      width: '60vw',
-      bottom: '-25%'
-    },
-
-
-    '@media (min-width: 1500px)': {  
-      width: '60vw',
-      bottom: '-25%'
-    }
-  },
-
-  icon: {
-    width: '100%',
-    height: '100%',
-    fill: color.greyBack,
   },
 
   folder: {
@@ -80,16 +46,19 @@ const styles = {
 
 const Today = () => {
     let popupRef = React.createRef(); 
+    let bannerRef = React.createRef(); 
     let folderRef = React.createRef();
+    let userIconRef = React.createRef(); 
     let curHistory = useHistory(); 
 
     return (
       <div onClick={handleScreenClick.bind(this)} style={styles.container}>
         <img style={styles.background} alt='graph' src={graph} />
-        <Banner onClickInfo={handleInfoClick.bind(this)}/>
-        <div style={styles.user}>
-          <User style={styles.icon}/>
-        </div>
+        <Banner
+          ref={bannerRef} 
+          onClickInfo={handleInfoClick.bind(this)}
+        />
+        <UserIcon ref={userIconRef} />
         <div style={styles.folder}>
           <Folder 
             ref={folderRef} 
@@ -101,6 +70,7 @@ const Today = () => {
         </div>
         <Popup 
           ref={popupRef}
+          onShowContent={onShowContent.bind(this)}
         />
       </div>
     );
@@ -115,8 +85,15 @@ const Today = () => {
     }
 
     function handleInfoClick() {
-      popupRef.current.showPopup(); 
+      popupRef.current.showPopup(PopupType.About); 
     }
+
+    function onShowContent() {
+      bannerRef.current.showBanner(); 
+      folderRef.current.fadeIn();
+      userIconRef.current.fadeIn();
+    }
+
 }
 
 export default Radium(Today);

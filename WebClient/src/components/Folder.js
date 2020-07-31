@@ -1,8 +1,11 @@
 import React from 'react'
 import Radium from 'radium'
+import { fadeIn } from 'react-animations'
 
 import { ReactComponent as FolderIcon } from '../svg/folder.svg'
 import { fontSize, color, padding, fontFamily } from './CommonStyles.js'
+
+const fadeDuration = '2.0s'; 
 
 const styles = {
   container: {
@@ -10,7 +13,15 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    opacity: '0'
+  },
+
+  fadeIn: {
+    animationName: Radium.keyframes(fadeIn, 'fadeIn'),
+    animationDuration: fadeDuration,
+    animationFillMode: 'forwards',
+    animationTimingFunction:'ease-in'
   },
 
   folderContainer: {
@@ -61,7 +72,8 @@ class Folder extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      isSelected: false
+      isSelected: false,
+      isFadeIn: false
     };
 
     this.clickCount = 0; 
@@ -70,8 +82,14 @@ class Folder extends React.Component {
   render() {
     let folderBgStyle = this.state.isSelected ? styles.folderBg : styles.folderBgHide; 
     let titleStyle = this.state.isSelected ? [styles.title, styles.titleSelected] : styles.title;
+    let containerStyle=styles.container; 
+    
+    if (this.state.isFadeIn) {
+      containerStyle = [styles.container, styles.fadeIn]; 
+    }
+
     return (
-      <div onClick={this.handleClick.bind(this)} style={styles.container}>
+      <div onClick={this.handleClick.bind(this)} style={containerStyle}>
          <div style={styles.folderContainer}>
            <div style={styles.folder}>
               <FolderIcon style={styles.icon} />
@@ -113,6 +131,12 @@ class Folder extends React.Component {
     this.setState({
       isSelected: false
     }); 
+  }
+
+  fadeIn() {
+    this.setState({
+      isFadeIn: true
+    });
   }
 }
 

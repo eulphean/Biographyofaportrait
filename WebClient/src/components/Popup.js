@@ -11,6 +11,12 @@ var PopupState = {
     None: 2
 }; 
 
+// Determines the content we load in the popup. 
+export var PopupType = {
+    About: 0,
+    Permissions: 1,
+}; 
+
 // Custom Fade in animation. 
 const customFadeIn = Radium.keyframes({
     from: {
@@ -31,7 +37,7 @@ const customFadeOut = Radium.keyframes({
 }, 'fadesOut'); 
 
 const fadeInDuration = '0.5s'; 
-const slideInDuration = '1.5s'; 
+const slideInDuration = '2.0s'; 
 const fadeOutDuration = '1.5s';
 
 const styles={
@@ -51,7 +57,6 @@ const styles={
         animationFillMode: 'forwards',
         animationTimingFunction:'ease-in'
     },
-
     
     fadeOut: {
         animationName: customFadeOut,
@@ -316,13 +321,13 @@ const styles={
         marginLeft: padding.tiny
     },
 
-    receiptsContainer: {
+    permissions: {
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginTop: padding.small,
-        justifyContent: 'center'
-    }
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '150px'
+    } 
 }
 
 class Popup extends React.Component {
@@ -331,9 +336,14 @@ class Popup extends React.Component {
         this.state={
             isVisible : false,
             popupState: PopupState.None,
+            popupType: PopupType.Permissions
         };
 
         this.content = React.createRef(); 
+    }
+
+    componentDidMount() {
+        setTimeout(this.showPopup(PopupType.Permissions), 500);
     }
 
     render() {
@@ -354,7 +364,7 @@ class Popup extends React.Component {
 
         // Handle different types of Popups. 
         let content, contentContainerStyle; 
-        content = this.getAboutContent(); 
+        content = this.state.popupType === PopupType.Permissions ? this.getPermissionsContent() : this.getAboutContent();
         if (this.state.isVisible) {
             contentContainerStyle = [styles.contentContainer, styles.showContent]; 
             if (this.state.popupState === PopupState.Open) {
@@ -390,6 +400,24 @@ class Popup extends React.Component {
         }
     }
 
+    getAuthorizeButton() {
+        let buttonContainerStyle=[styles.buttonContainer, styles.mediaQueryOnText];
+        return (
+            <div style={buttonContainerStyle} onClick={this.hidePopup.bind(this)}>
+                Authorize
+            </div>
+        ); 
+    }
+
+    getSkipButton() {
+        let buttonContainerStyle=[styles.buttonContainer, styles.mediaQueryOnText];
+        return (
+            <div style={buttonContainerStyle} onClick={this.hidePopup.bind(this)}>
+                Skip
+            </div>
+        ); 
+    }
+
     getCloseButton() {
         let buttonContainerStyle=[styles.buttonContainer, styles.mediaQueryOnText];
         return (
@@ -407,6 +435,34 @@ class Popup extends React.Component {
         ); 
     }
 
+    getPermissionsContent() {
+        let footer = this.getFooter(); 
+        let authorizeButton = this.getAuthorizeButton();
+        let skipButton = this.getSkipButton(); 
+        let closeButton = this.getCloseButton(); 
+        let iconButton = this.getIconButton();  
+        let bodyStyle = [styles.body, styles.mediaQueryOnText];
+        return (
+            <div ref={this.content} style={styles.content}>
+                <div style={styles.stretchContainer}>
+                    { iconButton }
+                    <div style={styles.title}>
+                        Biography of a Portrait
+                    </div>
+                    <div style={bodyStyle}>
+                        {'Here are the Camera Permissions. Authorize to grant access. Skip to deny access'}
+                    </div>
+                    <div style={styles.permissions}>
+                        {authorizeButton}
+                        {skipButton}
+                    </div>
+                    { closeButton }
+                    { footer }
+                </div>
+            </div>
+        )
+    }
+
     getAboutContent() {
         let footer = this.getFooter(); 
         let closeButton = this.getCloseButton(); 
@@ -420,7 +476,7 @@ class Popup extends React.Component {
                         Biography of a Portrait
                     </div>
                     <div style={bodyStyle}>
-                        {'Hello I am the about Body I am the about Body I am the about Body I am the about Body I am the about Body I am the about Body I am the about BodyI am the about Body I am the about BodyI am the about Body I am the about BodyI am the about Body I am the about BodyI am the about Body I am the about BodyI am the about Body I am the about Body'}
+                        {'Hello I am the About Content'}
                     </div>
                     { closeButton }
                     { footer }
@@ -455,13 +511,14 @@ class Popup extends React.Component {
         )
     }
 
-    showPopup() {
+    showPopup(popupTypeState) {
         // Adjust the scroll top.
         this.content.current.scrollTop = 0; 
 
         this.setState({
             isVisible: true,
-            popupState: PopupState.Open
+            popupState: PopupState.Open,
+            popupType: popupTypeState
         }); 
     }
 
@@ -471,6 +528,11 @@ class Popup extends React.Component {
         this.setState({
             popupState: PopupState.Close
         });
+
+        // We show main things because everything is hidden. 
+        if (this.state.popupType === PopupType.Permissions) {
+            this.props.onShowContent(); 
+        }
     }
 
     handleOnTouch(event) {
