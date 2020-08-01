@@ -1,6 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import p5 from 'p5'
+import p5 from 'p5-create-capture'
 import { fadeIn } from 'react-animations'
 
 const fadeDuration = '2.0s'; 
@@ -20,20 +20,22 @@ var sketch = (s) => {
     s.background(255);
     s.fill(255,0, 0);
     s.rect(x,y,50,50);
-    if (capture && !hasFrameTested) { 
-      setTimeout(s.frameTest, 1500); // This delay is for the camera to start and collet the first frame of the image. 
-      hasFrameTested = true; 
-    }
+    // if (capture && !hasFrameTested) {
+    //   console.log('Schedule test'); 
+    //   setTimeout(s.frameTest, 5000); // This delay is for the camera to start and collet the first frame of the image. 
+    //   hasFrameTested = true; 
+    // }
   };
 
-  s.setupCamera = () => {
-    capture = s.createCapture(s.VIDEO);
+  s.setupCamera = (success, failure) => {
+    capture = s.createCapture(s.VIDEO, success, failure);
     capture.position(0, 0);
     capture.size(x, y);
     capture.elt.style.objectFit = 'cover';
   }
 
   s.frameTest = () => {
+    console.log('Doing test'); 
     hasVideoFeed = capture.loadedmetadata; 
     s.cameraAuth(hasVideoFeed);
   }
@@ -83,11 +85,10 @@ class CameraCanvas extends React.Component {
     );
   }
 
-  showCameraPrompt(handleDeepAuth) {
+  showCameraPrompt(success, failure) {
     // Save a callback in the myP5 object to call it later when we 
     // are ready to test camera authentication. 
-    this.myP5.cameraAuth = handleDeepAuth;
-    this.myP5.setupCamera(); 
+    this.myP5.setupCamera(success, failure); 
   }
 
   fadeIn() {

@@ -1,6 +1,5 @@
 import React from 'react'
 import Radium from 'radium'
-import p5 from 'p5'
 import { useHistory } from 'react-router-dom'
 import { fadeIn } from 'react-animations'
 
@@ -100,18 +99,21 @@ const Today = () => {
     }
 
     function showAuthorizeContent() {
-      cameraCanvas.current.showCameraPrompt(handleDeepAuthorize);
+      cameraCanvas.current.showCameraPrompt(handleSuccess, handleFailure);
     }
 
-    function handleDeepAuthorize(hasVideoFeed) {
+    function handleSuccess() {
+      console.log('Access Granted'); 
       bannerRef.current.showBanner(); 
+      folderRef.current.fadeIn(); 
+      cameraCanvas.current.fadeIn();
+    }
+
+    function handleFailure() {
+      console.log('Access Denied');
+      bannerRef.current.showBanner();
       folderRef.current.fadeIn();
-      if (hasVideoFeed) {
-        console.log('Access Granted:' + hasVideoFeed);
-        cameraCanvas.current.fadeIn(); 
-      } else {
-        userIconRef.current.fadeIn();
-      }
+      userIconRef.current.fadeIn(); 
     }
 }
 
