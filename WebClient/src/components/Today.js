@@ -100,11 +100,19 @@ const Today = () => {
     }
 
     function showAuthorizeContent() {
-      bannerRef.current.showBanner(); 
-      folderRef.current.fadeIn();
-      cameraCanvas.current.fadeIn();
+      cameraCanvas.current.showCameraPrompt(handleDeepAuthorize);
     }
 
+    function handleDeepAuthorize(hasVideoFeed) {
+      bannerRef.current.showBanner(); 
+      folderRef.current.fadeIn();
+      if (hasVideoFeed) {
+        console.log('Access Granted:' + hasVideoFeed);
+        cameraCanvas.current.fadeIn(); 
+      } else {
+        userIconRef.current.fadeIn();
+      }
+    }
 }
 
 export default Radium(Today);
