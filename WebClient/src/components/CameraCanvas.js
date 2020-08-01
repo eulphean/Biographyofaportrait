@@ -9,8 +9,6 @@ var sketch = (s) => {
   let x = s.windowWidth; // Viewport width
   let y = s.windowHeight; // Viewport height
   let capture;
-  let hasVideoFeed = false; 
-  let hasFrameTested = false; 
 
   s.setup = () => {
     s.createCanvas(x, y);
@@ -32,12 +30,6 @@ var sketch = (s) => {
     capture.position(0, 0);
     capture.size(x, y);
     capture.elt.style.objectFit = 'cover';
-  }
-
-  s.frameTest = () => {
-    console.log('Doing test'); 
-    hasVideoFeed = capture.loadedmetadata; 
-    s.cameraAuth(hasVideoFeed);
   }
 };
 
