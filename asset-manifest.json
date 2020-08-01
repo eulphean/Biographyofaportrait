@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/biographyofaportrait/static/css/main.15a464c6.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.824da103.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.824da103.chunk.js.map",
+    "main.js": "/biographyofaportrait/static/js/main.eea87978.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.eea87978.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
     "static/js/2.fe18f095.chunk.js": "/biographyofaportrait/static/js/2.fe18f095.chunk.js",
     "static/js/2.fe18f095.chunk.js.map": "/biographyofaportrait/static/js/2.fe18f095.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.8fdb3f4408f43ba2d74a5758839a5ecc.js": "/biographyofaportrait/precache-manifest.8fdb3f4408f43ba2d74a5758839a5ecc.js",
+    "precache-manifest.eb708e13a97ac9dc939c0af3374c906f.js": "/biographyofaportrait/precache-manifest.eb708e13a97ac9dc939c0af3374c906f.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
     "static/css/main.15a464c6.chunk.css.map": "/biographyofaportrait/static/css/main.15a464c6.chunk.css.map",
     "static/js/2.fe18f095.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.fe18f095.chunk.js.LICENSE.txt",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.2df0d599.js",
     "static/js/2.fe18f095.chunk.js",
     "static/css/main.15a464c6.chunk.css",
-    "static/js/main.824da103.chunk.js"
+    "static/js/main.eea87978.chunk.js"
   ]
 }
