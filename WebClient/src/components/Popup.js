@@ -335,15 +335,20 @@ class Popup extends React.Component {
         super(props);
         this.state={
             isVisible : false,
+            isCameraSupported: true,
             popupState: PopupState.None,
             popupType: PopupType.Permissions
         };
 
         this.content = React.createRef(); 
+        this.isCameraSupported = true; 
     }
 
     componentDidMount() {
         setTimeout(this.showPopup(PopupType.Permissions), 500);
+        if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
+            this.isCameraSupported = false; 
+        }
     }
 
     render() {
@@ -442,6 +447,7 @@ class Popup extends React.Component {
         let closeButton = this.getCloseButton(); 
         let iconButton = this.getIconButton();  
         let bodyStyle = [styles.body, styles.mediaQueryOnText];
+        let content = this.isCameraSupported ? 'Here are the Camera Permissions. Authorize to grant access. Skip to deny access' : 'Camera not supported. If you are using ios, try using safari.'; 
         return (
             <div ref={this.content} style={styles.content}>
                 <div style={styles.stretchContainer}>
@@ -450,7 +456,7 @@ class Popup extends React.Component {
                         Biography of a Portrait
                     </div>
                     <div style={bodyStyle}>
-                        {'Here are the Camera Permissions. Authorize to grant access. Skip to deny access'}
+                        {content}
                     </div>
                     <div style={styles.permissions}>
                         {authorizeButton}
