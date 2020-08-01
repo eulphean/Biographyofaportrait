@@ -30,24 +30,4 @@ const Thursday = () => {
   );
 }
 
-// class Thursday extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state={
-
-//     };
-
-//   }
-
-//   render() {
-//     return (
-//       <div style={styles.container}>
-//         <Folder target={'/Friday'}>
-//           FRIDAY
-//         </Folder>
-//       </div>
-//     );
-//   }
-// }
-
 export default Radium(Thursday);
