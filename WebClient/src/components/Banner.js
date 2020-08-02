@@ -63,7 +63,7 @@ const styles = {
     display: 'flex',
     fontFamily: fontFamily.beth,
     color: color.lightGrey,
-    fontSize: fontSize.huge,
+    fontSize: fontSize.veryBig,
     letterSpacing: 3.0,
     opacity: '90%'
   },

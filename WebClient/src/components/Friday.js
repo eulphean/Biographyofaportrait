@@ -17,10 +17,12 @@ const styles = {
 
 const Friday = () => {
   let curHistory = useHistory(); 
+  let folderRef = React.createRef(); 
 
   return (
-    <div style={styles.container}>
+    <div onClick={handleScreenClick.bind(this)} style={styles.container}>
       <Folder 
+        ref={folderRef}
         history={curHistory}
         visible={true}
         target={'/Saturday'}>
@@ -28,26 +30,14 @@ const Friday = () => {
       </Folder>
     </div>
   );
+
+  function handleScreenClick(event) {
+    event.stopPropagation();
+    let isSelected = folderRef.current.isSelected; 
+    if (isSelected) {
+      folderRef.current.deSelect(); 
+    }
+  }
 }
-
-// class Friday extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state={
-
-//     };
-
-//   }
-
-//   render() {
-//     return (
-//       <div style={styles.container}>
-//         <Folder target={'/Saturday'}>
-//           SATURDAY
-//         </Folder>
-//       </div>
-//     );
-//   }
-// }
 
 export default Radium(Friday);

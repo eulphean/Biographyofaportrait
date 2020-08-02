@@ -18,10 +18,12 @@ const styles = {
 
 const Thursday = () => {
   let curHistory = useHistory(); 
+  let folderRef = React.createRef(); 
 
   return (
-    <div style={styles.container}>
+    <div onClick={handleScreenClick.bind(this)} style={styles.container}>
       <Folder 
+        ref={folderRef}
         history={curHistory}
         visible={true}
         target={'/Friday'}>
@@ -29,6 +31,14 @@ const Thursday = () => {
       </Folder>
     </div>
   );
+
+  function handleScreenClick(event) {
+    event.stopPropagation();
+    let isSelected = folderRef.current.isSelected; 
+    if (isSelected) {
+      folderRef.current.deSelect(); 
+    }
+  }
 }
 
 export default Radium(Thursday);
