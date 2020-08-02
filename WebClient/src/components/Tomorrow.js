@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
-import TestVideo from '../videos/test.mp4'
+import vid from '../videos/testPortrait.mp4'
 
 const RadiumLink = Radium(Link)
 
@@ -14,7 +14,8 @@ const styles = {
   },
 
   video: {
-    width: '300px'
+    objectFit: 'cover',
+    height: '100vh'
   }
 };
 
@@ -22,15 +23,14 @@ class Tomorrow extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-
     };
   }
 
   render() {
     return (
       <RadiumLink style={styles.container} to="/">
-        <video style={styles.video} autoPlay>
-          <source src={TestVideo} type={'video/mp4'} />
+        <video style={styles.video} autoPlay loop>
+          <source src={vid} type={'video/mp4'} />
         </video>
       </RadiumLink>
     );

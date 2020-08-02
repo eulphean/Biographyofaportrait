@@ -34,7 +34,8 @@ const styles = {
 
   background: {
     position: 'absolute',
-    width: '100vw'
+    objectFit: 'cover',
+    height: '100vh'
   },
 
   folder: {
