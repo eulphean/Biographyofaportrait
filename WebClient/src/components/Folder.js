@@ -84,7 +84,7 @@ class Folder extends React.Component {
     let titleStyle = this.state.isSelected ? [styles.title, styles.titleSelected] : styles.title;
     let containerStyle=styles.container; 
     
-    if (this.state.isFadeIn) {
+    if (this.state.isFadeIn || this.props.visible) {
       containerStyle = [styles.container, styles.fadeIn]; 
     }
 
@@ -116,6 +116,7 @@ class Folder extends React.Component {
   checkDoubleClick() {
     if (this.clickCount >= 2) {
       // Double Click fired. 
+      console.log('Double Click Detected, Go to: ' + this.props.target); 
       this.props.history.push(this.props.target);
     }
 

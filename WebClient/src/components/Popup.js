@@ -348,6 +348,7 @@ class Popup extends React.Component {
         setTimeout(this.showPopup(PopupType.Permissions), 500);
         // Right check to see if the camera is actually supported on not. 
         this.isCameraSupported = !('undefined' === typeof (navigator.mediaDevices.enumerateDevices));
+        console.log('isCamSupported: ' + this.isCameraSupported);
     }
 
     render() {

@@ -23,30 +23,12 @@ const Yesterday = () => {
     <div style={styles.container}>
       <Folder 
         history={curHistory}
+        visible={true}
         target={'/Monday'}>
         MONDAY
       </Folder>
     </div>
   );
 }
-
-// class Yesterday extends React.Component {
-//   constructor(props) {
-// super(props);
-//     this.state={
-
-//     };
-//   }
-
-//   render() {
-//     return (
-//       <div style={styles.container}>
-//         <Folder target={'/Monday'}>
-//           MONDAY
-//         </Folder>
-//       </div>
-//     );
-//   }
-// }
 
 export default Radium(Yesterday);

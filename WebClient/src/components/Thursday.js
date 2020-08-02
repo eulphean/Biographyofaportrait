@@ -23,6 +23,7 @@ const Thursday = () => {
     <div style={styles.container}>
       <Folder 
         history={curHistory}
+        visible={true}
         target={'/Friday'}>
         FRIDAY
       </Folder>
