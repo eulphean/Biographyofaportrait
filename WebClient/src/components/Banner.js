@@ -61,18 +61,18 @@ const styles = {
 
   tomorrow: {
     display: 'flex',
-    fontFamily: fontFamily.birada,
+    fontFamily: fontFamily.beth,
     color: color.lightGrey,
-    fontSize: fontSize.massive,
-    letterSpacing: 2.5,
+    fontSize: fontSize.huge,
+    letterSpacing: 3.0,
     opacity: '90%'
   },
 
   tomorrowSuper: {
-    fontSize: fontSize.verySmall,
-    fontFamily: fontFamily.bebas,
+    fontSize: fontSize.small,
+    fontFamily: fontFamily.grotesk,
     paddingLeft: padding.tiny,
-    marginTop: padding.small
+    marginTop: padding.verySmall
   },
 
   menu: {

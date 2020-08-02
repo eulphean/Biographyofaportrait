@@ -60,7 +60,8 @@ const styles = {
       color: color.lightGrey,
       padding: padding.extraSmall,
       fontSize: fontSize.verySmall,
-      fontFamily: fontFamily.opensansregular,
+      fontFamily: fontFamily.grotesk,
+      letterSpacing: '1px'
   },
 
   titleSelected: {

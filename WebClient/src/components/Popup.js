@@ -116,9 +116,6 @@ const styles={
 
     content: {
         borderRadius: fontSize.tiny,
-        borderStyle: 'solid',
-        borderColor: color.lightGrey,
-        borderWidth: '1px',
         overflow: 'auto',
         maxWidth: 'calc(100% - 50px)', // Bind this to media query
         maxHeight: 'calc(100% - 100px)', // Bind this to media query
@@ -166,10 +163,10 @@ const styles={
     title: {
         marginTop: padding.big,
         textAlign: 'center',
-        fontFamily: fontFamily.birada,
+        fontFamily: fontFamily.beth,
         fontSize: fontSize.huge,
         letterSpacing: '3px',
-        lineHeight: '1.4',
+        lineHeight: '1.8',
 
         '@media (min-width: 600px)': {  
             fontSize: fontSize.extraMassive
@@ -190,16 +187,13 @@ const styles={
         '@media (min-width: 1200px)' : {
             // no change.
             fontSize: fontSize.extraInsane
-        },
-
-        '@media (min-width: 1400px)' : {
-        },
+        }
     },
 
     body: {
         marginTop: padding.small,
         justifyContent: 'center',
-        fontFamily: fontFamily.din,
+        fontFamily: fontFamily.grotesk,
         fontSize: fontSize.small
     },
 
@@ -277,7 +271,7 @@ const styles={
         fontFamily: fontFamily.bebas,
         fontSize: fontSize.small,
         color: color.lightGrey,
-        letterSpacing: '1px',
+        letterSpacing: '1.5px',
         padding: padding.small,
         borderRadius: fontSize.tiny
     },
@@ -296,7 +290,7 @@ const styles={
         alignSelf: 'center',
         fontFamily: fontFamily.bebas, 
         fontSize: fontSize.verySmall,
-        letterSpacing: '1.5px',
+        letterSpacing: '2.0px',
 
         '@media (min-width: 750px)': {  
             fontSize: fontSize.small,
@@ -324,9 +318,8 @@ const styles={
     permissions: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: '150px'
+        alignSelf: 'center',
+        justifyContent: 'space-evenly'
     } 
 }
 
@@ -447,7 +440,21 @@ class Popup extends React.Component {
         let closeButton = this.getCloseButton(); 
         let iconButton = this.getIconButton();  
         let bodyStyle = [styles.body, styles.mediaQueryOnText];
-        let content = this.isCameraSupported ? 'Here are the Camera Permissions. Authorize to grant access. Skip to deny access' : 'Camera not supported. If you are using ios, try using safari.'; 
+        let content = this.isCameraSupported ? 
+        (   
+            <div style={bodyStyle}>
+                {'Here are the Camera Permissions. Authorize to grant access. Skip to deny access'}
+                <div style={styles.permissions}>
+                    {authorizeButton}
+                    {skipButton}
+                </div>
+            </div>
+        ) :
+        (
+            <div style={bodyStyle}>
+                {'Camera not supported. If you are using ios, try using Safari.'}
+            </div>
+        ); 
         return (
             <div ref={this.content} style={styles.content}>
                 <div style={styles.stretchContainer}>
@@ -455,13 +462,7 @@ class Popup extends React.Component {
                     <div style={styles.title}>
                         Biography of a Portrait
                     </div>
-                    <div style={bodyStyle}>
-                        {content}
-                    </div>
-                    <div style={styles.permissions}>
-                        {authorizeButton}
-                        {skipButton}
-                    </div>
+                    { content }
                     { closeButton }
                     { footer }
                 </div>

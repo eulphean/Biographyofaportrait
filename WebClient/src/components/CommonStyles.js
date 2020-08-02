@@ -70,7 +70,9 @@ const fontFamily = {
     thermal: 'thermalregular',
     birada: 'biradaregular',
     cursive: 'cursive',
-    din: 'd-dinregular'
+    din: 'd-dinregular',
+    grotesk: 'hk_grotesklight',
+    beth: 'beth_ellen_2regular'
 };
 
 const boxShadow = {
