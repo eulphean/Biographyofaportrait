@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a2c43a5e251c2386954ebdcb6446c66b",
+    "revision": "bf12672a358be49bb0c18ac785c46c36",
     "url": "/biographyofaportrait/index.html"
   },
   {
-    "revision": "905c70ec17722232b642",
-    "url": "/biographyofaportrait/static/css/main.15a464c6.chunk.css"
+    "revision": "b06786b44f6f95440582",
+    "url": "/biographyofaportrait/static/css/main.6cd32e38.chunk.css"
   },
   {
     "revision": "c13f6015e5f90f2f646e",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/js/2.fe18f095.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "905c70ec17722232b642",
-    "url": "/biographyofaportrait/static/js/main.056a86ff.chunk.js"
+    "revision": "b06786b44f6f95440582",
+    "url": "/biographyofaportrait/static/js/main.159e0317.chunk.js"
   },
   {
     "revision": "e797ef941c42eb947915",
@@ -34,6 +34,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8a018e1125b162bff6b5fbd9179bcce6",
     "url": "/biographyofaportrait/static/media/bebasneue-webfont.8a018e11.woff2"
+  },
+  {
+    "revision": "18d8af411e4da056604d00c57ab19a79",
+    "url": "/biographyofaportrait/static/media/beth-ellen-2.0-webfont.18d8af41.woff2"
+  },
+  {
+    "revision": "d3e3b77f58d9a54b86dd5b885f02b01e",
+    "url": "/biographyofaportrait/static/media/beth-ellen-2.0-webfont.d3e3b77f.woff"
   },
   {
     "revision": "369e87dabfb0b07ef9f813402a24efb2",
@@ -72,8 +80,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/media/folder.dd54dc25.svg"
   },
   {
-    "revision": "b327958b6e0becebe4d6a24242b2a436",
-    "url": "/biographyofaportrait/static/media/graph.b327958b.jpg"
+    "revision": "27339b3288722b4c5e5f0d530daf6c35",
+    "url": "/biographyofaportrait/static/media/graph.27339b32.jpg"
+  },
+  {
+    "revision": "594681316d003ebeff068bcf0220d830",
+    "url": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.59468131.woff2"
+  },
+  {
+    "revision": "d83608a9508fa3ef7366c90f409518a3",
+    "url": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.d83608a9.woff"
   },
   {
     "revision": "5582adc015ac4aaabd494408b0ced9b5",
