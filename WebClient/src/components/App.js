@@ -16,9 +16,20 @@ import Sunday from './Sunday.js'
 
 const styles = {
   container: {
-    position: 'relative',
+    position: 'fixed',
+    top: '0px',
+    bottom: '0px',
+    left: '0px',
+    right: '0px',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: 'green',
+    paddingLeft: '20%',
+    paddingRight: '20%',
+    
+    '@media (min-width: 1200px)': {  
+      
+    },
   }
 };
 

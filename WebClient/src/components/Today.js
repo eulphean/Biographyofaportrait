@@ -14,15 +14,14 @@ import Popup, { PopupType }  from './Popup.js'
 const fadeDuration = '0.5s'; 
 
 const styles = {
-  container: {
+  contentContainer: {
     position: 'relative',
+    width: '100%',
+    height: '100%',
     display: 'flex',
     justifyContent: 'center',
-
-    '@media (min-width: 768px)': {  
-      marginLeft: padding.enourmous,
-      marginRight: padding.enourmous,
-    },
+    alignItems: 'center',
+    backgroundColor: 'red'
   },
 
   fadeIn: {
@@ -55,7 +54,12 @@ const Today = () => {
     let curHistory = useHistory(); 
 
     return (
-      <div onClick={handleScreenClick.bind(this)} style={styles.container}>
+      <div onClick={handleScreenClick.bind(this)} style={styles.contentContainer}>
+        <Popup 
+          ref={popupRef}
+          onSkip={showSkipContent.bind(this)}
+          onAuthorize={showAuthorizeContent.bind(this)}
+        />
         <img style={styles.background} alt='graph' src={graph} />
         <CameraCanvas ref={cameraCanvas} />
         <Banner
@@ -72,11 +76,6 @@ const Today = () => {
             YESTERDAY
           </Folder>
         </div>
-        <Popup 
-          ref={popupRef}
-          onSkip={showSkipContent.bind(this)}
-          onAuthorize={showAuthorizeContent.bind(this)}
-        />
       </div>
     );
 

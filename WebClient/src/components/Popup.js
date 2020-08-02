@@ -94,11 +94,23 @@ const styles={
     },
 
     showOverlay: {
-        zIndex: '998'
+        zIndex: '998',
+        opacity: '1'
+    },
+
+    hideOverlay: {
+        zIndex: '-998',
+        opacity: '0'
     },
 
     showContent: {
-        zIndex: '999'
+        zIndex: '999',
+        opacity: '1'
+    },
+
+    hideContent: {
+        zIndex: '-999',
+        opacity: '0'
     },
 
     contentContainer: {
@@ -328,7 +340,7 @@ class Popup extends React.Component {
                 // Do nothing. 
             }
         } else {
-            overlayStyle = styles.overlay; 
+            overlayStyle = [styles.overlay, styles.hideOverlay]; 
         }
 
         // Handle different types of Popups. 
@@ -344,7 +356,7 @@ class Popup extends React.Component {
                 // Do nothing when it's in None state. 
             }
         } else {
-            contentContainerStyle = styles.contentContainer; 
+            contentContainerStyle = [styles.contentContainer, styles.hideContent]; 
         }
 
         return (
