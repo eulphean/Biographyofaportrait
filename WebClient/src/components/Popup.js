@@ -157,61 +157,47 @@ const styles={
         '@media (min-width: 1200px)' : {
             paddingLeft: padding.huge, 
             paddingRight: padding.huge
-        } 
+        },
+        opacity: '0.8'
     },
 
     title: {
         marginTop: padding.big,
         textAlign: 'center',
         fontFamily: fontFamily.beth,
-        fontSize: fontSize.huge,
-        letterSpacing: '3px',
+        fontSize: fontSize.veryBig,
+        letterSpacing: '2.5px',
         lineHeight: '1.8',
-
-        '@media (min-width: 600px)': {  
-            fontSize: fontSize.extraMassive
-        },
        
         '@media (min-width: 750px)': {  
-            fontSize: fontSize.enormous
-        },
-
-        '@media (min-width: 750px) and (orientation: portrait)': {  
-            fontSize: fontSize.extraEnormous
+            fontSize: fontSize.extraBig
         },
 
         '@media (min-width: 900px)': {  
-            fontSize: fontSize.extraEnormous
+            fontSize: fontSize.huge
         },
 
         '@media (min-width: 1200px)' : {
-            // no change.
-            fontSize: fontSize.extraInsane
+            fontSize: fontSize.veryHuge
         }
     },
 
     body: {
+        display: 'flex',
+        flexDirection: 'column',
         marginTop: padding.small,
         justifyContent: 'center',
         fontFamily: fontFamily.grotesk,
         fontSize: fontSize.small
     },
 
+    // Applied on stuff
     mediaQueryOnText: {
-        '@media (min-width: 750px) and (orientation: portrait)': {  
+        '@media (min-width: 750px)': {  
             fontSize: fontSize.big
         },
 
         '@media (min-width: 900px)': {  
-            fontSize: fontSize.big
-        },
-
-        '@media (min-width: 1200px)' : {
-            // no change.
-            fontSize: fontSize.big
-        },
-
-        '@media (min-width: 1400px)' : {
             fontSize: fontSize.veryBig
         }
     },
@@ -225,34 +211,22 @@ const styles={
         backgroundColor: color.darkGrey,
         right: fontSize.extraSmall,
         marginRight: '-' + fontSize.verySmall,
-        height: fontSize.verySmall,
-        width: fontSize.verySmall,
+        height: fontSize.extraSmall,
+        width: fontSize.extraSmall,
         fill: color.lightGrey,
 
         '@media (min-width: 600px)': {  
             marginRight: '-' + fontSize.big
         },
 
-
-        '@media (min-width: 750px) and (orientation:portrait)': {  
-            
-        },
-
         '@media (min-width: 900px)': {  
-            // height: fontSize.veryBig, 
-            // width: fontSize.veryBig,
-            height: fontSize.big, 
-            width: fontSize.big,
+            height: fontSize.verySmall, 
+            width: fontSize.verySmall,
             marginRight: '-' + fontSize.veryHuge
         },
 
         '@media (min-width: 1200px)': {  
             marginRight: '-' + fontSize.extraMassive
-        },
-
-        '@media (min-width: 1400px)' : {
-            // height: fontSize.extraBig, 
-            // width: fontSize.extraBig,
         }
     },
 
@@ -266,13 +240,13 @@ const styles={
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: padding.big, 
-        marginBottom: padding.extraBig,
+        marginBottom: padding.big,
         background: color.darkGrey, 
         fontFamily: fontFamily.bebas,
         fontSize: fontSize.small,
         color: color.lightGrey,
         letterSpacing: '1.5px',
-        padding: padding.small,
+        padding: padding.verySmall,
         borderRadius: fontSize.tiny
     },
 
@@ -286,7 +260,7 @@ const styles={
     footer: {
         display: 'flex',
         alignItems: 'center',
-        color: color.link,
+        color: color.selected,
         alignSelf: 'center',
         fontFamily: fontFamily.bebas, 
         fontSize: fontSize.verySmall,
@@ -294,10 +268,6 @@ const styles={
 
         '@media (min-width: 750px)': {  
             fontSize: fontSize.small,
-        },
-
-        '@media (min-width: 1200px)' : {
-            fontSize: fontSize.big
         }
     },
 
@@ -319,7 +289,8 @@ const styles={
         display: 'flex',
         flexDirection: 'row',
         alignSelf: 'center',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        width: '250px'
     } 
 }
 
@@ -443,7 +414,7 @@ class Popup extends React.Component {
         let content = this.isCameraSupported ? 
         (   
             <div style={bodyStyle}>
-                {'Here are the Camera Permissions. Authorize to grant access. Skip to deny access'}
+                {'Camera permissions - Authorize to grant access. Skip to deny access.'}
                 <div style={styles.permissions}>
                     {authorizeButton}
                     {skipButton}
