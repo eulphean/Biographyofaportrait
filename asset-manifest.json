@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/biographyofaportrait/static/css/main.6cd32e38.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.4374d9ad.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.4374d9ad.chunk.js.map",
+    "main.js": "/biographyofaportrait/static/js/main.935a1b8b.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.935a1b8b.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
-    "static/js/2.09c199bd.chunk.js": "/biographyofaportrait/static/js/2.09c199bd.chunk.js",
-    "static/js/2.09c199bd.chunk.js.map": "/biographyofaportrait/static/js/2.09c199bd.chunk.js.map",
+    "static/js/2.aa5fa2fa.chunk.js": "/biographyofaportrait/static/js/2.aa5fa2fa.chunk.js",
+    "static/js/2.aa5fa2fa.chunk.js.map": "/biographyofaportrait/static/js/2.aa5fa2fa.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.59c1710a6614443119a008eaaea1be31.js": "/biographyofaportrait/precache-manifest.59c1710a6614443119a008eaaea1be31.js",
+    "precache-manifest.8f7aed53d93131f588e66f0c5d569099.js": "/biographyofaportrait/precache-manifest.8f7aed53d93131f588e66f0c5d569099.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
     "static/css/main.6cd32e38.chunk.css.map": "/biographyofaportrait/static/css/main.6cd32e38.chunk.css.map",
-    "static/js/2.09c199bd.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.09c199bd.chunk.js.LICENSE.txt",
+    "static/js/2.aa5fa2fa.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.aa5fa2fa.chunk.js.LICENSE.txt",
     "static/media/banda.bc0c7a6f.svg": "/biographyofaportrait/static/media/banda.bc0c7a6f.svg",
     "static/media/stylesheet.css": "/biographyofaportrait/static/media/opensans-regular-webfont.d407a585.woff2",
     "static/media/close.52e21f29.svg": "/biographyofaportrait/static/media/close.52e21f29.svg",
@@ -24,8 +24,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2df0d599.js",
-    "static/js/2.09c199bd.chunk.js",
+    "static/js/2.aa5fa2fa.chunk.js",
     "static/css/main.6cd32e38.chunk.css",
-    "static/js/main.4374d9ad.chunk.js"
+    "static/js/main.935a1b8b.chunk.js"
   ]
 }
