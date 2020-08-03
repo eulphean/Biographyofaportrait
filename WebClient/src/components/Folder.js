@@ -14,7 +14,8 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    opacity: '0'
+    opacity: '0',
+    zIndex: '2'
   },
 
   fadeIn: {
@@ -39,9 +40,14 @@ const styles = {
     padding: padding.verySmall,
     opacity: '0.6',
 
+    '@media (min-width: 900px)': {    
+      width: fontSize.gaia,
+      height: fontSize.gaia
+    },
+
     '@media (min-width: 1200px)': {    
-      width: fontSize.extraEnormous,
-      height: fontSize.extraEnormous
+      width: fontSize.gaia,
+      height: fontSize.gaia
     }
   },
 
@@ -53,8 +59,12 @@ const styles = {
     width: fontSize.extraMassive,
     padding: padding.verySmall,
 
+    '@media (min-width: 900px)': {    
+      width: fontSize.gaia
+    },
+
     '@media (min-width: 1200px)': {    
-      width: fontSize.extraEnormous
+      width: fontSize.gaia
     }
   },
 
@@ -74,9 +84,14 @@ const styles = {
       fontFamily: fontFamily.bebas,
       letterSpacing: '2px',
 
+      '@media (min-width: 900px)': {    
+        fontSize: fontSize.big,
+        width: fontSize.gaia
+      },
+
       '@media (min-width: 1200px)': {    
-        fontSize: fontSize.small,
-        width: fontSize.extraEnormous
+        fontSize: fontSize.big,
+        width: fontSize.gaia
       }
   },
 

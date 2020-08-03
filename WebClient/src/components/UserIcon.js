@@ -15,28 +15,9 @@ const styles = {
     overflow:'none',
     opacity: '0',
 
-    '@media (min-width: 450px)': {  
-      // no change.
-      // width: '100vw',
-      // bottom: '-15%'
-    },
-
-    '@media (min-width: 600px)': {  
-    },
-
-    '@media (min-width: 700px)': {  
-      // width: '80vw',
-      // bottom: '-10%'
-    },
-
     '@media (min-width: 900px)': {  
-      // width: '70vw',
-      // bottom: '-20%'
-    },
-
-    '@media (min-width: 1200px)': {  
       width: '950px',
-      bottom: '-5%'
+      bottom: '-50px'
     }
   },
 

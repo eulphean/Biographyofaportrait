@@ -14,6 +14,7 @@ const styles = {
   },
 
   video: {
+    zIndex: '2',
     objectFit: 'cover',
     height: '100vh'
   }

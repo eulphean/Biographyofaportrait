@@ -1,6 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import graph from '../images/graph.jpg'
 import { withOrientationChange } from 'react-device-detect'
 
 import Today from './Today.js'
@@ -23,18 +24,22 @@ const styles = {
     right: '0px',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'green'
- 
-    // '@media (min-width: 1200px)': {      
-    //   paddingLeft: '20%',
-    //   paddingRight: '20%'
-    // },
+    backgroundColor: 'black'
+  },
+
+  graph: {
+    position: 'absolute',
+    objectFit: 'cover',
+    height: '100vh',
+    width: '100vw',
+    zIndex: '1'
   }
 };
 
 function App() {
   return (
     <div style={styles.container}>
+      <img style={styles.graph} alt='graph' src={graph} />
       <Router>
         <Switch>
           <Route path="/Monday">

@@ -54,6 +54,10 @@ const styles = {
     '@media (min-width: 1200px)': {      
       height: '150px'
     },
+
+    '@media (min-width: 900px)': {      
+      height: '150px'
+    },
   },
 
   tomorrow: {
@@ -70,6 +74,10 @@ const styles = {
     letterSpacing: 3.0,
     opacity: '80%',
 
+    '@media (min-width: 900px)': {      
+      fontSize: fontSize.insane
+    },
+
     '@media (min-width: 1200px)': {      
       fontSize: fontSize.gaia
     }
@@ -81,10 +89,10 @@ const styles = {
     paddingLeft: padding.tiny,
     marginTop: padding.verySmall,
 
-    '@media (min-width: 1200px)': {    
+    '@media (min-width: 900px)': {    
       marginTop: '-' + padding.huge,
       paddingLeft: padding.small,  
-      fontSize: fontSize.veryHuge
+      fontSize: fontSize.extraBig
     }
   },
 
@@ -110,7 +118,7 @@ const styles = {
     zIndex: '2',
     opacity: '70%',
 
-    '@media (min-width: 1200px)': {    
+    '@media (min-width: 900px)': {    
       marginRight: padding.verySmall,
       padding: padding.verySmall,  
       height: fontSize.verySmall,

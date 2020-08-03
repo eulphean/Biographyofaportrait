@@ -21,7 +21,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'black',
     overflow: 'hidden'
   },
 
@@ -55,7 +55,6 @@ const Today = () => {
           onSkip={showSkipContent.bind(this)}
           onAuthorize={showAuthorizeContent.bind(this)}
         />
-        <img style={styles.graph} alt='graph' src={graph} />
         <CameraCanvas ref={cameraCanvas} />
         <Banner
           ref={bannerRef} 
