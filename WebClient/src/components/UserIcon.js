@@ -35,14 +35,8 @@ const styles = {
     },
 
     '@media (min-width: 1200px)': {  
-      width: '100%',
-      // bottom: '-25%'
-    },
-
-
-    '@media (min-width: 1500px)': {  
-      // width: '60vw',
-      // bottom: '-25%'
+      width: '950px',
+      bottom: '-5%'
     }
   },
 

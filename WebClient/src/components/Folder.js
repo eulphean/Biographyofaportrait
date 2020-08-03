@@ -29,11 +29,6 @@ const styles = {
     display: 'flex'
   },
 
-  folder: {
-    width: fontSize.extraMassive,
-    padding: padding.verySmall
-  },
-
   folderBg: {
     position: 'absolute',
     width: fontSize.extraMassive,
@@ -42,11 +37,25 @@ const styles = {
     top: '0%',
     zIndex: '-999',
     padding: padding.verySmall,
-    opacity: '0.6'
+    opacity: '0.6',
+
+    '@media (min-width: 1200px)': {    
+      width: fontSize.extraEnormous,
+      height: fontSize.extraEnormous
+    }
   },
 
   folderBgHide: {
     opacity: '0'
+  },
+
+  iconContainer: {
+    width: fontSize.extraMassive,
+    padding: padding.verySmall,
+
+    '@media (min-width: 1200px)': {    
+      width: fontSize.extraEnormous
+    }
   },
 
   icon: {
@@ -55,13 +64,20 @@ const styles = {
   },
 
   title: {
+      display: 'flex',
+      justifyContent: 'center',
       marginTop: padding.tiny,
       backgroundColor: color.darkGrey,
       color: color.lightGrey,
-      padding: padding.extraSmall,
+      padding: padding.verySmall,
       fontSize: fontSize.verySmall,
-      fontFamily: fontFamily.grotesk,
-      letterSpacing: '1px'
+      fontFamily: fontFamily.bebas,
+      letterSpacing: '2px',
+
+      '@media (min-width: 1200px)': {    
+        fontSize: fontSize.small,
+        width: fontSize.extraEnormous
+      }
   },
 
   titleSelected: {
@@ -102,7 +118,7 @@ class Folder extends React.Component {
     return (
       <div onClick={this.handleClick.bind(this)} style={containerStyle}>
          <div style={styles.folderContainer}>
-           <div style={styles.folder}>
+           <div style={styles.iconContainer}>
               <FolderIcon style={styles.icon} />
            </div>
            <div style={folderBgStyle}></div>

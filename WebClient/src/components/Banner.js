@@ -113,8 +113,8 @@ const styles = {
     '@media (min-width: 1200px)': {    
       marginRight: padding.verySmall,
       padding: padding.verySmall,  
-      height: fontSize.small,
-      width: fontSize.small
+      height: fontSize.verySmall,
+      width: fontSize.verySmall
     }
   },
 
