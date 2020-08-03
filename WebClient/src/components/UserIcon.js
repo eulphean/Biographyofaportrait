@@ -10,7 +10,7 @@ const styles = {
   container: {
     zIndex: '95',
     position: 'absolute',
-    width: '140%',
+    width: '100%',
     bottom: '-2%',
     overflow:'none',
     opacity: '0',
