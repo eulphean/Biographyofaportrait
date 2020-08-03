@@ -21,7 +21,8 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    overflow: 'hidden'
   },
 
   fadeIn: {
@@ -31,17 +32,11 @@ const styles = {
     animationTimingFunction:'ease-in'
   },
 
-  background: {
+  graph: {
     position: 'absolute',
     objectFit: 'cover',
-    height: '100vh'
-  },
-
-  folder: {
-    zIndex: 99,
-    position: 'fixed',
-    bottom: '5%',
-    left: '5%'
+    height: '100vh',
+    width: '100vw'
   }
 };
 
@@ -60,22 +55,21 @@ const Today = () => {
           onSkip={showSkipContent.bind(this)}
           onAuthorize={showAuthorizeContent.bind(this)}
         />
-        <img style={styles.background} alt='graph' src={graph} />
+        <img style={styles.graph} alt='graph' src={graph} />
         <CameraCanvas ref={cameraCanvas} />
         <Banner
           ref={bannerRef} 
           onClickInfo={handleInfoClick.bind(this)}
         />
         <UserIcon ref={userIconRef} />
-        <div style={styles.folder}>
-          <Folder 
-            ref={folderRef} 
-            target={'/Yesterday'}
-            history={curHistory}
-          >
-            YESTERDAY
-          </Folder>
-        </div>
+        <Folder 
+          ref={folderRef} 
+          target={'/Yesterday'}
+          history={curHistory}
+          isToday={true}
+        >
+          YESTERDAY
+        </Folder>
       </div>
     );
 

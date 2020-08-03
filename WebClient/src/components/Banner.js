@@ -27,18 +27,8 @@ const styles = {
   container: {
     position: 'absolute',
     width: '100%',
-    zIndex: '100', 
-    top: '-999px' // Shift it up high
-  },
-
-  banner: {
-    position: 'absolute',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center'
+    zIndex: '100',
+    top: '-999px'
   },
 
   slideIn: {
@@ -56,11 +46,17 @@ const styles = {
   },
 
   clouds: {
-    width: '100vw'
+    width: '100%'
   },
 
   tomorrow: {
+    position: 'absolute',
     display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
     fontFamily: fontFamily.beth,
     color: color.lightGrey,
     fontSize: fontSize.veryBig,
@@ -176,10 +172,8 @@ class Banner extends React.Component {
           </div>
         </div>
         <RadiumLink to='/Tomorrow'>
-          <div style={styles.banner}>
-            <div style={styles.tomorrow}>
-              TOMORROW<sup style={styles.tomorrowSuper}>TM</sup>
-            </div>
+          <div style={styles.tomorrow}>
+            TOMORROW<sup style={styles.tomorrowSuper}>TM</sup>
           </div>
           <img style={styles.clouds} alt={'clouds'} src={gif} />
         </RadiumLink>

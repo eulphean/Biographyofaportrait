@@ -24,66 +24,56 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'green',
-    paddingLeft: '20%',
-    paddingRight: '20%',
-    
-    '@media (min-width: 1200px)': {  
-      
+ 
+    '@media (min-width: 1200px)': {      
+      paddingLeft: '20%',
+      paddingRight: '20%'
     },
   }
 };
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state={
-
-    };
-  }
-
-  render() {
-    return (
-      <div style={styles.container}>
-        <Router>
-          <Switch>
-            <Route path="/Monday">
-              <Monday />
-            </Route>
-            <Route path="/Tuesday">
-              <Tuesday />
-            </Route>
-            <Route path="/Wednesday">
-              <Wednesday />
-            </Route>
-            <Route path="/Wednesday">
-              <Wednesday />
-            </Route>
-            <Route path="/Thursday">
-              <Thursday />
-            </Route>
-            <Route path="/Friday">
-              <Friday />
-            </Route>
-            <Route path="/Saturday">
-              <Saturday />
-            </Route>
-            <Route path="/Sunday">
-              <Sunday />
-            </Route>
-            <Route path="/Tomorrow">
-              <Tomorrow />
-            </Route>
-            <Route path="/Yesterday">
-              <Yesterday />
-            </Route>
-            <Route path="/">
-              <Today />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div style={styles.container}>
+      <Router>
+        <Switch>
+          <Route path="/Monday">
+            <Monday />
+          </Route>
+          <Route path="/Tuesday">
+            <Tuesday />
+          </Route>
+          <Route path="/Wednesday">
+            <Wednesday />
+          </Route>
+          <Route path="/Wednesday">
+            <Wednesday />
+          </Route>
+          <Route path="/Thursday">
+            <Thursday />
+          </Route>
+          <Route path="/Friday">
+            <Friday />
+          </Route>
+          <Route path="/Saturday">
+            <Saturday />
+          </Route>
+          <Route path="/Sunday">
+            <Sunday />
+          </Route>
+          <Route path="/Tomorrow">
+            <Tomorrow />
+          </Route>
+          <Route path="/Yesterday">
+            <Yesterday />
+          </Route>
+          <Route path="/">
+            <Today />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
-export default Radium(withOrientationChange(App));
+export default Radium(App);

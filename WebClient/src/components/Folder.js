@@ -9,7 +9,7 @@ const fadeDuration = '2.0s';
 
 const styles = {
   container: {
-    position: 'relative',
+    position: 'absolute',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -66,6 +66,12 @@ const styles = {
 
   titleSelected: {
     backgroundColor: color.selected
+  },
+
+  today: {
+    zIndex: 99,
+    bottom: '5%',
+    left: '5%'
   }
 };
 
@@ -87,6 +93,10 @@ class Folder extends React.Component {
     
     if (this.state.isFadeIn || this.props.visible) {
       containerStyle = [styles.container, styles.fadeIn]; 
+    }
+
+    if (this.props.isToday) {
+      containerStyle = [containerStyle, styles.today];
     }
 
     return (

@@ -8,50 +8,41 @@ const fadeDuration = '2.0s';
 
 const styles = {
   container: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    opacity: '0'
-  },
-
-  user: {
     zIndex: '95',
-    position: 'fixed',
-    width: '150vw',
+    position: 'absolute',
+    width: '140%',
     bottom: '-2%',
     overflow:'none',
     opacity: '0',
 
     '@media (min-width: 450px)': {  
       // no change.
-      width: '100vw',
-      bottom: '-15%'
+      // width: '100vw',
+      // bottom: '-15%'
     },
 
     '@media (min-width: 600px)': {  
     },
 
     '@media (min-width: 700px)': {  
-      width: '80vw',
-      bottom: '-10%'
+      // width: '80vw',
+      // bottom: '-10%'
     },
 
     '@media (min-width: 900px)': {  
-      width: '70vw',
-      bottom: '-20%'
+      // width: '70vw',
+      // bottom: '-20%'
     },
 
     '@media (min-width: 1200px)': {  
-      width: '60vw',
-      bottom: '-25%'
+      width: '100%',
+      // bottom: '-25%'
     },
 
 
     '@media (min-width: 1500px)': {  
-      width: '60vw',
-      bottom: '-25%'
+      // width: '60vw',
+      // bottom: '-25%'
     }
   },
 
@@ -81,10 +72,10 @@ class UserIcon extends React.Component {
   }
 
   render() {
-    let containerStyle=styles.user; 
+    let containerStyle=styles.container; 
     
     if (this.state.isFadeIn) {
-      containerStyle = [styles.user, styles.fadeIn]; 
+      containerStyle = [styles.container, styles.fadeIn]; 
     }
 
     return (
