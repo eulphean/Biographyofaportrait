@@ -4,6 +4,7 @@ import Radium from 'radium'
 import { useHistory } from 'react-router-dom'
 import Folder from './Folder'
 import vid from '../videos/testLandscape.mp4'
+import VideoCanvas from './VideoCanvas'
 
 const styles = {
   container: {
@@ -30,9 +31,7 @@ const Tuesday = () => {
 
   return (
     <div onClick={handleScreenClick.bind(this)} style={styles.container}>
-      <video style={styles.video} autoPlay loop>
-        <source src={vid} type={'video/mp4'} />
-      </video>
+      <VideoCanvas src={vid} />
       <Folder 
         ref={folderRef}
         history={curHistory}

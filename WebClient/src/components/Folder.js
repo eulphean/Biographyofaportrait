@@ -32,13 +32,15 @@ const styles = {
 
   folderBg: {
     position: 'absolute',
-    width: fontSize.extraMassive,
-    height: fontSize.extraMassive,
     backgroundColor: color.darkGrey,
     top: '0%',
     zIndex: '-999',
     padding: padding.verySmall,
     opacity: '0.6',
+
+    // Default
+    width: fontSize.extraMassive,
+    height: fontSize.extraMassive,
 
     '@media (min-width: 600px)': {    
       width: fontSize.insane,
@@ -56,8 +58,10 @@ const styles = {
   },
 
   iconContainer: {
-    width: fontSize.extraMassive,
     padding: padding.verySmall,
+
+    // Defualt
+    width: fontSize.extraMassive,
 
     '@media (min-width: 600px)': {    
       width: fontSize.insane
@@ -80,9 +84,12 @@ const styles = {
       backgroundColor: color.darkGrey,
       color: color.lightGrey,
       padding: padding.verySmall,
-      fontSize: fontSize.verySmall,
       fontFamily: fontFamily.bebas,
       letterSpacing: '2px',
+
+      // Default
+      fontSize: fontSize.verySmall,
+      width: fontSize.extraMassive,
 
       '@media (min-width: 600px)': {    
         fontSize: fontSize.small,
@@ -156,8 +163,10 @@ class Folder extends React.Component {
       });
     }
 
+    console.log('Click happened: ' + this.clickCount); 
+
     if (this.timeout === '') {
-      this.timeout = setTimeout(this.checkDoubleClick.bind(this), 200); 
+      this.timeout = setTimeout(this.checkDoubleClick.bind(this), 1000); 
       console.log('Setting Timeout'); 
     }
   }

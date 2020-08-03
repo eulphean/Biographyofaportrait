@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
 import vid from '../videos/testPortrait.mp4'
+import VideoCanvas from './VideoCanvas.js'
 
 const RadiumLink = Radium(Link)
 
@@ -30,9 +31,7 @@ class Tomorrow extends React.Component {
   render() {
     return (
       <RadiumLink style={styles.container} to="/">
-        <video style={styles.video} autoPlay loop>
-          <source src={vid} type={'video/mp4'} />
-        </video>
+        <VideoCanvas src={vid} />
       </RadiumLink>
     );
   }

@@ -21,7 +21,7 @@ const styles = {
     },
 
     '@media (min-width: 400px) and (orientation: landscape)': {  
-      width: '40%',
+      width: '35%',
       bottom: '-10px'
     },
 

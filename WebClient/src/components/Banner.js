@@ -85,7 +85,7 @@ const styles = {
     fontSize: fontSize.veryBig,
 
     '@media (min-width: 400px)': {      
-      fontSize: fontSize.huge,
+      fontSize: fontSize.veryHuge,
     },
 
     '@media (min-width: 600px)': {      
@@ -113,7 +113,7 @@ const styles = {
     '@media (min-width: 400px)': {    
       paddingLeft: padding.extraSmall,
       marginTop: '-' + padding.veryBig,
-      fontSize: fontSize.big,
+      fontSize: fontSize.veryBig,
     },
 
     '@media (min-width: 600px)': {    
