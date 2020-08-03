@@ -114,7 +114,8 @@ class Folder extends React.Component {
       isFadeIn: false
     };
 
-    this.clickCount = 0; 
+    this.clickCount = 0;
+    this.timeout = ''; 
   }
 
   render() {
@@ -148,21 +149,30 @@ class Folder extends React.Component {
   handleClick(event) {
     event.stopPropagation(); 
     this.clickCount += 1; 
-    this.setState({
-      isSelected: true
-    });
+    
+    if (!this.state.isSelected) {
+      this.setState({
+        isSelected: true
+      });
+    }
 
-    setTimeout(this.checkDoubleClick.bind(this), 200); 
+    if (this.timeout === '') {
+      this.timeout = setTimeout(this.checkDoubleClick.bind(this), 200); 
+      console.log('Setting Timeout'); 
+    }
   }
 
   checkDoubleClick() {
-    if (this.clickCount >= 2) {
+    if (this.clickCount >= 2 ) {
       // Double Click fired. 
       console.log('Double Click Detected, Go to: ' + this.props.target); 
       this.props.history.push(this.props.target);
     }
 
     this.clickCount = 0; 
+    clearTimeout(this.timeout); 
+    this.timeout = ''; 
+    console.log('Clearing timeout.'); 
   }
 
   // Check the current selected state of the folder. 
