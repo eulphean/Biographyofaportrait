@@ -43,7 +43,7 @@ const styles = {
     top: '0%',
     left: '0%',
     opacity: '0',
-    zIndex: '2'
+    zIndex: '1'
   },
 
   fadeIn: {
