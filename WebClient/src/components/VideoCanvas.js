@@ -16,15 +16,25 @@ var sketch = (s) => {
 
   s.draw = () => {
     if (video) {
-        s.image(video, 0, 0, x, y); 
-    }
+      s.image(video, 0, 0, x, y); 
+    }  
   };
 
   s.initVideo = (vid) => {
+    console.log('Creating video');
     video = s.createVideo(vid); 
-    video.loop();
     video.hide();
-  }
+    console.log(video);
+    video.elt.setAttribute('playsinline', '');
+    video.elt.setAttribute('autoplay', true);
+    video.elt.setAttribute('loop', true);
+  };
+
+  s.vidLoad = () => {
+    console.log('Video Loaded');
+    video.hide();
+    video.loop();
+  };
 };
 
 const styles = {

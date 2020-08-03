@@ -1,11 +1,9 @@
 import React from 'react'
 import Radium from 'radium'
-import { useHistory } from 'react-router-dom'
 import vid from '../videos/testLandscape.mp4'
 import VideoCanvas from './VideoCanvas.js'
-
-
 import Folder from './Folder'
+import { useHistory } from 'react-router-dom'
 
 const styles = {
   container: {
@@ -13,28 +11,17 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    width: '100vw',
-    height: '100vh'
-  },
-
-  video: {
-    zIndex: '2',
-    position: 'absolute',
-    objectFit: 'cover',
-    height: '100vh'
+    justifyContent: 'center'
   }
 };
+
 
 const Yesterday = () => {
   let curHistory = useHistory(); 
   let folderRef = React.createRef(); 
 
   return (
-    <div onClick={handleScreenClick.bind(this)}style={styles.container}>
-      <VideoCanvas 
-        src={vid}
-      />
+    <div onClick={handleScreenClick.bind(this)} style={styles.container}>
       <Folder 
         ref={folderRef}
         history={curHistory}
@@ -42,15 +29,16 @@ const Yesterday = () => {
         target={'/Monday'}>
         MONDAY
       </Folder>
+      <VideoCanvas src={vid} />
     </div>
   );
 
   function handleScreenClick(event) {
-    event.stopPropagation(); 
-    let isSelected = folderRef.current.isSelected; 
-    if (isSelected) {
-       folderRef.current.deSelect(); 
-    }
+      event.stopPropagation(); 
+      let isSelected = folderRef.current.isSelected; 
+      if (isSelected) {
+         folderRef.current.deSelect(); 
+      }
   }
 }
 
