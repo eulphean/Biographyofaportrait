@@ -45,8 +45,15 @@ const styles = {
     animationTimingFunction: 'ease-out'
   },
 
+  // Determines the height of the Banner. 
+  // Use the media query to determine the height
+  // for each device. 
   clouds: {
-    width: '100%'
+    width: '100%',
+    
+    '@media (min-width: 1200px)': {      
+      height: '150px'
+    },
   },
 
   tomorrow: {
@@ -61,14 +68,24 @@ const styles = {
     color: color.lightGrey,
     fontSize: fontSize.veryBig,
     letterSpacing: 3.0,
-    opacity: '90%'
+    opacity: '80%',
+
+    '@media (min-width: 1200px)': {      
+      fontSize: fontSize.gaia
+    }
   },
 
   tomorrowSuper: {
     fontSize: fontSize.small,
     fontFamily: fontFamily.grotesk,
     paddingLeft: padding.tiny,
-    marginTop: padding.verySmall
+    marginTop: padding.verySmall,
+
+    '@media (min-width: 1200px)': {    
+      marginTop: '-' + padding.huge,
+      paddingLeft: padding.small,  
+      fontSize: fontSize.veryHuge
+    }
   },
 
   menu: {
@@ -91,7 +108,14 @@ const styles = {
     padding: padding.extraSmall,
     marginRight: padding.extraSmall,
     zIndex: '2',
-    opacity: '70%'
+    opacity: '70%',
+
+    '@media (min-width: 1200px)': {    
+      marginRight: padding.verySmall,
+      padding: padding.verySmall,  
+      height: fontSize.small,
+      width: fontSize.small
+    }
   },
 
   icon: {
@@ -119,6 +143,7 @@ class Banner extends React.Component {
   updateStateNow() {
     // Use container ref to calculate the container height
     this.bannerHeight = parseInt(this.containerRef.current.clientHeight); 
+    //this.bannerHeight = '100px';
    
     customSlideIn = Radium.keyframes({
       from: {

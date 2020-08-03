@@ -23,12 +23,12 @@ const styles = {
     right: '0px',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'green',
+    backgroundColor: 'green'
  
-    '@media (min-width: 1200px)': {      
-      paddingLeft: '20%',
-      paddingRight: '20%'
-    },
+    // '@media (min-width: 1200px)': {      
+    //   paddingLeft: '20%',
+    //   paddingRight: '20%'
+    // },
   }
 };
 
