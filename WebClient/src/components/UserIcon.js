@@ -13,6 +13,18 @@ const styles = {
     bottom: '-2%',
     overflow:'none',
     opacity: '0',
+    width: '100%',
+    bottom: '-10px',
+
+    '@media (min-width: 400px)': {  
+      width: '100%',
+      bottom: '-10px'
+    },
+
+    '@media (min-width: 400px) and (orientation: landscape)': {  
+      width: '40%',
+      bottom: '-10px'
+    },
 
     '@media (min-width: 400px)': {  
       width: '100%',
@@ -24,7 +36,6 @@ const styles = {
       bottom: '-50px'
     }
   },
-
 
   icon: {
     width: '100%',
