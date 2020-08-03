@@ -10,10 +10,14 @@ const styles = {
   container: {
     zIndex: '95',
     position: 'absolute',
-    width: '100%',
     bottom: '-2%',
     overflow:'none',
     opacity: '0',
+
+    '@media (min-width: 400px)': {  
+      width: '100%',
+      bottom: '-10px'
+    },
 
     '@media (min-width: 900px)': {  
       width: '950px',

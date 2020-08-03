@@ -51,6 +51,10 @@ const styles = {
   clouds: {
     width: '100%',
 
+    '@media (min-width: 400px)': {      
+      height: '100px'
+    },
+
     '@media (min-width: 600px)': {      
       height: '125px'
     },
@@ -74,9 +78,15 @@ const styles = {
     justifyContent: 'center',
     fontFamily: fontFamily.beth,
     color: color.lightGrey,
-    fontSize: fontSize.veryBig,
     letterSpacing: 3.0,
     opacity: '80%',
+
+    // Default important style.
+    fontSize: fontSize.veryBig,
+
+    '@media (min-width: 400px)': {      
+      fontSize: fontSize.huge,
+    },
 
     '@media (min-width: 600px)': {      
       fontSize: fontSize.enormous
@@ -92,10 +102,19 @@ const styles = {
   },
 
   tomorrowSuper: {
-    fontSize: fontSize.small,
     fontFamily: fontFamily.grotesk,
+
+    // Default important style
     paddingLeft: padding.tiny,
-    marginTop: padding.verySmall,
+    marginTop: '-' + padding.big,
+    fontSize: fontSize.verySmall,
+   
+
+    '@media (min-width: 400px)': {    
+      paddingLeft: padding.extraSmall,
+      marginTop: '-' + padding.veryBig,
+      fontSize: fontSize.big,
+    },
 
     '@media (min-width: 600px)': {    
       marginTop: '-' + padding.huge,
