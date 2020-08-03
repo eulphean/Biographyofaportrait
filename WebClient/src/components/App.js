@@ -2,7 +2,6 @@ import React from 'react'
 import Radium from 'radium'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import graph from '../images/graph.jpg'
-import { withOrientationChange } from 'react-device-detect'
 
 import Today from './Today.js'
 import Yesterday from './Yesterday.js'

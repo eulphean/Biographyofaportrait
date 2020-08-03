@@ -7,8 +7,6 @@ import CameraCanvas from './CameraCanvas.js'
 import UserIcon from './UserIcon.js'
 import Banner from './Banner.js'
 import Folder from './Folder.js'
-import graph from '../images/graph.jpg'
-import { padding } from './CommonStyles.js'
 import Popup, { PopupType }  from './Popup.js'
 
 const fadeDuration = '0.5s'; 

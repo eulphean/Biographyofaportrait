@@ -12,24 +12,64 @@ var sketch = (s) => {
 
   s.setup = () => {
     s.createCanvas(x, y);
+    s.background(0);
   };
 
   s.draw = () => {
-    s.background(255);
-    s.fill(255,0, 0);
-    s.rect(x,y,50,50);
-    // if (capture && !hasFrameTested) {
-    //   console.log('Schedule test'); 
-    //   setTimeout(s.frameTest, 5000); // This delay is for the camera to start and collet the first frame of the image. 
-    //   hasFrameTested = true; 
-    // }
+    if (capture && capture.loadedmetadata) {
+      let frame = capture.get(0, 0, s.windowWidth, s.windowHeight); 
+      // Schedule the frame to be drawn at a later time. 
+      setTimeout(s.delayCbk, 2000, frame); 
+    }
   };
+
+  s.delayCbk = (frame) => {
+    // Image is draw inside the canvas. 
+    s.image(frame, 0, 0, s.windowWidth, s.windowHeight);
+    s.applyFilters();
+  }
 
   s.setupCamera = (success, failure) => {
     capture = s.createCapture(s.VIDEO, success, failure);
+    capture.hide();
     capture.position(0, 0);
     capture.size(x, y);
     capture.elt.style.objectFit = 'cover';
+  }
+
+  s.applyFilters = () => {
+    // Determine what effects to apply on the image 
+    s.filter(s.GRAY);
+
+    // if (blurD.elt.checked) {
+    //   let val = blurValue.value(); 
+    //   filter(BLUR, val); 
+    // }
+
+    // if (threshold.elt.checked) {
+    //   filter(THRESHOLD); 
+    // }
+
+    // if (gray.elt.checked) {
+    //   filter(GRAY);
+    // }
+
+    // if (invert.elt.checked) {
+    //   filter(INVERT); 
+    // }
+
+    // if (posterize.elt.checked) {
+    //   let val = postValue.value();
+    //   filter(POSTERIZE, val);
+    // }
+
+    // if (dilate.elt.checked) {
+    //   filter(DILATE); 
+    // }
+
+    // if (erode.elt.checked) {
+    //   filter(ERODE); 
+    // }
   }
 };
 

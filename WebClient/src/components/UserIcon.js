@@ -10,7 +10,6 @@ const styles = {
   container: {
     zIndex: '95',
     position: 'absolute',
-    bottom: '-2%',
     overflow:'none',
     opacity: '0',
     width: '100%',
@@ -23,11 +22,6 @@ const styles = {
 
     '@media (min-width: 400px) and (orientation: landscape)': {  
       width: '40%',
-      bottom: '-10px'
-    },
-
-    '@media (min-width: 400px)': {  
-      width: '100%',
       bottom: '-10px'
     },
 
