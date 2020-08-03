@@ -228,12 +228,16 @@ const styles={
         fill: color.lightGrey,
 
         '@media (min-width: 600px)': {  
-            marginRight: '-' + fontSize.big
+            marginRight: '-' + fontSize.big,
+            padding: padding.verySmall,
+            height: fontSize.verySmall, 
+            width: fontSize.verySmall
         },
 
         '@media (min-width: 900px)': {  
-            height: fontSize.verySmall, 
-            width: fontSize.verySmall,
+            padding: padding.verySmall,
+            height: fontSize.small, 
+            width: fontSize.small,
             marginRight: '-' + fontSize.veryHuge
         },
 

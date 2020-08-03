@@ -50,6 +50,10 @@ const styles = {
   // for each device. 
   clouds: {
     width: '100%',
+
+    '@media (min-width: 600px)': {      
+      height: '125px'
+    },
     
     '@media (min-width: 1200px)': {      
       height: '150px'
@@ -74,6 +78,10 @@ const styles = {
     letterSpacing: 3.0,
     opacity: '80%',
 
+    '@media (min-width: 600px)': {      
+      fontSize: fontSize.enormous
+    },
+
     '@media (min-width: 900px)': {      
       fontSize: fontSize.insane
     },
@@ -89,7 +97,7 @@ const styles = {
     paddingLeft: padding.tiny,
     marginTop: padding.verySmall,
 
-    '@media (min-width: 900px)': {    
+    '@media (min-width: 600px)': {    
       marginTop: '-' + padding.huge,
       paddingLeft: padding.small,  
       fontSize: fontSize.extraBig
@@ -118,7 +126,7 @@ const styles = {
     zIndex: '2',
     opacity: '70%',
 
-    '@media (min-width: 900px)': {    
+    '@media (min-width: 600px)': {    
       marginRight: padding.verySmall,
       padding: padding.verySmall,  
       height: fontSize.verySmall,
