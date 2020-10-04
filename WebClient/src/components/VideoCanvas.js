@@ -28,6 +28,7 @@ var sketch = (s) => {
     video.elt.setAttribute('playsinline', '');
     video.elt.setAttribute('autoplay', true);
     video.elt.setAttribute('loop', true);
+    video.play();
   };
 
   s.vidLoad = () => {

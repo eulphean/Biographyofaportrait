@@ -4,6 +4,9 @@ import { fadeIn } from 'react-animations'
 
 import { ReactComponent as FolderIcon } from '../svg/folder.svg'
 import { fontSize, color, padding, fontFamily } from './CommonStyles.js'
+import { Link } from 'react-router-dom'
+
+const RadiumLink = Radium(Link);
 
 const fadeDuration = '2.0s'; 
 
@@ -14,8 +17,10 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    opacity: '0',
-    zIndex: '2'
+    opacity: '1',
+    zIndex: '99',
+    bottom: '5%',
+    left: '5%'
   },
 
   fadeIn: {
@@ -84,7 +89,7 @@ const styles = {
       backgroundColor: color.darkGrey,
       color: color.lightGrey,
       padding: padding.verySmall,
-      fontFamily: fontFamily.bebas,
+      fontFamily: fontFamily.din,
       letterSpacing: '2px',
 
       // Default
@@ -107,9 +112,9 @@ const styles = {
   },
 
   today: {
-    zIndex: 99,
-    bottom: '5%',
-    left: '5%'
+    // zIndex: '99',
+    // bottom: '5%',
+    // left: '5%'
   }
 };
 
@@ -130,16 +135,16 @@ class Folder extends React.Component {
     let titleStyle = this.state.isSelected ? [styles.title, styles.titleSelected] : styles.title;
     let containerStyle=styles.container; 
     
-    if (this.state.isFadeIn || this.props.visible) {
-      containerStyle = [styles.container, styles.fadeIn]; 
-    }
+    // if (this.state.isFadeIn || this.props.visible) {
+    //   containerStyle = [styles.container, styles.fadeIn]; 
+    // }
 
-    if (this.props.isToday) {
-      containerStyle = [containerStyle, styles.today];
-    }
+    // if (this.props.isToday) {
+    //   containerStyle = [containerStyle, styles.today];
+    // }
 
     return (
-      <div onClick={this.handleClick.bind(this)} style={containerStyle}>
+      <RadiumLink style={containerStyle} to={this.props.target}>
          <div style={styles.folderContainer}>
            <div style={styles.iconContainer}>
               <FolderIcon style={styles.icon} />
@@ -149,7 +154,7 @@ class Folder extends React.Component {
          <div style={titleStyle}>
              {this.props.children}
          </div>
-      </div>
+      </RadiumLink>
     );
   }
 
