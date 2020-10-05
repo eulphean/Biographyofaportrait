@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { useHistory } from 'react-router-dom'
 import { fadeIn } from 'react-animations'
+import graph from '../images/graph.jpg'
 
 import CameraCanvas from './CameraCanvas.js'
 import UserIcon from './UserIcon.js'
@@ -30,11 +31,20 @@ const styles = {
     animationTimingFunction:'ease-in'
   },
 
+  // graph: {
+  //   position: 'absolute',
+  //   objectFit: 'cover',
+  //   height: '100vh',
+  //   width: '100vw'
+  // },
+
+
   graph: {
     position: 'absolute',
     objectFit: 'cover',
     height: '100vh',
-    width: '100vw'
+    width: '100vw',
+    zIndex: '1'
   }
 };
 
@@ -48,6 +58,7 @@ const Today = () => {
 
     return (
       <div onClick={handleScreenClick.bind(this)} style={styles.contentContainer}>
+        <img style={styles.graph} alt='graph' src={graph} />
         <Popup 
           ref={popupRef}
           // onSkip={showSkipContent.bind(this)}
