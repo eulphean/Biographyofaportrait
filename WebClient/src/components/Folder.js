@@ -18,6 +18,16 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     opacity: '1',
+    zIndex: '99'
+  },
+
+  containerToday: {
+    position: 'absolute',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    opacity: '1',
     zIndex: '99',
     bottom: '5%',
     left: '5%'
@@ -35,35 +45,8 @@ const styles = {
     display: 'flex'
   },
 
-  folderBg: {
-    position: 'absolute',
-    backgroundColor: color.darkGrey,
-    top: '0%',
-    zIndex: '-999',
-    padding: padding.verySmall,
-    opacity: '0.6',
-
-    // Default
-    width: fontSize.extraMassive,
-    height: fontSize.extraMassive,
-
-    '@media (min-width: 600px)': {    
-      width: fontSize.insane,
-      height: fontSize.insane
-    },
-
-    '@media (min-width: 900px)': {    
-      width: fontSize.gaia,
-      height: fontSize.gaia
-    }
-  },
-
-  folderBgHide: {
-    opacity: '0'
-  },
-
   iconContainer: {
-    padding: padding.verySmall,
+    padding: padding.extraSmall,
 
     // Defualt
     width: fontSize.extraMassive,
@@ -85,36 +68,29 @@ const styles = {
   title: {
       display: 'flex',
       justifyContent: 'center',
-      marginTop: padding.tiny,
       backgroundColor: color.darkGrey,
       color: color.lightGrey,
-      padding: padding.verySmall,
-      fontFamily: fontFamily.din,
-      letterSpacing: '2px',
+      padding: padding.extraSmall,
+      fontFamily: fontFamily.helvetica,
+      letterSpacing: '1px',
 
       // Default
       fontSize: fontSize.verySmall,
-      width: fontSize.extraMassive,
+      // width: fontSize.extraMassive,
 
       '@media (min-width: 600px)': {    
         fontSize: fontSize.small,
-        width: fontSize.insane
+        // width: fontSize.insane
       },
 
       '@media (min-width: 900px)': {    
         fontSize: fontSize.big,
-        width: fontSize.gaia
+        // width: fontSize.gaia
       }
   },
 
   titleSelected: {
     backgroundColor: color.selected
-  },
-
-  today: {
-    // zIndex: '99',
-    // bottom: '5%',
-    // left: '5%'
   }
 };
 
@@ -122,7 +98,6 @@ class Folder extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      isSelected: false,
       isFadeIn: false
     };
 
@@ -131,17 +106,11 @@ class Folder extends React.Component {
   }
 
   render() {
-    let folderBgStyle = this.state.isSelected ? styles.folderBg : styles.folderBgHide; 
-    let titleStyle = this.state.isSelected ? [styles.title, styles.titleSelected] : styles.title;
     let containerStyle=styles.container; 
-    
-    // if (this.state.isFadeIn || this.props.visible) {
-    //   containerStyle = [styles.container, styles.fadeIn]; 
-    // }
-
-    // if (this.props.isToday) {
-    //   containerStyle = [containerStyle, styles.today];
-    // }
+ 
+    if (this.props.isToday) {
+      containerStyle=styles.containerToday;
+    }
 
     return (
       <RadiumLink style={containerStyle} to={this.props.target}>
@@ -149,57 +118,14 @@ class Folder extends React.Component {
            <div style={styles.iconContainer}>
               <FolderIcon style={styles.icon} />
            </div>
-           <div style={folderBgStyle}></div>
          </div>
-         <div style={titleStyle}>
+         <div style={styles.title}>
              {this.props.children}
          </div>
       </RadiumLink>
     );
   }
-
-  handleClick(event) {
-    event.stopPropagation(); 
-    this.clickCount += 1; 
-    
-    if (!this.state.isSelected) {
-      this.setState({
-        isSelected: true
-      });
-    }
-
-    console.log('Click happened: ' + this.clickCount); 
-
-    if (this.timeout === '') {
-      this.timeout = setTimeout(this.checkDoubleClick.bind(this), 1000); 
-      console.log('Setting Timeout'); 
-    }
-  }
-
-  checkDoubleClick() {
-    if (this.clickCount >= 2 ) {
-      // Double Click fired. 
-      console.log('Double Click Detected, Go to: ' + this.props.target); 
-      this.props.history.push(this.props.target);
-    }
-
-    this.clickCount = 0; 
-    clearTimeout(this.timeout); 
-    this.timeout = ''; 
-    console.log('Clearing timeout.'); 
-  }
-
-  // Check the current selected state of the folder. 
-  isSelected() {
-    return this.state.isSelected; 
-  }
-
-  deSelect() {
-    this.setState({
-      isSelected: false
-    }); 
-  }
-
+  
   fadeIn() {
     this.setState({
       isFadeIn: true

@@ -102,7 +102,7 @@ const styles = {
   },
 
   tomorrowSuper: {
-    fontFamily: fontFamily.grotesk,
+    fontFamily: fontFamily.beth,
 
     // Default important style
     paddingLeft: padding.tiny,
@@ -137,13 +137,15 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: color.greyBack,
+    backgroundColor: color.darkGrey,
+    fontSize: fontSize.big,
     width: fontSize.extraSmall,
     height: fontSize.extraSmall,
     padding: padding.extraSmall,
     marginRight: padding.extraSmall,
+    color: color.lightGrey,
     zIndex: '2',
-    opacity: '70%',
+    fontFamily: fontFamily.helvetica,
 
     '@media (min-width: 600px)': {    
       marginRight: padding.verySmall,
@@ -172,7 +174,9 @@ class Banner extends React.Component {
   }
 
   componentDidMount() {
+    this.props.showCameraPrompt();
     setTimeout(this.updateStateNow.bind(this), 500); 
+    this.showBanner();
   }
 
   updateStateNow() {
@@ -225,15 +229,21 @@ class Banner extends React.Component {
         onAnimationEnd={this.onAnimationEnded.bind(this)}>
         <div style={styles.menu}>
           <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
+            ?
+          </div>
+          <div onClick={this.handleOnClose.bind(this)} style={styles.svg}>
+            X
+          </div> 
+          {/* <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
             <Info style={styles.icon} />
           </div>
           <div onClick={this.handleOnClose.bind(this)} style={styles.svg}>
             <Close style={styles.icon} />
-          </div>
+          </div> */}
         </div>
         <RadiumLink to='/Tomorrow'>
           <div style={styles.tomorrow}>
-            TOMORROW<sup style={styles.tomorrowSuper}>TM</sup>
+            Tomorrow<sup style={styles.tomorrowSuper}>TM</sup>
           </div>
           <img style={styles.clouds} alt={'clouds'} src={gif} />
         </RadiumLink>
@@ -242,7 +252,7 @@ class Banner extends React.Component {
   }
 
   onShowPopup(event) {
-    this.props.onClickInfo(); 
+    this.props.onShowInfo(); 
   }
 
   handleOnClose(event) {

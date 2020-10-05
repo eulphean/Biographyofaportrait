@@ -55,6 +55,10 @@ class UserIcon extends React.Component {
     this.clickCount = 0; 
   }
 
+  componentDidMount() {
+    // this.fadeIn(); 
+  }
+
   render() {
     let containerStyle=styles.container; 
     

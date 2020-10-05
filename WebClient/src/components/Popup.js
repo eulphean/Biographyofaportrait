@@ -226,23 +226,27 @@ const styles={
         height: fontSize.extraSmall,
         width: fontSize.extraSmall,
         fill: color.lightGrey,
+        fontFamily: fontFamily.helvetica,
 
         '@media (min-width: 600px)': {  
             marginRight: '-' + fontSize.big,
             padding: padding.verySmall,
             height: fontSize.verySmall, 
-            width: fontSize.verySmall
+            width: fontSize.verySmall,
+            fontSize: fontSize.small
         },
 
         '@media (min-width: 900px)': {  
             padding: padding.verySmall,
             height: fontSize.small, 
             width: fontSize.small,
-            marginRight: '-' + fontSize.veryHuge
+            marginRight: '-' + fontSize.veryHuge,
+            fontSize: fontSize.verySmall
         },
 
         '@media (min-width: 1200px)': {  
-            marginRight: '-' + fontSize.extraMassive
+            marginRight: '-' + fontSize.extraMassive,
+            fontSize: fontSize.big,
         }
     },
 
@@ -258,7 +262,7 @@ const styles={
         marginTop: padding.big, 
         marginBottom: padding.big,
         background: color.darkGrey, 
-        fontFamily: fontFamily.bebas,
+        fontFamily: fontFamily.helvetica,
         fontSize: fontSize.small,
         color: color.lightGrey,
         letterSpacing: '1.5px',
@@ -278,13 +282,20 @@ const styles={
         alignItems: 'center',
         color: color.selected,
         alignSelf: 'center',
-        fontFamily: fontFamily.bebas, 
+        fontFamily: fontFamily.beth, 
         fontSize: fontSize.verySmall,
         letterSpacing: '2.0px',
 
         '@media (min-width: 750px)': {  
             fontSize: fontSize.small,
         }
+    },
+    
+    footerFirst: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
 
     footerSecond: {
@@ -325,10 +336,13 @@ class Popup extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout(this.showPopup(PopupType.Permissions), 500);
         // Right check to see if the camera is actually supported on not. 
         this.isCameraSupported = !('undefined' === typeof (navigator.mediaDevices.enumerateDevices));
         console.log('isCamSupported: ' + this.isCameraSupported);
+        // Create the apologetic popup here. 
+        if (!this.isCameraSupported) {
+            setTimeout(this.showPopup(PopupType.Permissions), 500);
+        }
     }
 
     render() {
@@ -407,15 +421,18 @@ class Popup extends React.Component {
         let buttonContainerStyle=[styles.buttonContainer, styles.mediaQueryOnText];
         return (
             <div style={buttonContainerStyle} onClick={this.hidePopup.bind(this)}>
-                CLOSE
+                TODAY
             </div>
         ); 
     }
 
     getIconButton() {
         return(
+            // <div onClick={this.hidePopup.bind(this)} style={styles.iconContainer}>
+            //     <Exit style={styles.icon} />
+            // </div>
             <div onClick={this.hidePopup.bind(this)} style={styles.iconContainer}>
-                <Exit style={styles.icon} />
+                X
             </div>
         ); 
     }
@@ -484,13 +501,16 @@ class Popup extends React.Component {
         const amay = 'https://amaykataria.com';
         return (
             <div style={styles.footerContainer}>
-              <a 
-                style={styles.footer} 
-                target='_blank' 
-                rel="noopener noreferrer" 
-                href={jen}>
-                © Jennifer Traina-Dorge 2020
-              </a>
+            <div style={[styles.footerFirst]}>
+                <span style={styles.developed}>©  </span>
+                <a 
+                    style={styles.footer} 
+                    target='_blank' 
+                    rel="noopener noreferrer" 
+                    href={jen}>
+                    Jennifer Traina-Dorge 2020
+                </a>
+            </div>
               <div style={[styles.footer, styles.footerSecond]}>
                   <span style={styles.developed}>Developed by </span>
                   <a 

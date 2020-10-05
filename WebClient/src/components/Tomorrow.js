@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
-import vid from '../videos/testPortrait.mp4'
+import vid from '../videos/tomorrow.mp4'
 import VideoCanvas from './VideoCanvas.js'
 
 const RadiumLink = Radium(Link);

@@ -64,15 +64,10 @@ const padding = {
 
 const fontFamily = {
     bebas: 'bebas_neueregular',
-    bilbo: 'bilboregular',
-    opensanslight: 'open_sanslight',
-    opensansregular: 'open_sansregular',
-    thermal: 'thermalregular',
-    birada: 'biradaregular',
-    cursive: 'cursive',
     din: 'd-dinregular',
     grotesk: 'hk_grotesklight',
-    beth: 'beth_ellen_2regular'
+    beth: 'beth_ellen_2regular',
+    helvetica: 'helveticabold'
 };
 
 const boxShadow = {

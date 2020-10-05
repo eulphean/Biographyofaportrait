@@ -50,13 +50,14 @@ const Today = () => {
       <div onClick={handleScreenClick.bind(this)} style={styles.contentContainer}>
         <Popup 
           ref={popupRef}
-          onSkip={showSkipContent.bind(this)}
-          onAuthorize={showAuthorizeContent.bind(this)}
+          // onSkip={showSkipContent.bind(this)}
+          // onAuthorize={showAuthorizeContent.bind(this)}
         />
         <CameraCanvas ref={cameraCanvas} />
         <Banner
           ref={bannerRef} 
-          onClickInfo={handleInfoClick.bind(this)}
+          onShowInfo={handleInfoClick.bind(this)}
+          showCameraPrompt={showCameraPrompt.bind(this)}
         />
         <UserIcon ref={userIconRef} />
         <Folder 
@@ -83,27 +84,17 @@ const Today = () => {
       popupRef.current.showPopup(PopupType.About); 
     }
 
-    function showSkipContent() {
-      bannerRef.current.showBanner(); 
-      folderRef.current.fadeIn();
-      userIconRef.current.fadeIn();
-    }
-
-    function showAuthorizeContent() {
-      cameraCanvas.current.showCameraPrompt(handleSuccess, handleFailure);
+    function showCameraPrompt() {
+      cameraCanvas.current.showCameraPrompt(handleSuccess, handleFailure); 
     }
 
     function handleSuccess() {
       console.log('Access Granted'); 
-      bannerRef.current.showBanner(); 
-      folderRef.current.fadeIn(); 
       cameraCanvas.current.fadeIn();
     }
 
     function handleFailure() {
       console.log('Access Denied');
-      bannerRef.current.showBanner();
-      folderRef.current.fadeIn();
       userIconRef.current.fadeIn(); 
     }
 }

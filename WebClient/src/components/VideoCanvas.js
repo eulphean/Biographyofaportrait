@@ -41,8 +41,11 @@ var sketch = (s) => {
 const styles = {
   container: {
     position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     top: '0%',
-    left: '0%',
+    // left: '0%',
     opacity: '0',
     zIndex: '1'
   },
