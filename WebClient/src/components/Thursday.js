@@ -3,7 +3,7 @@ import Radium from 'radium'
 import { useHistory } from 'react-router-dom'
 
 import Folder from './Folder'
-import vid from '../videos/testLandscape.mp4'
+import vid from '../videos/thursday.mov'
 import VideoCanvas from './VideoCanvas.js'
 
 const styles = {
