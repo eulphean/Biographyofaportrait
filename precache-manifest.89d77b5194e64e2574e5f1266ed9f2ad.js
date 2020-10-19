@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a504ccc1f2276233339c88ec983d5ff3",
+    "revision": "2918272c61ffed2aca52751ad9c4abbc",
     "url": "/biographyofaportrait/index.html"
   },
   {
-    "revision": "6982b7c8dde9edf999cc",
-    "url": "/biographyofaportrait/static/css/main.78654764.chunk.css"
+    "revision": "d10c0e82e5bdd49705c1",
+    "url": "/biographyofaportrait/static/css/main.10069a37.chunk.css"
   },
   {
     "revision": "50f0177673d1a01bcd1a",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/js/2.9fb9dc91.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6982b7c8dde9edf999cc",
-    "url": "/biographyofaportrait/static/js/main.6426953d.chunk.js"
+    "revision": "d10c0e82e5bdd49705c1",
+    "url": "/biographyofaportrait/static/js/main.71ef8742.chunk.js"
   },
   {
     "revision": "e797ef941c42eb947915",
@@ -44,8 +44,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/media/beth-ellen-2.0-webfont.d3e3b77f.woff"
   },
   {
-    "revision": "52e21f29cc19a74b0638f9ca5db160d0",
-    "url": "/biographyofaportrait/static/media/close.52e21f29.svg"
+    "revision": "cea80ca58050cc5c6f559561dee8fbc0",
+    "url": "/biographyofaportrait/static/media/close.cea80ca5.svg"
+  },
+  {
+    "revision": "e97b48ebfa1c68d5dbd5742023227ef1",
+    "url": "/biographyofaportrait/static/media/close_popup.e97b48eb.svg"
   },
   {
     "revision": "176b39da420f198becefb0451057f4cd",
@@ -60,8 +64,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/media/din-webfont.e6a361ef.woff"
   },
   {
-    "revision": "dd54dc2557dbbd8d6b1987790ff0dd54",
-    "url": "/biographyofaportrait/static/media/folder.dd54dc25.svg"
+    "revision": "105afe880b8066bd357b3cb57f1eaab9",
+    "url": "/biographyofaportrait/static/media/elliotsix-webfont.105afe88.woff2"
+  },
+  {
+    "revision": "e1c115929456eb36fd589c39aaa00f20",
+    "url": "/biographyofaportrait/static/media/elliotsix-webfont.e1c11592.woff"
+  },
+  {
+    "revision": "db870ce73d2cd87b018aec2a11117579",
+    "url": "/biographyofaportrait/static/media/folder.db870ce7.svg"
   },
   {
     "revision": "42262daf5189c47135d6b92f1d9ec0f9",
@@ -88,8 +100,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.d83608a9.woff"
   },
   {
-    "revision": "5582adc015ac4aaabd494408b0ced9b5",
-    "url": "/biographyofaportrait/static/media/info.5582adc0.svg"
+    "revision": "6ea3b2a6a22ac1e9200cf682a5371ad4",
+    "url": "/biographyofaportrait/static/media/info.6ea3b2a6.svg"
   },
   {
     "revision": "4d830247afd0b2fa5a1ba01b2fd0e2e3",
