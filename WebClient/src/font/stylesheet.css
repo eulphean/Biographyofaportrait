@@ -23,7 +23,6 @@
          url('hkgrotesk-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -32,7 +31,6 @@
          url('beth-ellen-2.0-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -41,5 +39,12 @@
          url('helvetica-bold-font-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'elliotsixregular';
+    src: url('elliotsix-webfont.woff2') format('woff2'),
+         url('elliotsix-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }

@@ -68,11 +68,14 @@ const styles = {
   title: {
       display: 'flex',
       justifyContent: 'center',
-      backgroundColor: color.darkGrey,
+      // backgroundColor: color.darkGrey,
       color: color.lightGrey,
-      padding: padding.extraSmall,
+      // padding: padding.extraSmall,
+      paddingLeft: padding.big,
+      paddingRight: padding.big,
       fontFamily: fontFamily.helvetica,
       letterSpacing: '1px',
+      zIndex: '2',
 
       // Default
       fontSize: fontSize.verySmall,
@@ -84,13 +87,19 @@ const styles = {
       },
 
       '@media (min-width: 900px)': {    
-        fontSize: fontSize.big,
+        fontSize: fontSize.small,
         // width: fontSize.gaia
       }
   },
 
-  titleSelected: {
-    backgroundColor: color.selected
+  blurred: {
+    position: 'absolute',
+    bottom: '0px',
+    width: '80%',
+    backgroundColor: color.jenGrey,
+    height: '20%',
+    filter: 'blur(8px)',
+    zIndex: '1'
   }
 };
 
@@ -119,6 +128,8 @@ class Folder extends React.Component {
               <FolderIcon style={styles.icon} />
            </div>
          </div>
+         <div style={styles.blurred}>
+            </div>
          <div style={styles.title}>
              {this.props.children}
          </div>

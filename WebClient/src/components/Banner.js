@@ -76,7 +76,7 @@ const styles = {
     width: '100%',
     height: '100%',
     justifyContent: 'center',
-    fontFamily: fontFamily.beth,
+    fontFamily: fontFamily.elliott,
     color: color.lightGrey,
     letterSpacing: 3.0,
     opacity: '80%',
@@ -102,12 +102,12 @@ const styles = {
   },
 
   tomorrowSuper: {
-    fontFamily: fontFamily.beth,
+    fontFamily: 'Helvetica Neue,Helvetica,Arial,sans-serif',
 
     // Default important style
     paddingLeft: padding.tiny,
     marginTop: '-' + padding.big,
-    fontSize: fontSize.verySmall,
+    fontSize: fontSize.extraSmall,
    
 
     '@media (min-width: 400px)': {    
@@ -117,9 +117,8 @@ const styles = {
     },
 
     '@media (min-width: 600px)': {    
-      marginTop: '-' + padding.huge,
-      paddingLeft: padding.small,  
-      fontSize: fontSize.extraBig
+      paddingLeft: padding.extraSmall,  
+      fontSize: fontSize.small
     }
   },
 
@@ -137,21 +136,20 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: color.darkGrey,
+    // backgroundColor: color.darkGrey,
     fontSize: fontSize.big,
-    width: fontSize.extraSmall,
-    height: fontSize.extraSmall,
-    padding: padding.extraSmall,
+    width: fontSize.small,
+    height: fontSize.small,
+    // padding: padding.extraSmall,
     marginRight: padding.extraSmall,
     color: color.lightGrey,
     zIndex: '2',
     fontFamily: fontFamily.helvetica,
 
     '@media (min-width: 600px)': {    
-      marginRight: padding.verySmall,
-      padding: padding.verySmall,  
-      height: fontSize.verySmall,
-      width: fontSize.verySmall
+      marginRight: padding.extraSmall,
+      height: fontSize.veryBig,
+      width: fontSize.veryBig
     }
   },
 
@@ -228,18 +226,18 @@ class Banner extends React.Component {
         style={containerStyle} 
         onAnimationEnd={this.onAnimationEnded.bind(this)}>
         <div style={styles.menu}>
-          <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
+          {/* <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
             ?
           </div>
           <div onClick={this.handleOnClose.bind(this)} style={styles.svg}>
             X
-          </div> 
-          {/* <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
+          </div>  */}
+          <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
             <Info style={styles.icon} />
           </div>
           <div onClick={this.handleOnClose.bind(this)} style={styles.svg}>
             <Close style={styles.icon} />
-          </div> */}
+          </div>
         </div>
         <RadiumLink to='/Tomorrow'>
           <div style={styles.tomorrow}>

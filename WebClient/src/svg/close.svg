@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="5px" height="5px" viewBox="0 0 5 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>x</title>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Kefa-Regular, Kefa" font-size="10" font-weight="normal" letter-spacing="1.33333333" line-spacing="10">
-        <g id="Close-Button" transform="translate(-3.000000, -3.000000)" fill="#FEFEFE">
-            <text id="x">
-                <tspan x="3" y="8">x</tspan>
-            </text>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.51 48.51"><defs><style>.cls-1{fill:#fff;opacity:0.75;}.cls-2{fill:none;stroke:#b3b3b3;stroke-miterlimit:10;stroke-width:4px;}</style></defs><title>Asset 3</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" width="48.51" height="48.51"/><line class="cls-2" x1="9.63" y1="9.64" x2="38.88" y2="38.89"/><line class="cls-2" x1="9.63" y1="38.89" x2="38.88" y2="9.64"/></g></g></svg>

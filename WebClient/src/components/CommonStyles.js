@@ -4,7 +4,8 @@ const color = {
     lightGrey: '#FEFEFE',
     deepGrey: '#343434',
     selected: '#0091FF',
-    greyBack: '#8C97A5'
+    greyBack: '#8C97A5',
+    jenGrey: '#b3b3b3'
 };
 
 const fontSize = {
@@ -67,7 +68,8 @@ const fontFamily = {
     din: 'd-dinregular',
     grotesk: 'hk_grotesklight',
     beth: 'beth_ellen_2regular',
-    helvetica: 'helveticabold'
+    helvetica: 'helveticabold',
+    elliott: 'elliotsixregular'
 };
 
 const boxShadow = {

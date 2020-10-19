@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import { color, padding, fontFamily, fontSize } from './CommonStyles.js'
-import { ReactComponent as Exit } from '../svg/close.svg'
+import { ReactComponent as Exit } from '../svg/close_popup.svg'
 import { fadeOutUp, fadeOutDown, fadeInDown, fadeInUp } from 'react-animations'
 
 // Maintain the current popup state (to track animations)
@@ -176,7 +176,7 @@ const styles={
     title: {
         marginTop: padding.big,
         textAlign: 'center',
-        fontFamily: fontFamily.beth,
+        fontFamily: fontFamily.elliott,
         fontSize: fontSize.veryBig,
         letterSpacing: '2.5px',
         lineHeight: '1.8',
@@ -200,7 +200,8 @@ const styles={
         marginTop: padding.small,
         justifyContent: 'center',
         fontFamily: fontFamily.grotesk,
-        fontSize: fontSize.small
+        fontSize: fontSize.small,
+        color: color.jenGrey
     },
 
     // Applied on stuff
@@ -219,34 +220,34 @@ const styles={
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'flex-end',
-        padding: padding.extraSmall,
-        backgroundColor: color.darkGrey,
+        // padding: padding.extraSmall,
+        // backgroundColor: color.darkGrey,
         right: fontSize.extraSmall,
         marginRight: '-' + fontSize.verySmall,
-        height: fontSize.extraSmall,
-        width: fontSize.extraSmall,
-        fill: color.lightGrey,
-        fontFamily: fontFamily.helvetica,
+        height: fontSize.small,
+        width: fontSize.small,
+        fill: '#4a494a',
+        // fontFamily: fontFamily.helvetica,
 
         '@media (min-width: 600px)': {  
             marginRight: '-' + fontSize.big,
-            padding: padding.verySmall,
+            // padding: padding.verySmall,
             height: fontSize.verySmall, 
-            width: fontSize.verySmall,
-            fontSize: fontSize.small
+            width: fontSize.verySmall
+            // fontSize: fontSize.small
         },
 
         '@media (min-width: 900px)': {  
-            padding: padding.verySmall,
-            height: fontSize.small, 
-            width: fontSize.small,
-            marginRight: '-' + fontSize.veryHuge,
-            fontSize: fontSize.verySmall
+            // padding: padding.verySmall,
+            height: fontSize.extraBig, 
+            width: fontSize.extraBig,
+            marginRight: '-' + fontSize.veryHuge
+            // fontSize: fontSize.verySmall
         },
 
         '@media (min-width: 1200px)': {  
             marginRight: '-' + fontSize.extraMassive,
-            fontSize: fontSize.big,
+            // fontSize: fontSize.big,
         }
     },
 
@@ -261,7 +262,7 @@ const styles={
         justifyContent: 'center',
         marginTop: padding.big, 
         marginBottom: padding.big,
-        background: color.darkGrey, 
+        background: color.jenGrey, 
         fontFamily: fontFamily.helvetica,
         fontSize: fontSize.small,
         color: color.lightGrey,
@@ -282,7 +283,7 @@ const styles={
         alignItems: 'center',
         color: color.selected,
         alignSelf: 'center',
-        fontFamily: fontFamily.beth, 
+        fontFamily: fontFamily.elliott, 
         fontSize: fontSize.verySmall,
         letterSpacing: '2.0px',
 
@@ -303,6 +304,8 @@ const styles={
     },
 
     developed: {
+        fontSize: fontSize.small,
+        fontFamily: fontFamily.elliott,
         paddingLeft: padding.tiny, 
         paddingRight: padding.tiny,
         color: color.lightGrey
@@ -428,12 +431,12 @@ class Popup extends React.Component {
 
     getIconButton() {
         return(
-            // <div onClick={this.hidePopup.bind(this)} style={styles.iconContainer}>
-            //     <Exit style={styles.icon} />
-            // </div>
             <div onClick={this.hidePopup.bind(this)} style={styles.iconContainer}>
-                X
+                <Exit style={styles.icon} />
             </div>
+            // <div onClick={this.hidePopup.bind(this)} style={styles.iconContainer}>
+            //     X
+            // </div>
         ); 
     }
 
@@ -502,14 +505,15 @@ class Popup extends React.Component {
         return (
             <div style={styles.footerContainer}>
             <div style={[styles.footerFirst]}>
-                <span style={styles.developed}>©  </span>
+                <span style={styles.developed}>©&nbsp;</span>
                 <a 
                     style={styles.footer} 
                     target='_blank' 
                     rel="noopener noreferrer" 
                     href={jen}>
-                    Jennifer Traina-Dorge 2020
+                    Jennifer Traina-Dorge
                 </a>
+                <span style={styles.developed}>&nbsp;2020</span>
             </div>
               <div style={[styles.footer, styles.footerSecond]}>
                   <span style={styles.developed}>Developed by </span>

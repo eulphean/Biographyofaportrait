@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="3px" height="7px" viewBox="0 0 3 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>I</title>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Kefa-Regular, Kefa" font-size="10" font-weight="normal" letter-spacing="1.33333333" line-spacing="10">
-        <g id="Info" transform="translate(-4.000000, -2.000000)" fill="#FEFEFE">
-            <text id="I">
-                <tspan x="4" y="9">I</tspan>
-            </text>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.51 48.51"><defs><style>.cls-1{fill:#fff;opacity:0.75;}.cls-2{fill:none;stroke:#b3b3b3;stroke-miterlimit:10;stroke-width:3px;}.cls-3{font-size:30px;fill:#b3b4b4;font-family:LetterGothicStd-Bold, Letter Gothic Std;font-weight:700;}</style></defs><title>Asset 4</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" width="48.51" height="48.51"/><circle class="cls-2" cx="24.2" cy="24.22" r="17.99"/><text class="cls-3" transform="translate(15.43 34.94)">?</text></g></g></svg>
