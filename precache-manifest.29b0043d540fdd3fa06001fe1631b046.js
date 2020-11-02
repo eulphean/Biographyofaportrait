@@ -1,31 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2918272c61ffed2aca52751ad9c4abbc",
+    "revision": "9467f1e5b2a9564492fceea8e6d19026",
     "url": "/biographyofaportrait/index.html"
   },
   {
-    "revision": "d10c0e82e5bdd49705c1",
+    "revision": "1e7489e4c25763901cee",
     "url": "/biographyofaportrait/static/css/main.10069a37.chunk.css"
   },
   {
-    "revision": "50f0177673d1a01bcd1a",
-    "url": "/biographyofaportrait/static/js/2.9fb9dc91.chunk.js"
+    "revision": "cc58fdb1aa4d1b3dda79",
+    "url": "/biographyofaportrait/static/js/2.73a4c0c9.chunk.js"
   },
   {
-    "revision": "90526b3367ca000531e0465e56eee9ab",
-    "url": "/biographyofaportrait/static/js/2.9fb9dc91.chunk.js.LICENSE.txt"
+    "revision": "7394186c78c74bd60264b20e3b2b8afb",
+    "url": "/biographyofaportrait/static/js/2.73a4c0c9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d10c0e82e5bdd49705c1",
-    "url": "/biographyofaportrait/static/js/main.71ef8742.chunk.js"
+    "revision": "1e7489e4c25763901cee",
+    "url": "/biographyofaportrait/static/js/main.549d5df7.chunk.js"
   },
   {
     "revision": "e797ef941c42eb947915",
     "url": "/biographyofaportrait/static/js/runtime-main.2df0d599.js"
   },
   {
-    "revision": "fe1dcb6a46878d93a8de20f9a3db1e76",
-    "url": "/biographyofaportrait/static/media/banda.fe1dcb6a.svg"
+    "revision": "9dc8bccb32904dd0df3e257188209cfe",
+    "url": "/biographyofaportrait/static/media/L_Monday.9dc8bccb.mp4"
+  },
+  {
+    "revision": "b8fad12378c49e89d3e8c1e22dafc88c",
+    "url": "/biographyofaportrait/static/media/P_Monday.b8fad123.mp4"
   },
   {
     "revision": "0c6cd72756c6ef3bcaf0337ad7036b56",
@@ -80,8 +84,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/media/friday.42262daf.mp4"
   },
   {
-    "revision": "58d5f6b055e8dd4df68f2e61e4cd9157",
-    "url": "/biographyofaportrait/static/media/graph.58d5f6b0.jpg"
+    "revision": "08b0f55509539659fe3bfbab9aed1e41",
+    "url": "/biographyofaportrait/static/media/graph_rotate.08b0f555.jpg"
   },
   {
     "revision": "16656b6b53a952979c5d0a18d2055413",
@@ -100,8 +104,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.d83608a9.woff"
   },
   {
-    "revision": "6ea3b2a6a22ac1e9200cf682a5371ad4",
-    "url": "/biographyofaportrait/static/media/info.6ea3b2a6.svg"
+    "revision": "e0bb55ec037ad38318b19546e8297e2f",
+    "url": "/biographyofaportrait/static/media/info.e0bb55ec.svg"
   },
   {
     "revision": "4d830247afd0b2fa5a1ba01b2fd0e2e3",
