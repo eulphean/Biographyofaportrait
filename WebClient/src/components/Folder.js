@@ -76,6 +76,7 @@ const styles = {
       fontFamily: fontFamily.helvetica,
       letterSpacing: '1px',
       zIndex: '2',
+      WebkitTextStroke: '0.5px black',
 
       // Default
       fontSize: fontSize.verySmall,
@@ -121,6 +122,10 @@ class Folder extends React.Component {
       containerStyle=styles.containerToday;
     }
 
+    let blurred = this.props.isToday ? (React.Null) : (
+      <div style={styles.blurred} />
+    ); 
+
     return (
       <RadiumLink style={containerStyle} to={this.props.target}>
          <div style={styles.folderContainer}>
@@ -128,8 +133,7 @@ class Folder extends React.Component {
               <FolderIcon style={styles.icon} />
            </div>
          </div>
-         <div style={styles.blurred}>
-            </div>
+         { blurred }
          <div style={styles.title}>
              {this.props.children}
          </div>

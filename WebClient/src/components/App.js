@@ -12,6 +12,7 @@ import Thursday from './Thursday.js'
 import Friday from './Friday.js'
 import Saturday from './Saturday.js'
 import Sunday from './Sunday.js'
+import graph from '../images/graph_rotate.jpg'
 
 const styles = {
   container: {
@@ -23,12 +24,21 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'black'
+  },
+
+  graph: {
+    position: 'absolute',
+    objectFit: 'cover',
+    height: '100vh',
+    width: '100vw',
+    zIndex: '1'
   }
 };
 
 function App() {
   return (
     <div style={styles.container}>
+      <img style={styles.graph} alt='graph' src={graph} />
       <Router>
         <Switch>
           <Route path="/Monday">

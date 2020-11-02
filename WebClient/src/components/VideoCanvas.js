@@ -69,8 +69,15 @@ class VideoCanvas extends React.Component {
   }
 
   componentDidMount() {
-    this.myP5 = new p5(sketch, this.sketchRef.current); 
-    this.myP5.initVideo(this.props.src); 
+    console.log('Remount');
+    this.myP5 = new p5(sketch, this.sketchRef.current);
+    console.log(this.props);
+    this.myP5.initVideo(this.props.src);
+    // if (this.props) {
+    //   console.log(this.props);
+    //   this.myP5 = new p5(sketch, this.sketchRef.current); 
+    //   this.myP5.initVideo(this.props.src); 
+    // }
   }
   
   render() {

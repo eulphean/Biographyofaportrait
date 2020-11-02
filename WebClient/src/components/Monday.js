@@ -2,8 +2,10 @@ import React from 'react'
 import Radium from 'radium'
 
 import { useHistory } from 'react-router-dom'
+import { isMobile, withOrientationChange } from 'react-device-detect'
 import Folder from './Folder.js'
-import vid from '../videos/testLandscape.mp4'
+import portrait from '../videos/P_Monday.mp4'
+import landscape from '../videos/L_Monday.mp4'
 import VideoCanvas from './VideoCanvas'
 
 const styles = {
@@ -25,9 +27,12 @@ const styles = {
   }
 };
 
-const Monday = () => {
+const Monday = (props) => {
+  const { isPortrait, isLandscape } = props; 
   let curHistory = useHistory(); 
   let folderRef = React.createRef(); 
+  let vid = getVideo(); 
+  console.log('Hello Bablue Monday');
 
   return (
     <div onClick={handleScreenClick.bind(this)} style={styles.container}>
@@ -42,6 +47,21 @@ const Monday = () => {
     </div>
   );
 
+  function getVideo() {
+    let v; 
+    if (isMobile) {
+      if (isPortrait) {
+        v = portrait; 
+      } else {
+        v = landscape; 
+      }
+    } else {
+        v = landscape; 
+    }
+
+    return v; 
+  }
+
   function handleScreenClick(event) {
     event.stopPropagation();
     let isSelected = folderRef.current.isSelected; 
@@ -51,4 +71,4 @@ const Monday = () => {
   }
 }
 
-export default Radium(Monday);
+export default Radium(withOrientationChange(Monday));

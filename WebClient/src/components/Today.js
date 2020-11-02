@@ -2,10 +2,10 @@ import React from 'react'
 import Radium from 'radium'
 import { useHistory } from 'react-router-dom'
 import { fadeIn } from 'react-animations'
-import graph from '../images/graph.jpg'
+// import graph from '../images/graph.jpg'
 
 import CameraCanvas from './CameraCanvas.js'
-import UserIcon from './UserIcon.js'
+// import UserIcon from './UserIcon.js'
 import Banner from './Banner.js'
 import Folder from './Folder.js'
 import Popup, { PopupType }  from './Popup.js'
@@ -37,18 +37,10 @@ const styles = {
   //   height: '100vh',
   //   width: '100vw'
   // },
-
-
-  graph: {
-    position: 'absolute',
-    objectFit: 'cover',
-    height: '100vh',
-    width: '100vw',
-    zIndex: '1'
-  }
 };
 
-const Today = () => {
+const Today = (props) => {
+    const {isLandscape, isPortrait } = props; 
     let popupRef = React.createRef(); 
     let bannerRef = React.createRef(); 
     let folderRef = React.createRef();
@@ -58,7 +50,7 @@ const Today = () => {
 
     return (
       <div onClick={handleScreenClick.bind(this)} style={styles.contentContainer}>
-        <img style={styles.graph} alt='graph' src={graph} />
+        {/* <img style={styles.graph} alt='graph' src={graph} /> */}
         <Popup 
           ref={popupRef}
           // onSkip={showSkipContent.bind(this)}
@@ -70,7 +62,7 @@ const Today = () => {
           onShowInfo={handleInfoClick.bind(this)}
           showCameraPrompt={showCameraPrompt.bind(this)}
         />
-        <UserIcon ref={userIconRef} />
+        {/* <UserIcon ref={userIconRef} /> */}
         <Folder 
           ref={folderRef} 
           target={'/Yesterday'}
@@ -106,7 +98,7 @@ const Today = () => {
 
     function handleFailure() {
       console.log('Access Denied');
-      userIconRef.current.fadeIn(); 
+      // userIconRef.current.fadeIn(); 
     }
 }
 
