@@ -76,7 +76,6 @@ const styles = {
       fontFamily: fontFamily.helvetica,
       letterSpacing: '1px',
       zIndex: '2',
-      WebkitTextStroke: '0.5px black',
 
       // Default
       fontSize: fontSize.verySmall,
@@ -91,6 +90,10 @@ const styles = {
         fontSize: fontSize.small,
         // width: fontSize.gaia
       }
+  },
+
+  outline: {
+    WebkitTextStroke: '0.5px black',
   },
 
   blurred: {
@@ -126,6 +129,8 @@ class Folder extends React.Component {
       <div style={styles.blurred} />
     ); 
 
+    let titleStyle = this.props.isToday ? [styles.outline, styles.title] : styles.title;
+
     return (
       <RadiumLink style={containerStyle} to={this.props.target}>
          <div style={styles.folderContainer}>
@@ -134,7 +139,7 @@ class Folder extends React.Component {
            </div>
          </div>
          { blurred }
-         <div style={styles.title}>
+         <div style={titleStyle}>
              {this.props.children}
          </div>
       </RadiumLink>

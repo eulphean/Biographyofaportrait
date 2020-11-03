@@ -8,7 +8,7 @@ const fadeDuration = '2.0s';
 var sketch = (s) => {
   let x = s.windowWidth; // Viewport width
   let y = s.windowHeight; // Viewport height
-  let capture;
+  let capture; let timeouts = []; 
 
   s.setup = () => {
     s.createCanvas(x, y);
@@ -19,7 +19,8 @@ var sketch = (s) => {
     if (capture && capture.loadedmetadata) {
       let frame = capture.get(0, 0, s.windowWidth, s.windowHeight); 
       // Schedule the frame to be drawn at a later time. 
-      setTimeout(s.delayCbk, 2000, frame); 
+      let t = setTimeout(s.delayCbk, 2000, frame); 
+      timeouts.push(t); 
     }
   };
 
@@ -70,6 +71,18 @@ var sketch = (s) => {
     // if (erode.elt.checked) {
     //   filter(ERODE); 
     // }
+  }
+
+  s.disable = () => {
+    s.noLoop(); 
+    capture.stop();
+    timeouts.forEach(t => {
+      window.clearTimeout(t);
+    });
+  }
+
+  s.enable = () => {
+    s.loop(); 
   }
 };
 
@@ -128,6 +141,14 @@ class CameraCanvas extends React.Component {
     this.setState({
       isFadeIn: true
     });
+  }
+
+  disableCamera() {
+    this.myP5.disable(); 
+  }
+
+  enableCamera() {
+    this.myP5.enable(); 
   }
 }
 

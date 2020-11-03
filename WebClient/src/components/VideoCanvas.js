@@ -42,6 +42,9 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     top: '0%',
+    objectFit: 'cover',
+    height: '100vh',
+    width: '100vw',
     // left: '0%',
     opacity: '0',
     zIndex: '1'

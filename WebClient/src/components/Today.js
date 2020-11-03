@@ -67,12 +67,13 @@ const Today = (props) => {
     );
 
     function handleScreenClick(event) {
-      event.stopPropagation(); 
-      // if the folder is selected, deSelect it. 
-      let isSelected = folderRef.current.isSelected; 
-      if (isSelected) {
-         folderRef.current.deSelect(); 
-      }
+      // event.stopPropagation(); 
+      // // if the folder is selected, deSelect it. 
+      // let isSelected = folderRef.current.isSelected; 
+      // if (isSelected) {
+      //    folderRef.current.deSelect(); 
+      // }
+      cameraCanvas.current.disableCamera();
     }
 
     function handleInfoClick() {
