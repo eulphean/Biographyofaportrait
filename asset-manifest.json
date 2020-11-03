@@ -1,18 +1,19 @@
 {
   "files": {
     "main.css": "/biographyofaportrait/static/css/main.10069a37.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.f6300a62.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.f6300a62.chunk.js.map",
+    "main.js": "/biographyofaportrait/static/js/main.9509303b.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.9509303b.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
-    "static/js/2.63b6bf64.chunk.js": "/biographyofaportrait/static/js/2.63b6bf64.chunk.js",
-    "static/js/2.63b6bf64.chunk.js.map": "/biographyofaportrait/static/js/2.63b6bf64.chunk.js.map",
+    "static/js/2.dc7d0a9a.chunk.js": "/biographyofaportrait/static/js/2.dc7d0a9a.chunk.js",
+    "static/js/2.dc7d0a9a.chunk.js.map": "/biographyofaportrait/static/js/2.dc7d0a9a.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.22ff772d57c691de7b951b0f71b3da7c.js": "/biographyofaportrait/precache-manifest.22ff772d57c691de7b951b0f71b3da7c.js",
+    "precache-manifest.cc09a531517df3b7047350740712fd7f.js": "/biographyofaportrait/precache-manifest.cc09a531517df3b7047350740712fd7f.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
     "static/css/main.10069a37.chunk.css.map": "/biographyofaportrait/static/css/main.10069a37.chunk.css.map",
-    "static/js/2.63b6bf64.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.63b6bf64.chunk.js.LICENSE.txt",
+    "static/js/2.dc7d0a9a.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.dc7d0a9a.chunk.js.LICENSE.txt",
     "static/media/Monday.mp4": "/biographyofaportrait/static/media/Monday.b8fad123.mp4",
+    "static/media/Tuesday.mp4": "/biographyofaportrait/static/media/Tuesday.ea6e8ba5.mp4",
     "static/media/stylesheet.css": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.d83608a9.woff",
     "static/media/close.cea80ca5.svg": "/biographyofaportrait/static/media/close.cea80ca5.svg",
     "static/media/close_popup.e97b48eb.svg": "/biographyofaportrait/static/media/close_popup.e97b48eb.svg",
@@ -28,8 +29,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2df0d599.js",
-    "static/js/2.63b6bf64.chunk.js",
+    "static/js/2.dc7d0a9a.chunk.js",
     "static/css/main.10069a37.chunk.css",
-    "static/js/main.f6300a62.chunk.js"
+    "static/js/main.9509303b.chunk.js"
   ]
 }
