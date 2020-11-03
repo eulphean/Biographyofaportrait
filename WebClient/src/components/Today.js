@@ -29,22 +29,14 @@ const styles = {
     animationDuration: fadeDuration,
     animationFillMode: 'forwards',
     animationTimingFunction:'ease-in'
-  },
-
-  // graph: {
-  //   position: 'absolute',
-  //   objectFit: 'cover',
-  //   height: '100vh',
-  //   width: '100vw'
-  // },
+  }
 };
 
 const Today = (props) => {
-    const {isLandscape, isPortrait } = props; 
     let popupRef = React.createRef(); 
     let bannerRef = React.createRef(); 
     let folderRef = React.createRef();
-    let userIconRef = React.createRef(); 
+    // let userIconRef = React.createRef(); 
     let cameraCanvas = React.createRef();
     let curHistory = useHistory(); 
 

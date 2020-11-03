@@ -1,7 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router-dom'
-import vid from '../videos/tomorrow.mp4'
+
+import { isMobile, withOrientationChange } from 'react-device-detect'
+import portrait from '../videos/portrait/8_Tomorrow.mp4'
+import landscape from '../videos/landscape/8_Tomorrow.mp4'
 import VideoCanvas from './VideoCanvas.js'
 
 const RadiumLink = Radium(Link);
@@ -15,20 +18,30 @@ const styles = {
   }
 };
 
-class Tomorrow extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state={
-    };
-  }
+const Tomorrow = (props) => {
+  const {isPortrait} = props; 
+  let vid = getVideo(); 
 
-  render() {
-    return (
+  return (
       <RadiumLink style={styles.container} to="/">
         <VideoCanvas src={vid} />
       </RadiumLink>
-    );
+  );
+
+  function getVideo() {
+    let v; 
+    if (isMobile) {
+      if (isPortrait) {
+        v = portrait; 
+      } else {
+        v = landscape; 
+      }
+    } else {
+        v = landscape; 
+    }
+
+    return v; 
   }
 }
 
-export default Radium(Tomorrow);
+export default Radium(withOrientationChange(Tomorrow));

@@ -21,21 +21,18 @@ var sketch = (s) => {
   };
 
   s.initVideo = (vid) => {
-    console.log('Creating video');
-    video = s.createVideo(vid); 
+    video = s.createVideo(vid, s.vidLoaded); 
     video.hide();
-    console.log(video);
     video.elt.setAttribute('playsinline', '');
+    // video.elt.muted = true;
     video.elt.setAttribute('autoplay', true);
     video.elt.setAttribute('loop', true);
-    video.play();
   };
 
-  s.vidLoad = () => {
-    console.log('Video Loaded');
-    video.hide();
-    video.loop();
-  };
+  s.vidLoaded = () => {
+    video.hide(); 
+    video.play(); 
+  }
 };
 
 const styles = {
@@ -71,13 +68,7 @@ class VideoCanvas extends React.Component {
   componentDidMount() {
     console.log('Remount');
     this.myP5 = new p5(sketch, this.sketchRef.current);
-    console.log(this.props);
     this.myP5.initVideo(this.props.src);
-    // if (this.props) {
-    //   console.log(this.props);
-    //   this.myP5 = new p5(sketch, this.sketchRef.current); 
-    //   this.myP5.initVideo(this.props.src); 
-    // }
   }
   
   render() {
