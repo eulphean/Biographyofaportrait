@@ -1,19 +1,20 @@
 {
   "files": {
     "main.css": "/biographyofaportrait/static/css/main.10069a37.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.9509303b.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.9509303b.chunk.js.map",
+    "main.js": "/biographyofaportrait/static/js/main.5132a796.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.5132a796.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
-    "static/js/2.dc7d0a9a.chunk.js": "/biographyofaportrait/static/js/2.dc7d0a9a.chunk.js",
-    "static/js/2.dc7d0a9a.chunk.js.map": "/biographyofaportrait/static/js/2.dc7d0a9a.chunk.js.map",
+    "static/js/2.dd6a840c.chunk.js": "/biographyofaportrait/static/js/2.dd6a840c.chunk.js",
+    "static/js/2.dd6a840c.chunk.js.map": "/biographyofaportrait/static/js/2.dd6a840c.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.cc09a531517df3b7047350740712fd7f.js": "/biographyofaportrait/precache-manifest.cc09a531517df3b7047350740712fd7f.js",
+    "precache-manifest.c2173988624c12b65fbb99dde27afcbb.js": "/biographyofaportrait/precache-manifest.c2173988624c12b65fbb99dde27afcbb.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
     "static/css/main.10069a37.chunk.css.map": "/biographyofaportrait/static/css/main.10069a37.chunk.css.map",
-    "static/js/2.dc7d0a9a.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.dc7d0a9a.chunk.js.LICENSE.txt",
+    "static/js/2.dd6a840c.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.dd6a840c.chunk.js.LICENSE.txt",
     "static/media/Monday.mp4": "/biographyofaportrait/static/media/Monday.b8fad123.mp4",
     "static/media/Tuesday.mp4": "/biographyofaportrait/static/media/Tuesday.ea6e8ba5.mp4",
+    "static/media/Wednesday.mp4": "/biographyofaportrait/static/media/Wednesday.702ed904.mp4",
     "static/media/stylesheet.css": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.d83608a9.woff",
     "static/media/close.cea80ca5.svg": "/biographyofaportrait/static/media/close.cea80ca5.svg",
     "static/media/close_popup.e97b48eb.svg": "/biographyofaportrait/static/media/close_popup.e97b48eb.svg",
@@ -29,8 +30,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2df0d599.js",
-    "static/js/2.dc7d0a9a.chunk.js",
+    "static/js/2.dd6a840c.chunk.js",
     "static/css/main.10069a37.chunk.css",
-    "static/js/main.9509303b.chunk.js"
+    "static/js/main.5132a796.chunk.js"
   ]
 }
