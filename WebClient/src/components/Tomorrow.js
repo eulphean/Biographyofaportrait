@@ -25,7 +25,7 @@ const Tomorrow = (props) => {
   let canvasRef = React.createRef(); 
 
   return (
-    <div style={styles.container} onClick={handleScreenClick.bind(this)} style={styles.container}>
+    <div style={styles.container} onClick={handleScreenClick.bind(this)}>
       <RadiumLink to="/">
         <VideoCanvas 
           ref={canvasRef}

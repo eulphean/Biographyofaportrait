@@ -42,7 +42,8 @@ const styles = {
 
   folderContainer: {
     position: 'relative',
-    display: 'flex'
+    display: 'flex',
+    justifyContent: 'center'
   },
 
   iconContainer: {
@@ -136,18 +137,26 @@ class Folder extends React.Component {
     let titleStyle = this.props.isToday ? [styles.title, styles.titleToday] : styles.title;
 
     return (
-      <RadiumLink style={containerStyle} to={this.props.target}>
-         <div style={styles.folderContainer}>
-           <div style={styles.iconContainer}>
-              <FolderIcon style={styles.icon} />
-           </div>
-         </div>
-         {/* { blurred } */}
-         <div style={titleStyle}>
-             {this.props.children}
-         </div>
-      </RadiumLink>
+      <div style={containerStyle} onClick={this.handleClick.bind(this)} >
+        <RadiumLink to={this.props.target}>
+          <div style={styles.folderContainer}>
+            <div style={styles.iconContainer}>
+                <FolderIcon style={styles.icon} />
+            </div>
+          </div>
+          {/* { blurred } */}
+          <div style={titleStyle}>
+              {this.props.children}
+          </div>
+       </RadiumLink>
+      </div>
     );
+  }
+
+  handleClick(event) {
+    if (this.props.onClickCbk) {
+      this.props.onClickCbk(event); 
+    }
   }
   
   fadeIn() {

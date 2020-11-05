@@ -28,13 +28,14 @@ const Yesterday = (props) => {
   let vid = getVideo(); 
 
   return (
-    <div onClick={handleScreenClick.bind(this)} style={styles.container}>
+    <div style={styles.container}>
       <VideoCanvas 
         ref={canvasRef}
         src={vid}
       />
       <Folder 
         ref={folderRef}
+        onClickCbk={handleFolderClick.bind(this)}
         history={curHistory}
         visible={true}
         target={'/Monday'}>
@@ -43,7 +44,7 @@ const Yesterday = (props) => {
     </div>
   );
 
-  function handleScreenClick(event) {
+  function handleFolderClick(event) {
       event.stopPropagation(); 
       canvasRef.current.disableLoop(); 
   }
