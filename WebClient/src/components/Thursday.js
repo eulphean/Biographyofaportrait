@@ -31,11 +31,14 @@ const Thursday = (props) => {
   const {isPortrait} = props; 
   let curHistory = useHistory(); 
   let folderRef = React.createRef(); 
+  let canvasRef = React.createRef(); 
   let vid = getVideo(); 
 
   return (
     <div onClick={handleScreenClick.bind(this)} style={styles.container}>
-      <VideoCanvas src={vid} />
+      <VideoCanvas 
+        ref={canvasRef}
+        src={vid} />
       <Folder 
         ref={folderRef}
         history={curHistory}
@@ -48,10 +51,7 @@ const Thursday = (props) => {
 
   function handleScreenClick(event) {
     event.stopPropagation();
-    let isSelected = folderRef.current.isSelected; 
-    if (isSelected) {
-      folderRef.current.deSelect(); 
-    }
+    canvasRef.current.disableLoop();
   }
 
   function getVideo() {

@@ -35,49 +35,63 @@ const styles = {
   }
 };
 
-function App() {
-  return (
-    <div style={styles.container}>
-      <img style={styles.graph} alt='graph' src={graph} />
-      <Router>
-        <Switch>
-          <Route path="/Monday">
-            <Monday />
-          </Route>
-          <Route path="/Tuesday">
-            <Tuesday />
-          </Route>
-          <Route path="/Wednesday">
-            <Wednesday />
-          </Route>
-          <Route path="/Wednesday">
-            <Wednesday />
-          </Route>
-          <Route path="/Thursday">
-            <Thursday />
-          </Route>
-          <Route path="/Friday">
-            <Friday />
-          </Route>
-          <Route path="/Saturday">
-            <Saturday />
-          </Route>
-          <Route path="/Sunday">
-            <Sunday />
-          </Route>
-          <Route path="/Tomorrow">
-            <Tomorrow />
-          </Route>
-          <Route path="/Yesterday">
-            <Yesterday />
-          </Route>
-          <Route path="/">
-            <Today />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props); 
+    this.state = {
+      showVideoCanvas: false,
+      vid: {}
+    }; 
+  }
+
+  render() {
+    // let videoCanvas = this.state.showVideoCanvas ? (<VideoCanvas src={this.state.vid} />) : React.NULL; 
+
+    return (
+      <div style={styles.container}>
+        <img style={styles.graph} alt='graph' src={graph} />
+        {/* {videoCanvas} */}
+        <Router>
+          <Switch>
+            <Route path="/Monday">
+              <Monday />
+            </Route>
+            <Route path="/Tuesday">
+              <Tuesday />
+            </Route>
+            <Route path="/Wednesday">
+              <Wednesday />
+            </Route>
+            <Route path="/Wednesday">
+              <Wednesday />
+            </Route>
+            <Route path="/Thursday">
+              <Thursday />
+            </Route>
+            <Route path="/Friday">
+              <Friday />
+            </Route>
+            <Route path="/Saturday">
+              <Saturday />
+            </Route>
+            <Route path="/Sunday">
+              <Sunday />
+            </Route>
+            <Route path="/Tomorrow">
+              <Tomorrow />
+            </Route>
+            <Route path="/Yesterday">
+              <Yesterday />
+            </Route>
+            <Route path="/">
+              <Today />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
+
 
 export default Radium(App);

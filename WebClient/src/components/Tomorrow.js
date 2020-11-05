@@ -18,13 +18,16 @@ const styles = {
   }
 };
 
+// TODO: Bind noLoop...
 const Tomorrow = (props) => {
   const {isPortrait} = props; 
   let vid = getVideo(); 
 
   return (
       <RadiumLink style={styles.container} to="/">
-        <VideoCanvas src={vid} />
+        <VideoCanvas 
+        
+        src={vid} />
       </RadiumLink>
   );
 

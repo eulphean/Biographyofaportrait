@@ -33,6 +33,10 @@ var sketch = (s) => {
     video.hide(); 
     video.play(); 
   }
+
+  s.disableLoop = () => {
+    s.noLoop(); 
+  }
 };
 
 const styles = {
@@ -83,6 +87,11 @@ class VideoCanvas extends React.Component {
         </div>
       </div>
     );
+  }
+
+  disableLoop() {
+    this.myP5.disableLoop(); 
+    console.log('Disable Loop'); 
   }
 }
 
