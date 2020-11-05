@@ -35,13 +35,14 @@ const Tuesday = (props) => {
   let vid = getVideo(); 
 
   return (
-    <div onClick={handleScreenClick.bind(this)} style={styles.container}>
+    <div style={styles.container}>
       <VideoCanvas 
         ref={canvasRef}
         src={vid} />
       <Folder 
         ref={folderRef}
         history={curHistory}
+        onClickCbk={handleFolderClick.bind(this)}
         visible={true}
         target={'/Wednesday'}>
         WEDNESDAY
@@ -49,8 +50,8 @@ const Tuesday = (props) => {
     </div>
   );
 
-  function handleScreenClick(event) {
-    event.stopPropagation();
+  function handleFolderClick(event) {
+    event.stopPropagation(); 
     canvasRef.current.disableLoop(); 
   }
 
