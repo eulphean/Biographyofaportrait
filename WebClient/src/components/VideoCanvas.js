@@ -43,13 +43,13 @@ var sketch = (s) => {
 const styles = {
   container: {
     position: 'absolute',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: '0%',
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     objectFit: 'cover',
     width: '100vw',
     height: '100vh',
+    top: '0%',
     left: '0%',
     opacity: '0',
     zIndex: '1'

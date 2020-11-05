@@ -45,12 +45,9 @@ class App extends React.Component {
   }
 
   render() {
-    // let videoCanvas = this.state.showVideoCanvas ? (<VideoCanvas src={this.state.vid} />) : React.NULL; 
-
     return (
       <div style={styles.container}>
         <img style={styles.graph} alt='graph' src={graph} />
-        {/* {videoCanvas} */}
         <Router>
           <Switch>
             <Route path="/Monday">
