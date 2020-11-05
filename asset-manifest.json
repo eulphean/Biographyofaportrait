@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/biographyofaportrait/static/css/main.10069a37.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.2ff56088.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.2ff56088.chunk.js.map",
+    "main.js": "/biographyofaportrait/static/js/main.84dff213.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.84dff213.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
-    "static/js/2.483d5dd9.chunk.js": "/biographyofaportrait/static/js/2.483d5dd9.chunk.js",
-    "static/js/2.483d5dd9.chunk.js.map": "/biographyofaportrait/static/js/2.483d5dd9.chunk.js.map",
+    "static/js/2.fb473ded.chunk.js": "/biographyofaportrait/static/js/2.fb473ded.chunk.js",
+    "static/js/2.fb473ded.chunk.js.map": "/biographyofaportrait/static/js/2.fb473ded.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.cad0f43daeb4d7b21b93bdcd83afc1e7.js": "/biographyofaportrait/precache-manifest.cad0f43daeb4d7b21b93bdcd83afc1e7.js",
+    "precache-manifest.9fcfd2d394d43c6a540e5c3f2b7d41bd.js": "/biographyofaportrait/precache-manifest.9fcfd2d394d43c6a540e5c3f2b7d41bd.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
     "static/css/main.10069a37.chunk.css.map": "/biographyofaportrait/static/css/main.10069a37.chunk.css.map",
-    "static/js/2.483d5dd9.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.483d5dd9.chunk.js.LICENSE.txt",
+    "static/js/2.fb473ded.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.fb473ded.chunk.js.LICENSE.txt",
     "static/media/0_Yesterday.mp4": "/biographyofaportrait/static/media/0_Yesterday.d0611cdd.mp4",
     "static/media/1_Monday.mp4": "/biographyofaportrait/static/media/1_Monday.b8fad123.mp4",
     "static/media/2_Tuesday.mp4": "/biographyofaportrait/static/media/2_Tuesday.ea6e8ba5.mp4",
@@ -31,8 +31,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2df0d599.js",
-    "static/js/2.483d5dd9.chunk.js",
+    "static/js/2.fb473ded.chunk.js",
     "static/css/main.10069a37.chunk.css",
-    "static/js/main.2ff56088.chunk.js"
+    "static/js/main.84dff213.chunk.js"
   ]
 }
