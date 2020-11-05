@@ -28,11 +28,12 @@ const styles = {
 };
 
 const Monday = (props) => {
-  const { isPortrait } = props; 
+  const { isLandscape } = props; 
   let curHistory = useHistory(); 
   let folderRef = React.createRef(); 
   let canvasRef = React.createRef();  
   let vid = getVideo(); 
+  console.log(isLandscape);
 
   return (
     <div onClick={handleScreenClick.bind(this)} style={styles.container}>
@@ -50,27 +51,20 @@ const Monday = (props) => {
   );
 
   function getVideo() {
-    let v; 
     if (isMobile) {
-      if (isPortrait) {
-        v = portrait; 
+      if (isLandscape) {
+        return landscape;
       } else {
-        v = landscape; 
+        return portrait; 
       }
     } else {
-        v = landscape; 
+        return landscape;
     }
-
-    return v; 
   }
 
   function handleScreenClick(event) {
     event.stopPropagation();
     canvasRef.current.disableLoop();
-    // let isSelected = folderRef.current.isSelected; 
-    // if (isSelected) {
-    //    folderRef.current.deSelect(); 
-    // }
   }
 }
 

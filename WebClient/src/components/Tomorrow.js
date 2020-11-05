@@ -20,30 +20,36 @@ const styles = {
 
 // TODO: Bind noLoop...
 const Tomorrow = (props) => {
-  const {isPortrait} = props; 
+  const {isLandscape} = props; 
   let vid = getVideo(); 
+  let canvasRef = React.createRef(); 
 
   return (
-      <RadiumLink style={styles.container} to="/">
+    <div style={styles.container} onClick={handleScreenClick.bind(this)} style={styles.container}>
+      <RadiumLink to="/">
         <VideoCanvas 
-        
-        src={vid} />
+          ref={canvasRef}
+          src={vid} 
+        />
       </RadiumLink>
+    </div>
   );
 
+  function handleScreenClick(event) {
+    console.log('Screen Click'); 
+    canvasRef.current.disableLoop(); 
+  }
+
   function getVideo() {
-    let v; 
     if (isMobile) {
-      if (isPortrait) {
-        v = portrait; 
+      if (isLandscape) {
+        return landscape;
       } else {
-        v = landscape; 
+        return portrait;
       }
     } else {
-        v = landscape; 
+        return landscape; 
     }
-
-    return v; 
   }
 }
 

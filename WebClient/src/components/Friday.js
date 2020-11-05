@@ -28,7 +28,7 @@ const styles = {
 };
 
 const Friday = (props) => {
-  const {isPortrait} = props; 
+  const {isLandscape} = props; 
   let curHistory = useHistory(); 
   let canvasRef = React.createRef();
   let folderRef = React.createRef(); 
@@ -55,18 +55,15 @@ const Friday = (props) => {
   }
 
   function getVideo() {
-    let v; 
     if (isMobile) {
-      if (isPortrait) {
-        v = portrait; 
+      if (isLandscape) {
+        return landscape;
       } else {
-        v = landscape; 
+        return portrait;
       }
     } else {
-        v = landscape; 
+        return landscape; 
     }
-
-    return v; 
   }
 }
 

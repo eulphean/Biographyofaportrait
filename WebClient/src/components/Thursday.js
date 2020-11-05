@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { isMobile, withOrientationChange } from 'react-device-detect'
 import portrait from '../videos/portrait/4_Thursday.mp4'
 import landscape from '../videos/landscape/4_Thursday.mp4'
-import Folder from './Folder'
+import Folder from './Folder.js'
 import VideoCanvas from './VideoCanvas.js'
 
 const styles = {
@@ -28,7 +28,7 @@ const styles = {
 };
 
 const Thursday = (props) => {
-  const {isPortrait} = props; 
+  const {isLandscape} = props; 
   let curHistory = useHistory(); 
   let folderRef = React.createRef(); 
   let canvasRef = React.createRef(); 
@@ -55,18 +55,15 @@ const Thursday = (props) => {
   }
 
   function getVideo() {
-    let v; 
     if (isMobile) {
-      if (isPortrait) {
-        v = portrait; 
+      if (isLandscape) {
+        return landscape;
       } else {
-        v = landscape; 
+        return portrait;
       }
     } else {
-        v = landscape; 
+        return landscape; 
     }
-
-    return v; 
   }
 }
 

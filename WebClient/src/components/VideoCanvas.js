@@ -36,6 +36,7 @@ var sketch = (s) => {
 
   s.disableLoop = () => {
     s.noLoop(); 
+    video.mute = true; 
   }
 };
 
@@ -47,9 +48,9 @@ const styles = {
     justifyContent: 'center',
     top: '0%',
     objectFit: 'cover',
-    height: '100vh',
     width: '100vw',
-    // left: '0%',
+    height: '100vh',
+    left: '0%',
     opacity: '0',
     zIndex: '1'
   },
@@ -66,16 +67,27 @@ class VideoCanvas extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      isFadeIn: false
+      isFadeIn: false,
+      video: this.props.src
     };
 
     this.sketchRef = React.createRef(); 
   }
 
   componentDidMount() {
-    console.log('Remount');
+    console.log('Canvas Mounted');
     this.myP5 = new p5(sketch, this.sketchRef.current);
-    this.myP5.initVideo(this.props.src);
+    console.log('Creating video on mount');
+    this.myP5.initVideo(this.props.src); 
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.src !== this.props.src) {
+      // Create a new video. 
+      this.myP5.initVideo(nextProps.src); 
+    }
+
+    return true; 
   }
   
   render() {

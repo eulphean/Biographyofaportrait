@@ -20,19 +20,18 @@ const styles = {
   }
 };
 
-
 const Yesterday = (props) => {
-  const {isPortrait} = props; 
+  const { isLandscape } = props; 
   let curHistory = useHistory(); 
   let folderRef = React.createRef(); 
-  let vid = getVideo(); 
   let canvasRef = React.createRef(); 
+  let vid = getVideo(); 
 
   return (
     <div onClick={handleScreenClick.bind(this)} style={styles.container}>
       <VideoCanvas 
         ref={canvasRef}
-        src={vid} 
+        src={vid}
       />
       <Folder 
         ref={folderRef}
@@ -47,26 +46,18 @@ const Yesterday = (props) => {
   function handleScreenClick(event) {
       event.stopPropagation(); 
       canvasRef.current.disableLoop(); 
-  
-      // let isSelected = folderRef.current.isSelected; 
-      // if (isSelected) {
-      //    folderRef.current.deSelect(); 
-      // }
   }
 
   function getVideo() {
-    let v; 
     if (isMobile) {
-      if (isPortrait) {
-        v = portrait; 
+      if (isLandscape) {
+        return landscape;
       } else {
-        v = landscape; 
+        return portrait; 
       }
     } else {
-        v = landscape; 
+        return landscape;
     }
-
-    return v; 
   }
 }
 

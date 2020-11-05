@@ -92,8 +92,12 @@ const styles = {
       }
   },
 
+  titleToday: {
+    color: color.jenGrey
+  },
+
   outline: {
-    WebkitTextStroke: '0.5px black',
+    WebkitTextStroke: '0.5px #b3b3b3',
   },
 
   blurred: {
@@ -125,11 +129,11 @@ class Folder extends React.Component {
       containerStyle=styles.containerToday;
     }
 
-    let blurred = this.props.isToday ? (React.Null) : (
-      <div style={styles.blurred} />
-    ); 
+    // let blurred = this.props.isToday ? (React.Null) : (
+    //   <div style={styles.blurred} />
+    // ); 
 
-    let titleStyle = this.props.isToday ? [styles.outline, styles.title] : styles.title;
+    let titleStyle = this.props.isToday ? [styles.title, styles.titleToday] : styles.title;
 
     return (
       <RadiumLink style={containerStyle} to={this.props.target}>
@@ -138,7 +142,7 @@ class Folder extends React.Component {
               <FolderIcon style={styles.icon} />
            </div>
          </div>
-         { blurred }
+         {/* { blurred } */}
          <div style={titleStyle}>
              {this.props.children}
          </div>
