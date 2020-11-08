@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/biographyofaportrait/static/css/main.10069a37.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.6ba65479.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.6ba65479.chunk.js.map",
+    "main.js": "/biographyofaportrait/static/js/main.d7b7527a.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.d7b7527a.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
     "static/js/2.fb473ded.chunk.js": "/biographyofaportrait/static/js/2.fb473ded.chunk.js",
     "static/js/2.fb473ded.chunk.js.map": "/biographyofaportrait/static/js/2.fb473ded.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.10e9b228b74a80ed0e8000546fdf0a4b.js": "/biographyofaportrait/precache-manifest.10e9b228b74a80ed0e8000546fdf0a4b.js",
+    "precache-manifest.8922375e91e9e21bc32146a20229c8d6.js": "/biographyofaportrait/precache-manifest.8922375e91e9e21bc32146a20229c8d6.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
     "static/css/main.10069a37.chunk.css.map": "/biographyofaportrait/static/css/main.10069a37.chunk.css.map",
     "static/js/2.fb473ded.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.fb473ded.chunk.js.LICENSE.txt",
@@ -24,7 +24,7 @@
     "static/media/stylesheet.css": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.d83608a9.woff",
     "static/media/close.cea80ca5.svg": "/biographyofaportrait/static/media/close.cea80ca5.svg",
     "static/media/close_popup.e97b48eb.svg": "/biographyofaportrait/static/media/close_popup.e97b48eb.svg",
-    "static/media/clouds.gif": "/biographyofaportrait/static/media/clouds.176b39da.gif",
+    "static/media/clouds.gif": "/biographyofaportrait/static/media/clouds.ac78b0d0.gif",
     "static/media/folder.db870ce7.svg": "/biographyofaportrait/static/media/folder.db870ce7.svg",
     "static/media/graph_rotate.jpg": "/biographyofaportrait/static/media/graph_rotate.08b0f555.jpg",
     "static/media/info.e0bb55ec.svg": "/biographyofaportrait/static/media/info.e0bb55ec.svg"
@@ -33,6 +33,6 @@
     "static/js/runtime-main.2df0d599.js",
     "static/js/2.fb473ded.chunk.js",
     "static/css/main.10069a37.chunk.css",
-    "static/js/main.6ba65479.chunk.js"
+    "static/js/main.d7b7527a.chunk.js"
   ]
 }
