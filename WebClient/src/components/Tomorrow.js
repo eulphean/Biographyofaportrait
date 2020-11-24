@@ -3,8 +3,10 @@ import Radium from 'radium'
 import { Link } from 'react-router-dom'
 
 import { isMobile, withOrientationChange } from 'react-device-detect'
-import portrait from '../videos/portrait/8_Tomorrow.mp4'
-import landscape from '../videos/landscape/8_Tomorrow.mp4'
+// import portrait from '../videos/portrait/8_Tomorrow.mp4'
+// import landscape from '../videos/landscape/8_Tomorrow.mp4'
+import portrait from '../webm/portrait/8_Tomorrow.webm'
+import landscape from '../webm/landscape/8_Tomorrow.webm'
 import VideoCanvas from './VideoCanvas.js'
 
 const RadiumLink = Radium(Link);

@@ -3,8 +3,10 @@ import Radium from 'radium'
 import { useHistory } from 'react-router-dom'
 
 import { isMobile, withOrientationChange } from 'react-device-detect'
-import portrait from '../videos/portrait/4_Thursday.mp4'
-import landscape from '../videos/landscape/4_Thursday.mp4'
+// import portrait from '../videos/portrait/4_Thursday.mp4'
+// import landscape from '../videos/landscape/4_Thursday.mp4'
+import portrait from '../webm/portrait/4_Thursday.webm'
+import landscape from '../webm/landscape/4_Thursday.webm'
 import Folder from './Folder.js'
 import VideoCanvas from './VideoCanvas.js'
 

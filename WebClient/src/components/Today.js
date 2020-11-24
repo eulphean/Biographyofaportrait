@@ -41,7 +41,7 @@ const Today = (props) => {
     let curHistory = useHistory(); 
 
     return (
-      <div onClick={handleScreenClick.bind(this)} style={styles.contentContainer}>
+      <div style={styles.contentContainer}>
         {/* <img style={styles.graph} alt='graph' src={graph} /> */}
         <Popup 
           ref={popupRef}
@@ -52,6 +52,7 @@ const Today = (props) => {
         <Banner
           ref={bannerRef} 
           onShowInfo={handleInfoClick.bind(this)}
+          onHandleClick={handleFolderClick.bind(this)}
           showCameraPrompt={showCameraPrompt.bind(this)}
         />
         {/* <UserIcon ref={userIconRef} /> */}
@@ -59,6 +60,7 @@ const Today = (props) => {
           ref={folderRef} 
           target={'/Yesterday'}
           history={curHistory}
+          onClickCbk={handleFolderClick.bind(this)}
           isToday={true}
         >
           YESTERDAY
@@ -66,13 +68,9 @@ const Today = (props) => {
       </div>
     );
 
-    function handleScreenClick(event) {
+    function handleFolderClick(event) {
       // event.stopPropagation(); 
-      // // if the folder is selected, deSelect it. 
-      // let isSelected = folderRef.current.isSelected; 
-      // if (isSelected) {
-      //    folderRef.current.deSelect(); 
-      // }
+      // Remove the entire canvas. 
       cameraCanvas.current.disableCamera();
     }
 

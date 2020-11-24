@@ -27,6 +27,8 @@ const styles = {
   container: {
     position: 'absolute',
     width: '100%',
+    height: '150px',
+    backgroundColor: 'red',
     zIndex: '100',
     top: '-999px'
   },
@@ -239,14 +241,21 @@ class Banner extends React.Component {
             <Close style={styles.icon} />
           </div>
         </div>
-        <RadiumLink to='/Tomorrow'>
-          <div style={styles.tomorrow}>
+        <RadiumLink onClick={this.handleClick.bind(this)} to='/Tomorrow'>
+          {/* <div style={styles.tomorrow}>
             Tomorrow<sup style={styles.tomorrowSuper}>TM</sup>
-          </div>
+          </div> */}
           <img style={styles.clouds} alt={'clouds'} src={gif} />
         </RadiumLink>
       </div>
     );
+  }
+
+  handleClick(event) {
+    console.log('hello');
+    if (this.props.onHandleClick) {
+      this.props.onHandleClick(); 
+    }
   }
 
   onShowPopup(event) {

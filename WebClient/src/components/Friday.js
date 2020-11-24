@@ -4,8 +4,10 @@ import { useHistory } from 'react-router-dom'
 import Folder from './Folder.js'
 
 import { isMobile, withOrientationChange } from 'react-device-detect'
-import portrait from '../videos/portrait/5_Friday.mp4'
-import landscape from '../videos/landscape/5_Friday.mp4'
+// import portrait from '../videos/portrait/5_Friday.mp4'
+// import landscape from '../videos/landscape/5_Friday.mp4'
+import portrait from '../webm/portrait/5_Friday.webm'
+import landscape from '../webm/landscape/5_Friday.webm'
 import VideoCanvas from './VideoCanvas.js'
 
 const styles = {
