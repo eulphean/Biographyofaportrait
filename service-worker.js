@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/biographyofaportrait/precache-manifest.82f6bded36b1caa2d6da3badd44b28a1.js"
+  "/biographyofaportrait/precache-manifest.d6addcc591bb2b7107dc16d35713b3f1.js"
 );
 
 self.addEventListener('message', (event) => {
