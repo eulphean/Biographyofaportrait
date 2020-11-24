@@ -69,7 +69,7 @@ const Today = (props) => {
     );
 
     function handleFolderClick(event) {
-      // event.stopPropagation(); 
+      event.stopPropagation(); 
       // Remove the entire canvas. 
       cameraCanvas.current.disableCamera();
     }

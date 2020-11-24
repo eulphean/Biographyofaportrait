@@ -38,7 +38,6 @@ const Tomorrow = (props) => {
   );
 
   function handleScreenClick(event) {
-    console.log('Screen Click'); 
     canvasRef.current.disableLoop(); 
   }
 

@@ -252,8 +252,9 @@ class Banner extends React.Component {
   }
 
   handleClick(event) {
+    event.stopPropagation();
     if (this.props.onHandleClick) {
-      this.props.onHandleClick(); 
+      this.props.onHandleClick(event); 
     }
   }
 

@@ -37,8 +37,9 @@ var sketch = (s) => {
   s.disableLoop = () => {
     s.noLoop();
     video.mute = true;
+    video.elt.remove();
     // Remove canvas completely. 
-    s.remove();
+    // s.remove();
   }
 };
 
