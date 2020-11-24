@@ -45,7 +45,6 @@ const Yesterday = (props) => {
   );
 
   function handleFolderClick(event) {
-      event.stopPropagation(); 
       canvasRef.current.disableLoop(); 
   }
 
