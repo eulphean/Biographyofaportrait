@@ -40,7 +40,7 @@ var sketch = (s) => {
 
   s.removeVideo = () => {
     if (video) {
-      video.mute = true; 
+      console.log('Removing Previous Video');
       video.elt.remove();
       if (s.canvas) {
         s.canvas.style.visibility = 'hidden';
@@ -50,6 +50,7 @@ var sketch = (s) => {
 
   s.showCanvas = () => {
     if (s.canvas) {
+      console.log('Show canvas'); 
       s.canvas.style.visibility = 'visible'; 
     }
   }
@@ -113,11 +114,9 @@ class VideoCanvas extends React.Component {
 
   removeVideo() {
     this.myP5.removeVideo(); 
-    console.log('Remove previous video'); 
   }
 
   showCanvas(src) {
-    console.log('Creating video.');
     this.myP5.initVideo(src); 
     this.myP5.showCanvas();
   }

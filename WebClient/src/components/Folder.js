@@ -137,7 +137,7 @@ class Folder extends React.Component {
     let titleStyle = this.props.isToday ? [styles.title, styles.titleToday] : styles.title;
 
     return (
-      <div style={containerStyle} >
+      <div style={containerStyle} onClick={this.onClick.bind(this)}>
         <RadiumLink to={this.props.target}>
           <div style={styles.folderContainer}>
             <div style={styles.iconContainer}>
@@ -157,6 +157,13 @@ class Folder extends React.Component {
     this.setState({
       isFadeIn: true
     });
+  }
+
+  onClick(event) {
+    event.stopPropagation();
+    if (this.props.onClick) {
+      this.props.onClick(); 
+    } 
   }
 }
 

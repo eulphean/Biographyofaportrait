@@ -45,6 +45,7 @@ class Tuesday extends React.Component {
       <div style={styles.container}>
         <Folder 
           ref={this.folderRef}
+          onClick={this.onClick.bind(this)}
           visible={true}
           target={'/Wednesday'}>
           WEDNESDAY
@@ -63,6 +64,10 @@ class Tuesday extends React.Component {
     } else {
         return landscape; 
     }
+  }
+
+  onClick() {
+    this.props.removeVideo();
   }
 }
 

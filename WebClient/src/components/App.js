@@ -63,32 +63,47 @@ class App extends React.Component {
           </RadiumLink>
           <Switch>
             <Route path="/Monday">
-              <Monday setupVideo={this.setupVideo.bind(this)} />
+              <Monday 
+                setupVideo={this.setupVideo.bind(this)}
+                removeVideo={this.removeVideo.bind(this)} />
             </Route>
             <Route path="/Tuesday">
-              <Tuesday setupVideo={this.setupVideo.bind(this)} />
+              <Tuesday 
+                setupVideo={this.setupVideo.bind(this)}
+                removeVideo={this.removeVideo.bind(this)} />
             </Route>
             <Route path="/Wednesday">
-              <Wednesday setupVideo={this.setupVideo.bind(this)} />
+              <Wednesday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)}/>
             </Route>
             <Route path="/Thursday">
-              <Thursday setupVideo={this.setupVideo.bind(this)} />
+              <Thursday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)} />
             </Route>
             <Route path="/Friday">
-              <Friday setupVideo={this.setupVideo.bind(this)} />
+              <Friday 
+                setupVideo={this.setupVideo.bind(this)}
+                removeVideo={this.removeVideo.bind(this)} />
             </Route>
             <Route path="/Saturday">
-              <Saturday setupVideo={this.setupVideo.bind(this)} />
+              <Saturday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)} />
             </Route>
             <Route path="/Sunday">
-              <Sunday setupVideo={this.setupVideo.bind(this)} />
+              <Sunday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)}/>
             </Route>
             <Route path="/Tomorrow">
               <Tomorrow setupVideo = {this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Yesterday">
               <Yesterday 
-                setupVideo = {this.setupVideo.bind(this)} />
+                setupVideo = {this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)} />
             </Route>
             <Route path="/">
               <Today 
