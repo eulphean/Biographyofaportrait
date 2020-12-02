@@ -21,6 +21,12 @@ var sketch = (s) => {
   };
 
   s.initVideo = (vid) => {
+    // Resize the canvas. This is helpful when
+    // the device has just rotated. 
+    x = s.windowWidth; y = s.windowHeight; 
+    s.resizeCanvas(x, y); 
+
+    // Update Canvas width 
     console.log('Init Video');
     video = s.createVideo(vid, s.vidLoaded); 
     video.hide();

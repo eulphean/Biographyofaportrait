@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-
+import { withOrientationChange } from 'react-device-detect'
 import Today from './Today.js'
 import Yesterday from './Yesterday.js'
 import Tomorrow from './Tomorrow.js'
@@ -39,93 +39,99 @@ const styles = {
   }
 };
 
-class App extends React.Component {
-  constructor(props) {
-    super(props); 
-    this.state = {
-      showVideoCanvas: false,
-      vid: '',
-      target: ''
-    }; 
+const App = (props) => {
+  const { isLandscape, isPortrait } = props; 
+  let videoRef = React.createRef(); 
 
-    this.videoRef = React.createRef(); 
+  return (
+    <div style={styles.container}>
+      <img style={styles.graph} alt='graph' src={graph} />
+      <Router>
+        <RadiumLink to="/">
+          <VideoCanvas 
+            ref={videoRef}
+            src={''} />
+        </RadiumLink>
+        <Switch>
+          <Route path="/Monday">
+            <Monday 
+              setupVideo={setupVideo.bind(this)}
+              removeVideo={removeVideo.bind(this)} 
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/Tuesday">
+            <Tuesday 
+              setupVideo={setupVideo.bind(this)}
+              removeVideo={removeVideo.bind(this)} 
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/Wednesday">
+            <Wednesday 
+              setupVideo={setupVideo.bind(this)} 
+              removeVideo={removeVideo.bind(this)}
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/Thursday">
+            <Thursday 
+              setupVideo={setupVideo.bind(this)} 
+              removeVideo={removeVideo.bind(this)} 
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/Friday">
+            <Friday 
+              setupVideo={setupVideo.bind(this)}
+              removeVideo={removeVideo.bind(this)} 
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/Saturday">
+            <Saturday 
+              setupVideo={setupVideo.bind(this)} 
+              removeVideo={removeVideo.bind(this)} 
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/Sunday">
+            <Sunday 
+              setupVideo={setupVideo.bind(this)} 
+              removeVideo={removeVideo.bind(this)} 
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/Tomorrow">
+            <Tomorrow 
+              setupVideo = {setupVideo.bind(this)} 
+              isPortrait = { isPortrait }
+              isLandscape = { isLandscape }
+            />
+          </Route>
+          <Route path="/Yesterday">
+            <Yesterday 
+              setupVideo = {setupVideo.bind(this)} 
+              removeVideo = {removeVideo.bind(this)} 
+              isLandscape = { isLandscape } 
+              isPortrait = { isPortrait } />
+          </Route>
+          <Route path="/">
+            <Today 
+              removeVideo = {removeVideo.bind(this)} />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+
+
+  function setupVideo(src) {
+    videoRef.current.showCanvas(src);
   }
 
-  render() {
-    return (
-      <div style={styles.container}>
-        <img style={styles.graph} alt='graph' src={graph} />
-        <Router>
-          <RadiumLink to="/">
-            <VideoCanvas 
-              ref={this.videoRef}
-              src={this.state.vid} />
-          </RadiumLink>
-          <Switch>
-            <Route path="/Monday">
-              <Monday 
-                setupVideo={this.setupVideo.bind(this)}
-                removeVideo={this.removeVideo.bind(this)} />
-            </Route>
-            <Route path="/Tuesday">
-              <Tuesday 
-                setupVideo={this.setupVideo.bind(this)}
-                removeVideo={this.removeVideo.bind(this)} />
-            </Route>
-            <Route path="/Wednesday">
-              <Wednesday 
-                setupVideo={this.setupVideo.bind(this)} 
-                removeVideo={this.removeVideo.bind(this)}/>
-            </Route>
-            <Route path="/Thursday">
-              <Thursday 
-                setupVideo={this.setupVideo.bind(this)} 
-                removeVideo={this.removeVideo.bind(this)} />
-            </Route>
-            <Route path="/Friday">
-              <Friday 
-                setupVideo={this.setupVideo.bind(this)}
-                removeVideo={this.removeVideo.bind(this)} />
-            </Route>
-            <Route path="/Saturday">
-              <Saturday 
-                setupVideo={this.setupVideo.bind(this)} 
-                removeVideo={this.removeVideo.bind(this)} />
-            </Route>
-            <Route path="/Sunday">
-              <Sunday 
-                setupVideo={this.setupVideo.bind(this)} 
-                removeVideo={this.removeVideo.bind(this)}/>
-            </Route>
-            <Route path="/Tomorrow">
-              <Tomorrow setupVideo = {this.setupVideo.bind(this)} />
-            </Route>
-            <Route path="/Yesterday">
-              <Yesterday 
-                setupVideo = {this.setupVideo.bind(this)} 
-                removeVideo={this.removeVideo.bind(this)} />
-            </Route>
-            <Route path="/">
-              <Today 
-                removeVideo = {this.removeVideo.bind(this)} />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    );
-  }
-
-  setupVideo(src) {
-    this.videoRef.current.showCanvas(src);
-    // this.setState({
-    //   vid: src
-    // }); 
-  }
-
-  removeVideo() {
-    this.videoRef.current.removeVideo();
+  function removeVideo() {
+    videoRef.current.removeVideo();
   }
 }
-
-
-export default Radium(App);
+export default Radium(withOrientationChange(App));

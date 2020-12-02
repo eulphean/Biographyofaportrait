@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 
-import { isMobile, withOrientationChange } from 'react-device-detect'
+import { isMobile } from 'react-device-detect'
 import portrait from '../videos/portrait/7_Sunday.mp4'
 import landscape from '../videos/landscape/7_Sunday.mp4'
 import Folder from './Folder.js'
@@ -28,11 +28,7 @@ const styles = {
 class Sunday extends React.Component {
   constructor(props) {
     super(props); 
-    let { isLandscape } = props; 
     this.folderRef = React.createRef(); 
-    this.state = {
-      isLandscape: isLandscape
-    }; 
   }
 
   componentDidMount() {
@@ -56,9 +52,11 @@ class Sunday extends React.Component {
 
   getVideo() {
     if (isMobile) {
-      if (this.state.isLandscape) {
+      if (this.props.isLandscape) {
+        console.log('Landscape');
         return landscape;
-      } else {
+      } else if (this.props.isPortrait){
+        console.log('Portrait');
         return portrait;
       }
     } else {
@@ -71,4 +69,4 @@ class Sunday extends React.Component {
   }
 }
 
-export default Radium(withOrientationChange(Sunday));
+export default Radium(Sunday);
