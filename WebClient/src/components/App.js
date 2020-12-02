@@ -13,6 +13,10 @@ import Friday from './Friday.js'
 import Saturday from './Saturday.js'
 import Sunday from './Sunday.js'
 import graph from '../images/graph_rotate.jpg'
+import VideoCanvas from './VideoCanvas.js'
+import { Link } from 'react-router-dom'
+
+const RadiumLink = Radium(Link);
 
 const styles = {
   container: {
@@ -40,8 +44,11 @@ class App extends React.Component {
     super(props); 
     this.state = {
       showVideoCanvas: false,
-      vid: {}
+      vid: '',
+      target: ''
     }; 
+
+    this.videoRef = React.createRef(); 
   }
 
   render() {
@@ -49,39 +56,43 @@ class App extends React.Component {
       <div style={styles.container}>
         <img style={styles.graph} alt='graph' src={graph} />
         <Router>
+          <RadiumLink to="/">
+            <VideoCanvas 
+              ref={this.videoRef}
+              src={this.state.vid} />
+          </RadiumLink>
           <Switch>
             <Route path="/Monday">
-              <Monday />
+              <Monday setupVideo={this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Tuesday">
-              <Tuesday />
+              <Tuesday setupVideo={this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Wednesday">
-              <Wednesday />
-            </Route>
-            <Route path="/Wednesday">
-              <Wednesday />
+              <Wednesday setupVideo={this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Thursday">
-              <Thursday />
+              <Thursday setupVideo={this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Friday">
-              <Friday />
+              <Friday setupVideo={this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Saturday">
-              <Saturday />
+              <Saturday setupVideo={this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Sunday">
-              <Sunday />
+              <Sunday setupVideo={this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Tomorrow">
-              <Tomorrow />
+              <Tomorrow setupVideo = {this.setupVideo.bind(this)} />
             </Route>
             <Route path="/Yesterday">
-              <Yesterday />
+              <Yesterday 
+                setupVideo = {this.setupVideo.bind(this)} />
             </Route>
             <Route path="/">
-              <Today />
+              <Today 
+                removeVideo = {this.removeVideo.bind(this)} />
             </Route>
           </Switch>
         </Router>
@@ -89,8 +100,15 @@ class App extends React.Component {
     );
   }
 
-  onUpdateCanvas(src) {
-    // 
+  setupVideo(src) {
+    this.videoRef.current.showCanvas(src);
+    // this.setState({
+    //   vid: src
+    // }); 
+  }
+
+  removeVideo() {
+    this.videoRef.current.removeVideo();
   }
 }
 

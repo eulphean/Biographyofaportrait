@@ -2,13 +2,9 @@ import React from 'react'
 import Radium from 'radium'
 
 import { isMobile, withOrientationChange } from 'react-device-detect'
-// import portrait from '../videos/portrait/2_Tuesday.mp4'
-// import landscape from '../videos/landscape/2_Tuesday.mp4'
-import portrait from '../webm/portrait/2_Tuesday.webm'
-import landscape from '../webm/landscape/2_Tuesday.webm'
-import { useHistory } from 'react-router-dom'
+import portrait from '../videos/portrait/2_Tuesday.mp4'
+import landscape from '../videos/landscape/2_Tuesday.mp4'
 import Folder from './Folder'
-import VideoCanvas from './VideoCanvas'
 
 const styles = {
   container: {
@@ -29,37 +25,37 @@ const styles = {
   }
 };
 
-const Tuesday = (props) => {
-  const {isLandscape} = props; 
-  let curHistory = useHistory(); 
-  let folderRef = React.createRef();
-  let canvasRef = React.createRef(); 
-  let vid = getVideo(); 
-
-  return (
-    <div style={styles.container}>
-      <VideoCanvas 
-        ref={canvasRef}
-        src={vid} />
-      <Folder 
-        ref={folderRef}
-        history={curHistory}
-        onClickCbk={handleFolderClick.bind(this)}
-        visible={true}
-        target={'/Wednesday'}>
-        WEDNESDAY
-      </Folder>
-    </div>
-  );
-
-  function handleFolderClick(event) {
-    event.stopPropagation(); 
-    canvasRef.current.disableLoop(); 
+class Tuesday extends React.Component {
+  constructor(props) {
+    super(props);
+    let { land } = props; 
+    this.folderRef = React.createRef(); 
+    this.state = {
+      isLandscape: land
+    }; 
   }
 
-  function getVideo() {
+  componentDidMount() {
+    let vid = this.getVideo();
+    this.props.setupVideo(vid); 
+  }
+
+  render() {
+    return (
+      <div style={styles.container}>
+        <Folder 
+          ref={this.folderRef}
+          visible={true}
+          target={'/Wednesday'}>
+          WEDNESDAY
+        </Folder>
+      </div>
+    );
+  }
+
+  getVideo() {
     if (isMobile) {
-      if (isLandscape) {
+      if (this.state.isLandscape) {
         return landscape;
       } else {
         return portrait;
@@ -69,6 +65,5 @@ const Tuesday = (props) => {
     }
   }
 }
-
 
 export default Radium(withOrientationChange(Tuesday));

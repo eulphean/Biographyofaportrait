@@ -21,12 +21,16 @@ var sketch = (s) => {
   };
 
   s.initVideo = (vid) => {
+    console.log('Init Video');
     video = s.createVideo(vid, s.vidLoaded); 
     video.hide();
     video.elt.setAttribute('playsinline', '');
     // video.elt.muted = true;
     video.elt.setAttribute('autoplay', true);
     video.elt.setAttribute('loop', true);
+    if (s.canvas) {
+      s.clear();
+    }
   };
 
   s.vidLoaded = () => {
@@ -34,21 +38,26 @@ var sketch = (s) => {
     video.play(); 
   }
 
-  s.disableLoop = () => {
-    s.noLoop();
-    video.mute = true;
-    video.elt.remove();
-    // Remove canvas completely. 
-    // s.remove();
+  s.removeVideo = () => {
+    if (video) {
+      video.mute = true; 
+      video.elt.remove();
+      if (s.canvas) {
+        s.canvas.style.visibility = 'hidden';
+      }
+    }
+  }
+
+  s.showCanvas = () => {
+    if (s.canvas) {
+      s.canvas.style.visibility = 'visible'; 
+    }
   }
 };
 
 const styles = {
   container: {
     position: 'absolute',
-    // display: 'flex',
-    // alignItems: 'center',
-    // justifyContent: 'center',
     objectFit: 'cover',
     width: '100vw',
     height: '100vh',
@@ -80,8 +89,6 @@ class VideoCanvas extends React.Component {
   componentDidMount() {
     console.log('Canvas Mounted');
     this.myP5 = new p5(sketch, this.sketchRef.current);
-    console.log('Creating video on mount');
-    this.myP5.initVideo(this.props.src); 
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -104,9 +111,15 @@ class VideoCanvas extends React.Component {
     );
   }
 
-  disableLoop() {
-    this.myP5.disableLoop(); 
-    console.log('Disable Loop'); 
+  removeVideo() {
+    this.myP5.removeVideo(); 
+    console.log('Remove previous video'); 
+  }
+
+  showCanvas(src) {
+    console.log('Creating video.');
+    this.myP5.initVideo(src); 
+    this.myP5.showCanvas();
   }
 }
 

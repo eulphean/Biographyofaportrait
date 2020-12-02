@@ -1,14 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
-import { useHistory } from 'react-router-dom'
 import Folder from './Folder.js'
 
 import { isMobile, withOrientationChange } from 'react-device-detect'
-// import portrait from '../videos/portrait/5_Friday.mp4'
-// import landscape from '../videos/landscape/5_Friday.mp4'
-import portrait from '../webm/portrait/5_Friday.webm'
-import landscape from '../webm/landscape/5_Friday.webm'
-import VideoCanvas from './VideoCanvas.js'
+import portrait from '../videos/portrait/5_Friday.mp4'
+import landscape from '../videos/landscape/5_Friday.mp4'
 
 const styles = {
   container: {
@@ -29,37 +25,37 @@ const styles = {
   }
 };
 
-const Friday = (props) => {
-  const {isLandscape} = props; 
-  let curHistory = useHistory(); 
-  let canvasRef = React.createRef();
-  let folderRef = React.createRef(); 
-  let vid = getVideo();
-
-  return (
-    <div style={styles.container}>
-      <VideoCanvas 
-        ref={canvasRef}
-        src={vid} />
-      <Folder 
-        ref={folderRef}
-        history={curHistory}
-        onClickCbk={handleFolderClick.bind(this)}
-        visible={true}
-        target={'/Saturday'}>
-        SATURDAY
-      </Folder>
-    </div>
-  );
-
-  function handleFolderClick(event) {
-    event.stopPropagation(); 
-    canvasRef.current.disableLoop(); 
+class Friday extends React.Component {
+  constructor(props) {
+    super(props); 
+    let { land } = props; 
+    this.folderRef = React.createRef(); 
+    this.state = {
+      isLandscape: land
+    }; 
   }
 
-  function getVideo() {
+  componentDidMount() {
+    let vid = this.getVideo();
+    this.props.setupVideo(vid); 
+  }
+
+  render() {
+    return (
+      <div style={styles.container}>
+       <Folder 
+          ref={this.folderRef}
+          visible={true}
+          target={'/Saturday'}>
+          SATURDAY
+        </Folder>
+      </div>
+    ); 
+  }
+
+  getVideo() {
     if (isMobile) {
-      if (isLandscape) {
+      if (this.state.isLandscape) {
         return landscape;
       } else {
         return portrait;

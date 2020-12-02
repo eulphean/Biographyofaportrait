@@ -1,49 +1,32 @@
 import React from 'react'
 import Radium from 'radium'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import { isMobile, withOrientationChange } from 'react-device-detect'
-// import portrait from '../videos/portrait/8_Tomorrow.mp4'
-// import landscape from '../videos/landscape/8_Tomorrow.mp4'
-import portrait from '../webm/portrait/8_Tomorrow.webm'
-import landscape from '../webm/landscape/8_Tomorrow.webm'
-import VideoCanvas from './VideoCanvas.js'
+import portrait from '../videos/portrait/8_Tomorrow.mp4'
+import landscape from '../videos/landscape/8_Tomorrow.mp4'
 
-const RadiumLink = Radium(Link);
-
-const styles = {
-  container: {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-};
-
-// TODO: Bind noLoop...
-const Tomorrow = (props) => {
-  const {isLandscape} = props; 
-  let vid = getVideo(); 
-  let canvasRef = React.createRef(); 
-
-  return (
-    <div style={styles.container} onClick={handleScreenClick.bind(this)}>
-      <RadiumLink to="/">
-        <VideoCanvas 
-          ref={canvasRef}
-          src={vid} 
-        />
-      </RadiumLink>
-    </div>
-  );
-
-  function handleScreenClick(event) {
-    canvasRef.current.disableLoop(); 
+class Tomorrow extends React.Component{
+  constructor(props) {
+    super(props); 
+    let { land } = props; 
+    this.state = {
+      isLandscape: land
+    }; 
   }
 
-  function getVideo() {
+  componentDidMount() {
+    let v = this.getVideo(); 
+    this.props.setupVideo(v); 
+  }
+
+  render() {
+    return null;
+  }
+
+  getVideo() {
     if (isMobile) {
-      if (isLandscape) {
+      if (this.state.isLandscape) {
         return landscape;
       } else {
         return portrait;

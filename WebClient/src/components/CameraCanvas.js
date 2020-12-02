@@ -56,13 +56,15 @@ var sketch = (s) => {
   }
 
   s.disable = () => {
-    s.noLoop(); 
-    capture.stop();
-    timeouts.forEach(t => {
-      window.clearTimeout(t);
-    });
-    capture.remove();
-    s.remove();
+    if (capture.height > 0) {
+      s.noLoop(); 
+      capture.stop();
+      timeouts.forEach(t => {
+        window.clearTimeout(t);
+      });
+      capture.remove();
+      s.remove();
+    }
   }
 
   s.enable = () => {

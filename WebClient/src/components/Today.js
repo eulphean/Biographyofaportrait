@@ -1,6 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import { fadeIn } from 'react-animations'
 // import graph from '../images/graph.jpg'
 
@@ -32,65 +32,71 @@ const styles = {
   }
 };
 
-const Today = (props) => {
-    let popupRef = React.createRef(); 
-    let bannerRef = React.createRef(); 
-    let folderRef = React.createRef();
-    // let userIconRef = React.createRef(); 
-    let cameraCanvas = React.createRef();
-    let curHistory = useHistory(); 
+class Today extends React.Component {
+  constructor(props) {
+    super(props); 
+    this.popupRef = React.createRef(); 
+    this.bannerRef = React.createRef(); 
+    this.folderRef = React.createRef();
+    this.cameraCanvas = React.createRef();
+  }
 
+  componentDidMount() {
+    console.log('Component Today Mounted');
+    this.props.removeVideo();
+  }
+  
+  render() {
     return (
       <div style={styles.contentContainer}>
-        {/* <img style={styles.graph} alt='graph' src={graph} /> */}
         <Popup 
-          ref={popupRef}
+          ref={this.popupRef}
           // onSkip={showSkipContent.bind(this)}
           // onAuthorize={showAuthorizeContent.bind(this)}
         />
-        <CameraCanvas ref={cameraCanvas} />
+        <CameraCanvas ref={this.cameraCanvas} />
         <Banner
-          ref={bannerRef} 
-          onShowInfo={handleInfoClick.bind(this)}
-          onHandleClick={handleFolderClick.bind(this)}
-          showCameraPrompt={showCameraPrompt.bind(this)}
+          ref={this.bannerRef} 
+          onShowInfo={this.handleInfoClick.bind(this)}
+          onHandleClick={this.handleFolderClick.bind(this)}
+          showCameraPrompt={this.showCameraPrompt.bind(this)}
         />
         {/* <UserIcon ref={userIconRef} /> */}
         <Folder 
-          ref={folderRef} 
+          ref={this.folderRef} 
           target={'/Yesterday'}
-          history={curHistory}
-          onClickCbk={handleFolderClick.bind(this)}
+          onClickCbk={this.handleFolderClick.bind(this)}
           isToday={true}
         >
           YESTERDAY
         </Folder>
       </div>
     );
+  }
 
-    function handleFolderClick(event) {
-      event.stopPropagation(); 
-      // Remove the entire canvas. 
-      cameraCanvas.current.disableCamera();
-    }
+  handleFolderClick(event) {
+    event.stopPropagation(); 
+    // Remove the entire canvas. 
+    this.cameraCanvas.current.disableCamera();
+  }
 
-    function handleInfoClick() {
-      popupRef.current.showPopup(PopupType.About); 
-    }
+  handleInfoClick() {
+    this.popupRef.current.showPopup(PopupType.About); 
+  }
 
-    function showCameraPrompt() {
-      cameraCanvas.current.showCameraPrompt(handleSuccess, handleFailure); 
-    }
+  showCameraPrompt() {
+    this.cameraCanvas.current.showCameraPrompt(this.handleSuccess, this.handleFailure); 
+  }
 
-    function handleSuccess() {
-      console.log('Access Granted'); 
-      cameraCanvas.current.fadeIn();
-    }
+  handleSuccess() {
+    console.log('Access Granted'); 
+    this.cameraCanvas.current.fadeIn();
+  }
 
-    function handleFailure() {
-      console.log('Access Denied');
-      // userIconRef.current.fadeIn(); 
-    }
+  handleFailure() {
+    console.log('Access Denied');
+    // userIconRef.current.fadeIn(); 
+  }
 }
 
 export default Radium(Today);
