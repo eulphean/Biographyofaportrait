@@ -490,7 +490,7 @@ class Popup extends React.Component {
                         Biography of a Portrait
                     </div> */}
                     <div style={bodyStyle}>
-                        {'Iridescent lake —'}<br />{'birds fly home, I see here now'}<br />{'blink! a water glass;'}<br />{'this is the Biograpy of a Portrait'}
+                        {'Iridescent lake —'}<br />{'birds fly home, I see'}<br />{'blink! a water glass;'}<br />{'this is the Biograpy of a Portrait'}
                     </div>
                     { closeButton }
                     { footer }

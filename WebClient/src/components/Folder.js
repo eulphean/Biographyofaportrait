@@ -106,7 +106,8 @@ const styles = {
     bottom: '0px',
     height: '20%',
     width: '80%',
-    filter: 'blur(2px)',
+    // filter: 'blur(2px)',
+    opacity: '85%',
     backgroundColor: 'white',
     zIndex: '-1'
   },
