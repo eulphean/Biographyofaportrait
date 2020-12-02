@@ -223,16 +223,16 @@ const styles={
         // padding: padding.extraSmall,
         // backgroundColor: color.darkGrey,
         marginRight: '-' + fontSize.big,
-        height: fontSize.small,
-        width: fontSize.small,
+        height: fontSize.big,
+        width: fontSize.big,
         fill: '#4a494a',
         // fontFamily: fontFamily.helvetica,
 
         '@media (min-width: 600px)': {  
             marginRight: '-' + fontSize.big,
             // padding: padding.verySmall,
-            height: fontSize.verySmall, 
-            width: fontSize.verySmall
+            height: fontSize.veryBig, 
+            width: fontSize.veryBig
             // fontSize: fontSize.small
         },
 
@@ -437,9 +437,6 @@ class Popup extends React.Component {
             <div onClick={this.hidePopup.bind(this)} style={styles.iconContainer}>
                 <Exit style={styles.icon} />
             </div>
-            // <div onClick={this.hidePopup.bind(this)} style={styles.iconContainer}>
-            //     X
-            // </div>
         ); 
     }
 
