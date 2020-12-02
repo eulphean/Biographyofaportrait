@@ -459,7 +459,7 @@ class Popup extends React.Component {
         ) :
         (
             <div style={bodyStyle}>
-                {'Camera not supported. If you are using ios, try using Safari.'}
+                {'The experience of biographyofaportrait.art is limited on Chrome — consider switching to Safari on your mobile device for full website functionality.'}
             </div>
         ); 
         return (
@@ -486,11 +486,11 @@ class Popup extends React.Component {
             <div ref={this.content} style={styles.content}>
                 <div style={styles.stretchContainer}>
                     { iconButton }
-                    <div style={styles.title}>
+                    {/* <div style={styles.title}>
                         Biography of a Portrait
-                    </div>
+                    </div> */}
                     <div style={bodyStyle}>
-                        {'Hello I am the About Content'}
+                        {'Iridescent lake —'}<br />{'birds fly home, I see here now'}<br />{'blink! a water glass;'}<br />{'this is the Biograpy of a Portrait'}
                     </div>
                     { closeButton }
                     { footer }
@@ -522,7 +522,7 @@ class Popup extends React.Component {
                     target='_blank' 
                     rel="noopener noreferrer" 
                     href={amay}>
-                    Amay Kataria
+                    Extended Art Studio
                 </a>
               </div>
             </div>

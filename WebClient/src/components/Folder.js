@@ -104,11 +104,16 @@ const styles = {
   blurred: {
     position: 'absolute',
     bottom: '0px',
-    width: '80%',
-    backgroundColor: color.jenGrey,
     height: '20%',
-    filter: 'blur(8px)',
-    zIndex: '1'
+    width: '80%',
+    filter: 'blur(2px)',
+    backgroundColor: 'white',
+    zIndex: '-1'
+  },
+
+  center: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 };
 
@@ -130,9 +135,9 @@ class Folder extends React.Component {
       containerStyle=styles.containerToday;
     }
 
-    // let blurred = this.props.isToday ? (React.Null) : (
-    //   <div style={styles.blurred} />
-    // ); 
+    let blurred = this.props.isToday ? <div style={styles.blurred} /> : (
+      (React.Null)
+    ); 
 
     let titleStyle = this.props.isToday ? [styles.title, styles.titleToday] : styles.title;
 
@@ -144,9 +149,11 @@ class Folder extends React.Component {
                 <FolderIcon style={styles.icon} />
             </div>
           </div>
-          {/* { blurred } */}
-          <div style={titleStyle}>
-              {this.props.children}
+          <div style={styles.center}>
+            <div style={titleStyle}>
+                {this.props.children}
+            </div>
+            { blurred }
           </div>
        </RadiumLink>
       </div>

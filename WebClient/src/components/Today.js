@@ -85,7 +85,7 @@ class Today extends React.Component {
   }
 
   showCameraPrompt() {
-    this.cameraCanvas.current.showCameraPrompt(this.handleSuccess, this.handleFailure); 
+    this.cameraCanvas.current.showCameraPrompt(this.handleSuccess.bind(this), this.handleFailure.bind(this)); 
   }
 
   handleSuccess() {

@@ -9,9 +9,9 @@ import landscape from '../videos/landscape/8_Tomorrow.mp4'
 class Tomorrow extends React.Component{
   constructor(props) {
     super(props); 
-    let { land } = props; 
+    let { isLandscape } = props; 
     this.state = {
-      isLandscape: land
+      isLandscape: isLandscape
     }; 
   }
 

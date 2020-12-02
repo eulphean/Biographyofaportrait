@@ -23,10 +23,10 @@ const styles = {
 class Yesterday extends React.Component {
   constructor(props) {
     super(props); 
-    let { land } = props; 
+    let { isLandscape } = props; 
     this.folderRef = React.createRef();
     this.state = {
-      isLandscape: land
+      isLandscape: isLandscape
     }
   }
 
