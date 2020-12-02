@@ -204,6 +204,10 @@ const styles={
         color: color.jenGrey
     },
 
+    alignCenter: {
+        textAlign: 'center'
+    },
+
     // Applied on stuff
     mediaQueryOnText: {
         '@media (min-width: 750px)': {  
@@ -446,7 +450,7 @@ class Popup extends React.Component {
         let skipButton = this.getSkipButton(); 
         let closeButton = this.getCloseButton(); 
         let iconButton = this.getIconButton();  
-        let bodyStyle = [styles.body, styles.mediaQueryOnText];
+        let bodyStyle = [styles.body, styles.alignCenter, styles.mediaQueryOnText];
         let content = this.isCameraSupported ? 
         (   
             <div style={bodyStyle}>
@@ -485,7 +489,9 @@ class Popup extends React.Component {
                         <div style={styles.poem}>
                             {'Iridescent lake —'}<br />{'birds fly home, I see'}<br />{'blink! a water glass;'}<br/><br/>
                         </div>
-                       {'this is the Biograpy of a Portrait'}
+                        <div styles={styles.alignCenter}>
+                            {'this is the Biograpy of a Portrait'}
+                        </div>
                     </div>
                     { closeButton }
                     { footer }
