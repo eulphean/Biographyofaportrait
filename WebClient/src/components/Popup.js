@@ -154,8 +154,8 @@ const styles={
         alignItems: 'center',
         background: color.deepGrey,
         color: color.sunLight,
-        paddingLeft: padding.small, // Bind this to media query
-        paddingRight: padding.small, // Bind this to media query,
+        paddingLeft: padding.big, // Bind this to media query
+        paddingRight: padding.big, // Bind this to media query,
         '@media (min-width: 600px)': {      
             paddingLeft: padding.big, 
             paddingRight: padding.big
@@ -222,8 +222,7 @@ const styles={
         alignSelf: 'flex-end',
         // padding: padding.extraSmall,
         // backgroundColor: color.darkGrey,
-        right: fontSize.extraSmall,
-        marginRight: '-' + fontSize.verySmall,
+        marginRight: '-' + fontSize.big,
         height: fontSize.small,
         width: fontSize.small,
         fill: '#4a494a',
@@ -283,7 +282,7 @@ const styles={
         alignItems: 'center',
         color: color.selected,
         alignSelf: 'center',
-        fontFamily: fontFamily.elliott, 
+        fontFamily: fontFamily.grotesk,
         fontSize: fontSize.verySmall,
         letterSpacing: '2.0px',
 
@@ -304,8 +303,8 @@ const styles={
     },
 
     developed: {
-        fontSize: fontSize.small,
-        fontFamily: fontFamily.elliott,
+        fontSize: fontSize.verySmall,
+        fontFamily: fontFamily.grotesk,
         paddingLeft: padding.tiny, 
         paddingRight: padding.tiny,
         color: color.lightGrey
@@ -321,7 +320,11 @@ const styles={
         alignSelf: 'center',
         justifyContent: 'space-evenly',
         width: '250px'
-    } 
+    },
+
+    poem: {
+        marginLeft: '-' + padding.verySmall
+    }
 }
 
 class Popup extends React.Component {
@@ -466,12 +469,7 @@ class Popup extends React.Component {
             <div ref={this.content} style={styles.content}>
                 <div style={styles.stretchContainer}>
                     { iconButton }
-                    <div style={styles.title}>
-                        Biography of a Portrait
-                    </div>
                     { content }
-                    { closeButton }
-                    { footer }
                 </div>
             </div>
         )
@@ -486,11 +484,11 @@ class Popup extends React.Component {
             <div ref={this.content} style={styles.content}>
                 <div style={styles.stretchContainer}>
                     { iconButton }
-                    {/* <div style={styles.title}>
-                        Biography of a Portrait
-                    </div> */}
                     <div style={bodyStyle}>
-                        {'Iridescent lake —'}<br />{'birds fly home, I see'}<br />{'blink! a water glass;'}<br />{'this is the Biograpy of a Portrait'}
+                        <div style={styles.poem}>
+                            {'Iridescent lake —'}<br />{'birds fly home, I see'}<br />{'blink! a water glass;'}<br/><br/>
+                        </div>
+                       {'this is the Biograpy of a Portrait'}
                     </div>
                     { closeButton }
                     { footer }
@@ -504,27 +502,27 @@ class Popup extends React.Component {
         const amay = 'https://amaykataria.com';
         return (
             <div style={styles.footerContainer}>
-            <div style={[styles.footerFirst]}>
-                <span style={styles.developed}>©&nbsp;</span>
-                <a 
-                    style={styles.footer} 
-                    target='_blank' 
-                    rel="noopener noreferrer" 
-                    href={jen}>
-                    Jennifer Traina-Dorge
-                </a>
-                <span style={styles.developed}>&nbsp;2020</span>
-            </div>
-              <div style={[styles.footer, styles.footerSecond]}>
-                  <span style={styles.developed}>Developed by </span>
-                  <a 
-                    style={styles.developer} 
-                    target='_blank' 
-                    rel="noopener noreferrer" 
-                    href={amay}>
-                    Extended Art Studio
-                </a>
-              </div>
+                <div style={styles.footerFirst}>
+                    <span style={styles.developed}>©&nbsp;</span>
+                    <a 
+                        style={styles.footer} 
+                        target='_blank' 
+                        rel="noopener noreferrer" 
+                        href={jen}>
+                        Jennifer Traina-Dorge
+                    </a>
+                    <span style={styles.developed}>&nbsp;2020</span>
+                </div>
+                <div style={[styles.footer, styles.footerSecond]}>
+                    <span style={styles.developed}>Developed by </span>
+                    <a 
+                        style={styles.developer} 
+                        target='_blank' 
+                        rel="noopener noreferrer" 
+                        href={amay}>
+                        Amay Kataria
+                    </a>
+                </div>
             </div>
         )
     }
