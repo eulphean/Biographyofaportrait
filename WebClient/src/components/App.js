@@ -14,9 +14,6 @@ import Saturday from './Saturday.js'
 import Sunday from './Sunday.js'
 import graph from '../images/graph_rotate.jpg'
 import VideoCanvas from './VideoCanvas.js'
-import { Link } from 'react-router-dom'
-
-const RadiumLink = Radium(Link);
 
 const styles = {
   container: {
@@ -47,11 +44,9 @@ const App = (props) => {
     <div style={styles.container}>
       <img style={styles.graph} alt='graph' src={graph} />
       <Router>
-        <RadiumLink to="/">
           <VideoCanvas 
             ref={videoRef}
             src={''} />
-        </RadiumLink>
         <Switch>
           <Route path="/Monday">
             <Monday 
@@ -126,8 +121,8 @@ const App = (props) => {
   );
 
 
-  function setupVideo(src) {
-    videoRef.current.showCanvas(src);
+  function setupVideo(src, target) {
+    videoRef.current.showCanvas(src, target);
   }
 
   function removeVideo() {

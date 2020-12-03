@@ -2,6 +2,10 @@ import React from 'react'
 import Radium from 'radium'
 import p5 from 'p5-create-capture'
 import { fadeIn } from 'react-animations'
+import { Link } from 'react-router-dom'
+
+const RadiumLink = Radium(Link);
+
 
 const fadeDuration = '2.0s'; 
 
@@ -87,7 +91,8 @@ class VideoCanvas extends React.Component {
     super(props);
     this.state={
       isFadeIn: false,
-      video: this.props.src
+      video: this.props.src,
+      path: '/'
     };
 
     this.sketchRef = React.createRef(); 
@@ -111,10 +116,12 @@ class VideoCanvas extends React.Component {
     let containerStyle=[styles.container, styles.fadeIn]; 
 
     return (
-      <div style={containerStyle}>
-        <div ref={this.sketchRef}>
+      <RadiumLink to={this.state.path}>
+        <div style={containerStyle}>
+          <div ref={this.sketchRef}>
+          </div>
         </div>
-      </div>
+      </RadiumLink>
     );
   }
 
@@ -122,9 +129,12 @@ class VideoCanvas extends React.Component {
     this.myP5.removeVideo(); 
   }
 
-  showCanvas(src) {
+  showCanvas(src, target) {
     this.myP5.initVideo(src); 
     this.myP5.showCanvas();
+    this.setState({
+      path: target
+    })
   }
 }
 

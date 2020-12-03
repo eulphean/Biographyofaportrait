@@ -28,7 +28,7 @@ class Yesterday extends React.Component {
 
   componentDidMount() {
     let vid = this.getVideo(); 
-    this.props.setupVideo(vid);
+    this.props.setupVideo(vid, '/Yesterday');
   }
 
   render() {

@@ -8,7 +8,7 @@ import landscape from '../videos/landscape/8_Tomorrow.mp4'
 class Tomorrow extends React.Component{
   componentDidMount() {
     let v = this.getVideo(); 
-    this.props.setupVideo(v); 
+    this.props.setupVideo(v, '/'); 
   }
 
   render() {

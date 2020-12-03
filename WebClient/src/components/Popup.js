@@ -328,6 +328,10 @@ const styles={
 
     poem: {
         marginLeft: '-' + padding.verySmall
+    },
+
+    footerSpace: {
+        marginBottom: padding.extraBig
     }
 }
 
@@ -450,7 +454,7 @@ class Popup extends React.Component {
         let skipButton = this.getSkipButton(); 
         let closeButton = this.getCloseButton(); 
         let iconButton = this.getIconButton();  
-        let bodyStyle = [styles.body, styles.alignCenter, styles.mediaQueryOnText];
+        let bodyStyle = [styles.body, styles.alignCenter, styles.mediaQueryOnText, styles.footerSpace];
         let content = this.isCameraSupported ? 
         (   
             <div style={bodyStyle}>
