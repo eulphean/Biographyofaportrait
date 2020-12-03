@@ -7,20 +7,38 @@ import landscape from '../videos/landscape/8_Tomorrow.mp4'
 
 class Tomorrow extends React.Component{
   componentDidMount() {
-    let v = this.getVideo(); 
+    let v = this.getVideo(this.props); 
     this.props.setupVideo(v, '/'); 
   }
 
   render() {
     return null;
   }
+  shouldComponentUpdate(nextProps, nextState) {
+    // If the landscape or portrait changes. 
+    if (nextProps.isLandscape !== this.props.isLandscape) {
+      if (nextProps.isLandscape) {
+        console.log('IsLandscape'); 
+      } else {
+        console.log('IsPortrait');
+      }
 
-  getVideo() {
+      // Remove the previous video. 
+      this.props.removeVideo(); 
+      let vid = this.getVideo(nextProps);
+      // Attach a new video. 
+      this.props.setupVideo(vid, '/');
+    }
+
+    return true; 
+  }
+
+  getVideo(props) {
     if (isMobile) {
-      if (this.props.isLandscape) {
+      if (props.isLandscape) {
         console.log('Landscape');
         return landscape;
-      } else if (this.props.isPortrait){
+      } else if (props.isPortrait){
         console.log('Portrait');
         return portrait;
       }

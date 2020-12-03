@@ -32,10 +32,29 @@ class Monday extends React.Component {
   }
 
   componentDidMount() {
-    let vid = this.getVideo(); 
+    let vid = this.getVideo(this.props); 
     this.props.setupVideo(vid); 
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    // If the landscape or portrait changes. 
+    if (nextProps.isLandscape !== this.props.isLandscape) {
+      if (nextProps.isLandscape) {
+        console.log('IsLandscape'); 
+      } else {
+        console.log('IsPortrait');
+      }
+
+      // Remove the previous video. 
+      this.props.removeVideo(); 
+      let vid = this.getVideo(nextProps);
+      // Attach a new video. 
+      this.props.setupVideo(vid);
+    }
+
+    return true; 
+  }
+  
   render() {
     return (
       <div style={styles.container}>
@@ -50,12 +69,12 @@ class Monday extends React.Component {
     );
   }
 
-  getVideo() {
+  getVideo(props) {
     if (isMobile) {
-      if (this.props.isLandscape) {
+      if (props.isLandscape) {
         console.log('Landscape');
         return landscape;
-      } else if (this.props.isPortrait){
+      } else if (props.isPortrait){
         console.log('Portrait');
         return portrait;
       }

@@ -6,8 +6,12 @@ import { fadeIn } from 'react-animations'
 const fadeDuration = '2.0s'; 
 
 var sketch = (s) => {
+  console.log('Width: ' + s.displayWidth); 
+  console.log('Height: ' + s.displayHeight);
+  console.log('Device Orientation: ' + s.deviceOrientation);
   let x = s.windowWidth; // Viewport width
   let y = s.windowHeight; // Viewport height
+
   let capture; let timeouts = []; 
 
   s.setup = () => {
@@ -25,12 +29,6 @@ var sketch = (s) => {
     }
   };
 
-  s.delayCbk = (frame) => {
-    // Image is draw inside the canvas. 
-    s.image(frame, 0, 0, s.windowWidth, s.windowHeight);
-    s.applyFilters();
-  };
-
   s.delayCbkFrame = (frame) => {
     // Draw the image. 
     s.image(frame, 0, 0, s.windowWidth, s.windowHeight);
@@ -44,9 +42,9 @@ var sketch = (s) => {
 
   s.setupCamera = (success, failure) => {
     capture = s.createCapture(s.VIDEO, success, failure);
-    capture.hide();
+    capture.style('opacity', '0');
     capture.position(0, 0);
-    capture.size(x, y);
+    capture.size(s.windowWidth, s.windowHeight);
     capture.elt.style.objectFit = 'cover';
   }
 
@@ -57,6 +55,7 @@ var sketch = (s) => {
 
   s.disable = () => {
     if (capture.height > 0) {
+      console.log('Removing camera canvas'); 
       s.noLoop(); 
       capture.stop();
       timeouts.forEach(t => {
@@ -69,6 +68,12 @@ var sketch = (s) => {
 
   s.enable = () => {
     s.loop(); 
+  }
+
+  s.windowResized = () => {
+    capture.remove();
+    s.setupCamera(); 
+    s.resizeCanvas(s.windowWidth, s.windowHeight);
   }
 };
 
@@ -118,8 +123,6 @@ class CameraCanvas extends React.Component {
   }
 
   showCameraPrompt(success, failure) {
-    // Save a callback in the myP5 object to call it later when we 
-    // are ready to test camera authentication. 
     this.myP5.setupCamera(success, failure); 
   }
 

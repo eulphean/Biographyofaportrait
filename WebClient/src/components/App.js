@@ -100,6 +100,7 @@ const App = (props) => {
           <Route path="/Tomorrow">
             <Tomorrow 
               setupVideo = {setupVideo.bind(this)} 
+              removeVideo = {removeVideo.bind(this)}
               isPortrait = { isPortrait }
               isLandscape = { isLandscape }
             />

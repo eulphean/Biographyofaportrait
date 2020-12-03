@@ -51,8 +51,6 @@ class Today extends React.Component {
       <div style={styles.contentContainer}>
         <Popup 
           ref={this.popupRef}
-          // onSkip={showSkipContent.bind(this)}
-          // onAuthorize={showAuthorizeContent.bind(this)}
         />
         <CameraCanvas ref={this.cameraCanvas} />
         <Banner
@@ -95,7 +93,6 @@ class Today extends React.Component {
 
   handleFailure() {
     console.log('Access Denied');
-    // userIconRef.current.fadeIn(); 
   }
 }
 

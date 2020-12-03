@@ -64,6 +64,10 @@ var sketch = (s) => {
       s.canvas.style.visibility = 'visible'; 
     }
   }
+
+  s.windowResized = () => {
+    s.resizeCanvas(s.windowWidth, s.windowHeight);
+  }
 };
 
 const styles = {
