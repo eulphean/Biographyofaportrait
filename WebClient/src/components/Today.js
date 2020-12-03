@@ -63,7 +63,7 @@ class Today extends React.Component {
         <Folder 
           ref={this.folderRef} 
           target={'/Yesterday'}
-          onClickCbk={this.handleFolderClick.bind(this)}
+          onClick={this.handleFolderClick.bind(this)}
           isToday={true}
         >
           YESTERDAY
@@ -72,8 +72,7 @@ class Today extends React.Component {
     );
   }
 
-  handleFolderClick(event) {
-    event.stopPropagation(); 
+  handleFolderClick() {
     // Remove the entire canvas. 
     this.cameraCanvas.current.disableCamera();
   }

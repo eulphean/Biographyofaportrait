@@ -56,13 +56,11 @@ var sketch = (s) => {
   s.disable = () => {
     if (capture.height > 0) {
       console.log('Removing camera canvas'); 
-      s.noLoop(); 
-      capture.stop();
+      capture.remove();
+      s.remove();
       timeouts.forEach(t => {
         window.clearTimeout(t);
       });
-      capture.remove();
-      s.remove();
     }
   }
 
@@ -133,6 +131,7 @@ class CameraCanvas extends React.Component {
   }
 
   disableCamera() {
+    console.log('Disable Camera');
     this.myP5.disable(); 
   }
 

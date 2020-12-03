@@ -551,11 +551,6 @@ class Popup extends React.Component {
         this.setState({
             popupState: PopupState.Close
         });
-
-        // // If they dismiss the popup, we presume user wants to skip only. 
-        // if (this.state.popupType === PopupType.Permissions) {
-        //     this.props.onSkip(); 
-        // }
     }
 
     onAuthorize(event) {
