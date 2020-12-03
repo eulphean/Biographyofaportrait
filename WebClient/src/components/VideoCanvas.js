@@ -10,32 +10,28 @@ const RadiumLink = Radium(Link);
 const fadeDuration = '2.0s'; 
 
 var sketch = (s) => {
-  let x = s.windowWidth; // Viewport width
-  let y = s.windowHeight; // Viewport height
   let video; 
 
   s.setup = () => {
-    s.createCanvas(s.windowWidth, s.windowHeight);
+    s.createCanvas(window.innerWidth, window.innerWidth);
   };
 
   s.draw = () => {
     if (video) {
-      s.image(video, 0, 0, s.windowWidth, s.windowHeight); 
+      s.image(video, 0, 0, window.innerWidth, window.innerHeight); 
     }  
   };
 
   s.initVideo = (vid) => {
     // Resize the canvas. This is helpful when
     // the device has just rotated. 
-    s.resizeCanvas(s.windowWidth, s.windowHeight); 
+    s.resizeCanvas(window.innerWidth, window.innerHeight); 
 
     // Update Canvas width 
     console.log('Init Video');
     video = s.createVideo(vid, s.vidLoaded); 
 
-    //video.hide();
-    video.style('opacity', '0%');
-    // video.style('opacity', '0'); 
+    video.style('opacity', '0'); 
     video.elt.setAttribute('playsinline', '');
     // video.elt.muted = true;
     video.elt.setAttribute('autoplay', true);
@@ -53,7 +49,10 @@ var sketch = (s) => {
   s.removeVideo = () => {
     if (video) {
       console.log('Removing Previous Video');
-      video.elt.remove();
+      if (video.elt) {
+        video.elt.remove();
+      }
+
       if (s.canvas) {
         s.canvas.style.visibility = 'hidden';
       }
@@ -68,7 +67,7 @@ var sketch = (s) => {
   }
 
   s.windowResized = () => {
-    s.resizeCanvas(s.windowWidth, s.windowHeight);
+    s.resizeCanvas(window.innerWidth, window.innerHeight);
   }
 };
 

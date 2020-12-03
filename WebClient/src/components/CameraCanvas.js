@@ -6,22 +6,16 @@ import { fadeIn } from 'react-animations'
 const fadeDuration = '2.0s'; 
 
 var sketch = (s) => {
-  console.log('Width: ' + s.displayWidth); 
-  console.log('Height: ' + s.displayHeight);
-  console.log('Device Orientation: ' + s.deviceOrientation);
-  let x = s.windowWidth; // Viewport width
-  let y = s.windowHeight; // Viewport height
-
   let capture; let timeouts = []; 
 
   s.setup = () => {
-    s.createCanvas(x, y);
+    s.createCanvas(window.innerWidth, window.innerHeight);
     s.background(0);
   };
 
   s.draw = () => {
     if (capture && capture.loadedmetadata) {
-      let frame = capture.get(0, 0, s.windowWidth, s.windowHeight); 
+      let frame = capture.get(0, 0, window.innerWidth, window.innerHeight); 
       // Schedule the frame to be drawn at a later time. 
       let t = setTimeout(s.delayCbkFrame, 2000, frame); 
       timeouts.push(t); 
@@ -31,11 +25,11 @@ var sketch = (s) => {
 
   s.delayCbkFrame = (frame) => {
     // Draw the image. 
-    s.image(frame, 0, 0, s.windowWidth, s.windowHeight);
+    s.image(frame, 0, 0, window.innerWidth, window.innerHeight);
     s.applyFilters();
 
     // Capture new frame and schedule for the next 2 seconds. 
-    let newFrame = capture.get(0, 0, s.windowWidth, s.windowHeight); 
+    let newFrame = capture.get(0, 0, window.innerWidth, window.innerHeight); 
     let t = setTimeout(s.delayCbkFrame, 2000, newFrame); 
     timeouts.push(t); 
   }
@@ -44,7 +38,7 @@ var sketch = (s) => {
     capture = s.createCapture(s.VIDEO, success, failure);
     capture.style('opacity', '0');
     capture.position(0, 0);
-    capture.size(s.windowWidth, s.windowHeight);
+    capture.size(window.innerWidth, window.innerHeight);
     capture.elt.style.objectFit = 'cover';
   }
 
@@ -56,7 +50,9 @@ var sketch = (s) => {
   s.disable = () => {
     if (capture.height > 0) {
       console.log('Removing camera canvas'); 
-      capture.remove();
+      if (capture.elt) {
+        capture.remove();
+      }
       s.remove();
       timeouts.forEach(t => {
         window.clearTimeout(t);
@@ -71,7 +67,7 @@ var sketch = (s) => {
   s.windowResized = () => {
     capture.remove();
     s.setupCamera(); 
-    s.resizeCanvas(s.windowWidth, s.windowHeight);
+    s.resizeCanvas(window.innerWidth, window.innerHeight);
   }
 };
 
