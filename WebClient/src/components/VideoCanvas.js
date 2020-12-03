@@ -15,25 +15,27 @@ var sketch = (s) => {
   let video; 
 
   s.setup = () => {
-    s.createCanvas(x, y);
+    s.createCanvas(s.windowWidth, s.windowHeight);
   };
 
   s.draw = () => {
     if (video) {
-      s.image(video, 0, 0, x, y); 
+      s.image(video, 0, 0, s.windowWidth, s.windowHeight); 
     }  
   };
 
   s.initVideo = (vid) => {
     // Resize the canvas. This is helpful when
     // the device has just rotated. 
-    x = s.windowWidth; y = s.windowHeight; 
-    s.resizeCanvas(x, y); 
+    s.resizeCanvas(s.windowWidth, s.windowHeight); 
 
     // Update Canvas width 
     console.log('Init Video');
     video = s.createVideo(vid, s.vidLoaded); 
-    video.hide();
+
+    //video.hide();
+    video.style('opacity', '0%');
+    // video.style('opacity', '0'); 
     video.elt.setAttribute('playsinline', '');
     // video.elt.muted = true;
     video.elt.setAttribute('autoplay', true);
