@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/biographyofaportrait/static/css/main.10069a37.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.6de1037f.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.6de1037f.chunk.js.map",
+    "main.css": "/biographyofaportrait/static/css/main.357561d5.chunk.css",
+    "main.js": "/biographyofaportrait/static/js/main.ad09738b.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.ad09738b.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
     "static/js/2.f2311955.chunk.js": "/biographyofaportrait/static/js/2.f2311955.chunk.js",
     "static/js/2.f2311955.chunk.js.map": "/biographyofaportrait/static/js/2.f2311955.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.021ee9c20451f01e71da0dd2ed77df63.js": "/biographyofaportrait/precache-manifest.021ee9c20451f01e71da0dd2ed77df63.js",
+    "precache-manifest.f299b9655d707696b48e1b5951310e6a.js": "/biographyofaportrait/precache-manifest.f299b9655d707696b48e1b5951310e6a.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
-    "static/css/main.10069a37.chunk.css.map": "/biographyofaportrait/static/css/main.10069a37.chunk.css.map",
+    "static/css/main.357561d5.chunk.css.map": "/biographyofaportrait/static/css/main.357561d5.chunk.css.map",
     "static/js/2.f2311955.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.f2311955.chunk.js.LICENSE.txt",
     "static/media/0_Yesterday.mp4": "/biographyofaportrait/static/media/0_Yesterday.d0611cdd.mp4",
     "static/media/1_Monday.mp4": "/biographyofaportrait/static/media/1_Monday.b8fad123.mp4",
     "static/media/2_Tuesday.mp4": "/biographyofaportrait/static/media/2_Tuesday.ea6e8ba5.mp4",
-    "static/media/3_Wednesday.mp4": "/biographyofaportrait/static/media/3_Wednesday.26b52e26.mp4",
+    "static/media/3_Wednesday.mp4": "/biographyofaportrait/static/media/3_Wednesday.b28c835c.mp4",
     "static/media/4_Thursday.mp4": "/biographyofaportrait/static/media/4_Thursday.baae191f.mp4",
     "static/media/5_Friday.mp4": "/biographyofaportrait/static/media/5_Friday.68806ac0.mp4",
     "static/media/6_Saturday.mp4": "/biographyofaportrait/static/media/6_Saturday.debf5b6f.mp4",
@@ -33,7 +33,7 @@
   "entrypoints": [
     "static/js/runtime-main.2df0d599.js",
     "static/js/2.f2311955.chunk.js",
-    "static/css/main.10069a37.chunk.css",
-    "static/js/main.6de1037f.chunk.js"
+    "static/css/main.357561d5.chunk.css",
+    "static/js/main.ad09738b.chunk.js"
   ]
 }
