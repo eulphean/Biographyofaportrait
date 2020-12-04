@@ -154,21 +154,22 @@ const styles={
         alignItems: 'center',
         background: color.deepGrey,
         color: color.sunLight,
-        paddingLeft: padding.big, // Bind this to media query
-        paddingRight: padding.big, // Bind this to media query,
+        paddingLeft: padding.small, // Bind this to media query
+        paddingRight: padding.small, // Bind this to media query,
+
         '@media (min-width: 600px)': {      
-            paddingLeft: padding.big, 
-            paddingRight: padding.big
+            paddingLeft: padding.extraHuge, 
+            paddingRight: padding.extraHuge
         },
 
         '@media (min-width: 900px)': {  
-            paddingLeft: padding.extraBig, 
-            paddingRight: padding.extraBig
+            paddingLeft: padding.veryMassive, 
+            paddingRight: padding.veryMassive
         },
 
         '@media (min-width: 1200px)' : {
-            paddingLeft: padding.huge, 
-            paddingRight: padding.huge
+            paddingLeft: padding.extraMassive, 
+            paddingRight: padding.extraMassive
         },
         opacity: '0.8'
     },
@@ -226,14 +227,14 @@ const styles={
         alignSelf: 'flex-end',
         // padding: padding.extraSmall,
         // backgroundColor: color.darkGrey,
-        marginRight: '-' + fontSize.big,
+        marginRight: '-' + fontSize.verySmall,
         height: fontSize.big,
         width: fontSize.big,
         fill: '#4a494a',
         // fontFamily: fontFamily.helvetica,
 
         '@media (min-width: 600px)': {  
-            marginRight: '-' + fontSize.big,
+            marginRight: '-' + fontSize.extraInsane,
             // padding: padding.verySmall,
             height: fontSize.veryBig, 
             width: fontSize.veryBig
@@ -244,12 +245,14 @@ const styles={
             // padding: padding.verySmall,
             height: fontSize.extraBig, 
             width: fontSize.extraBig,
-            marginRight: '-' + fontSize.veryHuge
+            marginRight: '-108px'
             // fontSize: fontSize.verySmall
         },
 
         '@media (min-width: 1200px)': {  
-            marginRight: '-' + fontSize.extraMassive,
+            marginRight: '-124px',
+            height: fontSize.massive, 
+            width: fontSize.massive,
             // fontSize: fontSize.big,
         }
     },
@@ -278,14 +281,13 @@ const styles={
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginBottom: padding.small,
+        marginBottom: padding.big,
     },
 
     footer: {
         display: 'flex',
         alignItems: 'center',
         color: color.selected,
-        alignSelf: 'center',
         fontFamily: fontFamily.grotesk,
         fontSize: fontSize.verySmall,
         letterSpacing: '2.0px',
@@ -298,7 +300,6 @@ const styles={
     footerFirst: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
         alignItems: 'center'
     },
 
@@ -311,7 +312,11 @@ const styles={
         fontFamily: fontFamily.grotesk,
         paddingLeft: padding.tiny, 
         paddingRight: padding.tiny,
-        color: color.lightGrey
+        color: color.lightGrey,
+
+        '@media (min-width: 750px)': {  
+            fontSize: fontSize.small,
+        }
     },
 
     developer: {
@@ -327,7 +332,12 @@ const styles={
     },
 
     poem: {
-        marginLeft: '-' + padding.verySmall
+        marginLeft: '-' + padding.extraSmall
+    },
+
+    biography: {
+        marginLeft: padding.small,
+        marginRight: padding.small
     },
 
     footerSpace: {
@@ -449,10 +459,8 @@ class Popup extends React.Component {
     }
 
     getPermissionsContent() {
-        let footer = this.getFooter(); 
         let authorizeButton = this.getAuthorizeButton();
         let skipButton = this.getSkipButton(); 
-        let closeButton = this.getCloseButton(); 
         let iconButton = this.getIconButton();  
         let bodyStyle = [styles.body, styles.alignCenter, styles.mediaQueryOnText, styles.footerSpace];
         let content = this.isCameraSupported ? 
@@ -493,8 +501,8 @@ class Popup extends React.Component {
                         <div style={styles.poem}>
                             {'Iridescent lake —'}<br />{'birds fly home, I see'}<br />{'blink! a water glass;'}<br/><br/>
                         </div>
-                        <div styles={styles.alignCenter}>
-                            {'this is the Biograpy of a Portrait'}
+                        <div style={[styles.alignCenter, styles.biography]}>
+                            {'this is the Biography of a Portrait.'}
                         </div>
                     </div>
                     { closeButton }

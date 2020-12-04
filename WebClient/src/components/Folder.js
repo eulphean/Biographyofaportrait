@@ -18,7 +18,8 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     opacity: '1',
-    zIndex: '99'
+    zIndex: '99',
+    WebkitTapHighlightColor: 'transparent'
   },
 
   containerToday: {
@@ -106,8 +107,7 @@ const styles = {
     bottom: '0px',
     height: '20%',
     width: '80%',
-    // filter: 'blur(2px)',
-    opacity: '85%',
+    opacity: '75%',
     backgroundColor: 'white',
     zIndex: '-1'
   },

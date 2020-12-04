@@ -55,17 +55,29 @@ const styles = {
       height: '100px'
     },
 
+    '@media (min-width: 400px) and (orientation: landscape)': {      
+      height: '70px'
+    },
+
     '@media (min-width: 600px)': {      
       height: '125px'
+    },
+
+    '@media (min-width: 600px) and (orientation: landscape)': {      
+      height: '90px'
+    },
+
+    '@media (min-width: 1024px)': {      
+      height: '150px'
+    },
+
+    '@media (min-width: 1024px) and (orientation: landscape)': {      
+      height: '120px'
     },
     
     '@media (min-width: 1200px)': {      
       height: '150px'
-    },
-
-    '@media (min-width: 900px)': {      
-      height: '150px'
-    },
+    }
   },
 
   tomorrow: {
@@ -138,18 +150,30 @@ const styles = {
     justifyContent: 'center',
     // backgroundColor: color.darkGrey,
     fontSize: fontSize.big,
-    width: fontSize.small,
-    height: fontSize.small,
+    width: fontSize.big,
+    height: fontSize.big,
     // padding: padding.extraSmall,
     marginRight: padding.extraSmall,
     color: color.lightGrey,
     zIndex: '2',
     fontFamily: fontFamily.helvetica,
 
-    '@media (min-width: 600px)': {    
-      marginRight: padding.extraSmall,
-      height: fontSize.veryBig,
-      width: fontSize.veryBig
+    '@media (min-width: 768px)': {    
+      marginRight: padding.verySmall,
+      height: fontSize.extraBig,
+      width: fontSize.extraBig
+    },
+
+    '@media (min-width: 1024px) and (orientation: portrait)': {    
+      marginRight: padding.verySmall,
+      height: fontSize.massive,
+      width: fontSize.massive
+    },
+
+    '@media (min-width: 1200px) and (orientation: landscape)': {    
+      marginRight: padding.verySmall,
+      height: fontSize.massive,
+      width: fontSize.massive
     }
   },
 
