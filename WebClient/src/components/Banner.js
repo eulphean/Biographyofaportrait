@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 
 // Styles
 import { fontFamily, color, fontSize, padding } from './CommonStyles.js'
-import gif from '../images/clouds.gif'
+import { isMobile } from 'react-device-detect'
+import gifMobile from '../images/cloudsPortrait.gif'
+import gifDesktop from '../images/cloudsLandscape.gif'
 import { ReactComponent as Close } from '../svg/close.svg'
 import { ReactComponent as Info } from '../svg/info.svg'
 
@@ -72,11 +74,11 @@ const styles = {
     },
 
     '@media (min-width: 1024px) and (orientation: landscape)': {      
-      height: '120px'
+      height: '150px'
     },
     
-    '@media (min-width: 1200px)': {      
-      height: '150px'
+    '@media (min-width: 1200px) and (orientation: landscape)': {      
+      height: '100px'
     }
   },
 
@@ -160,8 +162,8 @@ const styles = {
 
     '@media (min-width: 768px)': {    
       marginRight: padding.verySmall,
-      height: fontSize.extraBig,
-      width: fontSize.extraBig
+      height: fontSize.veryBig,
+      width: fontSize.veryBig
     },
 
     '@media (min-width: 1024px) and (orientation: portrait)': {    
@@ -172,8 +174,8 @@ const styles = {
 
     '@media (min-width: 1200px) and (orientation: landscape)': {    
       marginRight: padding.verySmall,
-      height: fontSize.massive,
-      width: fontSize.massive
+      height: fontSize.huge,
+      width: fontSize.huge
     }
   },
 
@@ -244,18 +246,14 @@ class Banner extends React.Component {
       containerStyle = [styles.container];
     }
 
+    let source = isMobile ? gifMobile : gifDesktop; 
+
     return (
       <div 
         ref={this.containerRef}
         style={containerStyle} 
         onAnimationEnd={this.onAnimationEnded.bind(this)}>
         <div style={styles.menu}>
-          {/* <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
-            ?
-          </div>
-          <div onClick={this.handleOnClose.bind(this)} style={styles.svg}>
-            X
-          </div>  */}
           <div onClick={this.onShowPopup.bind(this)} style={styles.svg}>
             <Info style={styles.icon} />
           </div>
@@ -265,10 +263,7 @@ class Banner extends React.Component {
         </div>
         <div onClick={this.handleClick.bind(this)}>
           <RadiumLink  to='/Tomorrow'>
-            {/* <div style={styles.tomorrow}>
-              Tomorrow<sup style={styles.tomorrowSuper}>TM</sup>
-            </div> */}
-            <img style={styles.clouds} alt={'clouds'} src={gif} />
+            <img style={styles.clouds} alt={'clouds'} src={source} />
           </RadiumLink>
         </div>
       </div>

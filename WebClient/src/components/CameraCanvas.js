@@ -65,7 +65,11 @@ var sketch = (s) => {
   }
 
   s.windowResized = () => {
-    capture.remove();
+    // Remove the capture. 
+    if (capture.height > 0 && capture.elt) {
+      capture.remove();
+    }
+
     s.setupCamera(); 
     s.resizeCanvas(window.innerWidth, window.innerHeight);
   }

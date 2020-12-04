@@ -58,8 +58,9 @@ class Today extends React.Component {
           onShowInfo={this.handleInfoClick.bind(this)}
           onHandleClick={this.handleFolderClick.bind(this)}
           showCameraPrompt={this.showCameraPrompt.bind(this)}
+          isLandscape = {this.props.isLandscape}
+          isPortrait = {this.props.isPortrait}
         />
-        {/* <UserIcon ref={userIconRef} /> */}
         <Folder 
           ref={this.folderRef} 
           target={'/Yesterday'}

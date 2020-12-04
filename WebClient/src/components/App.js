@@ -114,6 +114,8 @@ const App = (props) => {
           </Route>
           <Route path="/">
             <Today 
+              isLandscape = { isLandscape }
+              isPortrait = { isPortrait }
               removeVideo = {removeVideo.bind(this)} />
           </Route>
         </Switch>
