@@ -78,7 +78,7 @@ const styles = {
     },
     
     '@media (min-width: 1200px) and (orientation: landscape)': {      
-      height: '100px'
+      height: '125px'
     }
   },
 
@@ -123,7 +123,6 @@ const styles = {
     marginTop: '-' + padding.big,
     fontSize: fontSize.extraSmall,
    
-
     '@media (min-width: 400px)': {    
       paddingLeft: padding.extraSmall,
       marginTop: '-' + padding.veryBig,

@@ -26,24 +26,21 @@ var sketch = (s) => {
     // Resize the canvas. This is helpful when
     // the device has just rotated. 
     s.resizeCanvas(window.innerWidth, window.innerHeight); 
+    if (s.canvas) {
+      s.clear();
+    }
 
     // Update Canvas width 
     console.log('Init Video');
     video = s.createVideo(vid, s.vidLoaded); 
-
-    video.style('opacity', '0'); 
     video.elt.setAttribute('playsinline', '');
-    // video.elt.muted = true;
     video.elt.setAttribute('autoplay', true);
     video.elt.setAttribute('loop', true);
-    if (s.canvas) {
-      s.clear();
-    }
   };
 
   s.vidLoaded = () => {
-    video.hide(); 
-    video.play(); 
+    video.play();
+    video.style('opacity', '0');  
   }
 
   s.removeVideo = () => {
@@ -79,8 +76,8 @@ const styles = {
     height: '100vh',
     top: '0%',
     left: '0%',
-    opacity: '0',
-    zIndex: '1'
+    opacity: '100%',
+    zIndex: '2'
   },
 
   fadeIn: {
@@ -97,7 +94,7 @@ class VideoCanvas extends React.Component {
     this.state={
       isFadeIn: false,
       video: this.props.src,
-      path: '/'
+      path: '-'
     };
 
     this.sketchRef = React.createRef(); 
@@ -118,11 +115,9 @@ class VideoCanvas extends React.Component {
   }
   
   render() {
-    let containerStyle=[styles.container, styles.fadeIn]; 
-
     return (
       <RadiumLink to={this.state.path}>
-        <div style={containerStyle}>
+        <div style={styles.container}>
           <div ref={this.sketchRef}>
           </div>
         </div>
@@ -130,11 +125,33 @@ class VideoCanvas extends React.Component {
     );
   }
 
+  getCanvasWithRadium() {
+    // let containerStyle=[styles.container, styles.fadeIn]; 
+    return(
+      <RadiumLink to='/'>
+        <div style={styles.container}>
+          <div ref={this.sketchRef}>
+          </div>
+        </div>
+      </RadiumLink>
+    ); 
+  }
+
+  getCanvasWithoutRadium() {
+    return (
+      <div style={styles.container}>
+        <div ref={this.sketchRef}>
+        </div>
+      </div>
+    ); 
+  }
+
   removeVideo() {
     this.myP5.removeVideo(); 
   }
 
   showCanvas(src, target) {
+    console.log(target);
     this.myP5.initVideo(src); 
     this.myP5.showCanvas();
     this.setState({

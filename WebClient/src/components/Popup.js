@@ -266,15 +266,16 @@ const styles={
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: padding.big, 
-        marginBottom: padding.big,
+        marginTop: padding.veryBig, 
+        marginBottom: padding.veryBig,
         background: color.jenGrey, 
         fontFamily: fontFamily.helvetica,
         fontSize: fontSize.small,
         color: color.lightGrey,
         letterSpacing: '1.5px',
         padding: padding.verySmall,
-        borderRadius: fontSize.tiny
+        borderRadius: fontSize.tiny,
+        cursor: 'pointer'
     },
 
     footerContainer: {
@@ -332,7 +333,11 @@ const styles={
     },
 
     poem: {
-        marginLeft: '-' + padding.extraSmall
+        marginLeft: padding.extraBig,
+
+        '@media (min-width: 1024px)': {  
+            marginLeft: '-' + padding.veryHuge,
+        }
     },
 
     biography: {
