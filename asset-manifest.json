@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/biographyofaportrait/static/css/main.10069a37.chunk.css",
-    "main.js": "/biographyofaportrait/static/js/main.256243c7.chunk.js",
-    "main.js.map": "/biographyofaportrait/static/js/main.256243c7.chunk.js.map",
+    "main.js": "/biographyofaportrait/static/js/main.6de1037f.chunk.js",
+    "main.js.map": "/biographyofaportrait/static/js/main.6de1037f.chunk.js.map",
     "runtime-main.js": "/biographyofaportrait/static/js/runtime-main.2df0d599.js",
     "runtime-main.js.map": "/biographyofaportrait/static/js/runtime-main.2df0d599.js.map",
-    "static/js/2.d8ce558f.chunk.js": "/biographyofaportrait/static/js/2.d8ce558f.chunk.js",
-    "static/js/2.d8ce558f.chunk.js.map": "/biographyofaportrait/static/js/2.d8ce558f.chunk.js.map",
+    "static/js/2.f2311955.chunk.js": "/biographyofaportrait/static/js/2.f2311955.chunk.js",
+    "static/js/2.f2311955.chunk.js.map": "/biographyofaportrait/static/js/2.f2311955.chunk.js.map",
     "index.html": "/biographyofaportrait/index.html",
-    "precache-manifest.ff601153e15ff8758620334022b89afd.js": "/biographyofaportrait/precache-manifest.ff601153e15ff8758620334022b89afd.js",
+    "precache-manifest.021ee9c20451f01e71da0dd2ed77df63.js": "/biographyofaportrait/precache-manifest.021ee9c20451f01e71da0dd2ed77df63.js",
     "service-worker.js": "/biographyofaportrait/service-worker.js",
     "static/css/main.10069a37.chunk.css.map": "/biographyofaportrait/static/css/main.10069a37.chunk.css.map",
-    "static/js/2.d8ce558f.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.d8ce558f.chunk.js.LICENSE.txt",
+    "static/js/2.f2311955.chunk.js.LICENSE.txt": "/biographyofaportrait/static/js/2.f2311955.chunk.js.LICENSE.txt",
     "static/media/0_Yesterday.mp4": "/biographyofaportrait/static/media/0_Yesterday.d0611cdd.mp4",
     "static/media/1_Monday.mp4": "/biographyofaportrait/static/media/1_Monday.b8fad123.mp4",
     "static/media/2_Tuesday.mp4": "/biographyofaportrait/static/media/2_Tuesday.ea6e8ba5.mp4",
@@ -24,15 +24,16 @@
     "static/media/stylesheet.css": "/biographyofaportrait/static/media/hkgrotesk-light-webfont.d83608a9.woff",
     "static/media/close.cea80ca5.svg": "/biographyofaportrait/static/media/close.cea80ca5.svg",
     "static/media/close_popup.e97b48eb.svg": "/biographyofaportrait/static/media/close_popup.e97b48eb.svg",
-    "static/media/clouds.gif": "/biographyofaportrait/static/media/clouds.ac78b0d0.gif",
+    "static/media/cloudsLandscape.gif": "/biographyofaportrait/static/media/cloudsLandscape.87b3093b.gif",
+    "static/media/cloudsPortrait.gif": "/biographyofaportrait/static/media/cloudsPortrait.ac78b0d0.gif",
     "static/media/folder.d138ae18.svg": "/biographyofaportrait/static/media/folder.d138ae18.svg",
     "static/media/graph_rotate.jpg": "/biographyofaportrait/static/media/graph_rotate.08b0f555.jpg",
     "static/media/info.e0bb55ec.svg": "/biographyofaportrait/static/media/info.e0bb55ec.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.2df0d599.js",
-    "static/js/2.d8ce558f.chunk.js",
+    "static/js/2.f2311955.chunk.js",
     "static/css/main.10069a37.chunk.css",
-    "static/js/main.256243c7.chunk.js"
+    "static/js/main.6de1037f.chunk.js"
   ]
 }
