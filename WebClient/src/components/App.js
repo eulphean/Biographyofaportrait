@@ -39,6 +39,8 @@ class App extends React.Component {
   constructor(props) {
     super(props); 
     this.videoRef = React.createRef(); 
+    console.log('Version: ' + '2');
+    window.addEventListener('resize', this.handleResize.bind(this));
     this.state = {
       isLandscape: this.isLandscape(),
       isPortrait: this.isPortrait()
@@ -139,11 +141,11 @@ class App extends React.Component {
   }
 
   handleResize() {
-    if (window.matchMedia("(orientation: portrait)").matches) {
-        console.log("Portrait mode");
-    } else {
-        console.log("Landscape mode"); 
-    }
+    console.log('Window Resized');
+    this.setState({
+      isLandscape: this.isLandscape(),
+      isPortrait: this.isPortrait()
+    });
   }
 
   isLandscape() {
