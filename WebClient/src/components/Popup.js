@@ -335,6 +335,14 @@ const styles={
     poem: {
         marginLeft: padding.small,
 
+        '@media (min-width: 568px) and (orientation: landscape)': {
+            marginLeft: '0px',
+        },
+
+        '@media (min-width: 667px) and (orientation: landscape)': {
+            marginLeft: '-' + padding.verySmall,
+        },
+
         '@media (min-width: 1024px)': {  
             marginLeft: '-' + padding.veryHuge,
         }
