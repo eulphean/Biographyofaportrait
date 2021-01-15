@@ -5,7 +5,8 @@ const color = {
     deepGrey: '#343434',
     selected: '#0091FF',
     greyBack: '#8C97A5',
-    jenGrey: '#b3b3b3'
+    jenGrey: '#b3b3b3',
+    yesterdayGrey: '#828282'
 };
 
 const fontSize = {

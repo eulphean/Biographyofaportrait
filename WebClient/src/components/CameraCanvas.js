@@ -17,7 +17,7 @@ var sketch = (s) => {
     if (capture && capture.loadedmetadata) {
       let frame = capture.get(0, 0, window.innerWidth, window.innerHeight); 
       // Schedule the frame to be drawn at a later time. 
-      let t = setTimeout(s.delayCbkFrame, 2000, frame); 
+      let t = setTimeout(s.delayCbkFrame, 1000, frame); 
       timeouts.push(t); 
       s.noLoop(); 
     }
@@ -30,7 +30,7 @@ var sketch = (s) => {
 
     // Capture new frame and schedule for the next 2 seconds. 
     let newFrame = capture.get(0, 0, window.innerWidth, window.innerHeight); 
-    let t = setTimeout(s.delayCbkFrame, 2000, newFrame); 
+    let t = setTimeout(s.delayCbkFrame, 1000, newFrame); 
     timeouts.push(t); 
   }
 
@@ -51,7 +51,7 @@ var sketch = (s) => {
     if (capture.height > 0) {
       console.log('Removing camera canvas'); 
       if (capture.elt) {
-        capture.remove();
+        capture.elt.remove();
       }
       s.remove();
       timeouts.forEach(t => {
@@ -67,7 +67,7 @@ var sketch = (s) => {
   s.windowResized = () => {
     // Remove the capture. 
     if (capture.height > 0 && capture.elt) {
-      capture.remove();
+      capture.elt.remove();
     }
 
     s.setupCamera(); 

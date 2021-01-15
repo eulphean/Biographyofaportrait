@@ -333,7 +333,7 @@ const styles={
     },
 
     poem: {
-        marginLeft: padding.extraBig,
+        marginLeft: padding.small,
 
         '@media (min-width: 1024px)': {  
             marginLeft: '-' + padding.veryHuge,

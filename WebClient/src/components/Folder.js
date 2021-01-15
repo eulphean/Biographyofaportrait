@@ -95,7 +95,7 @@ const styles = {
   },
 
   titleToday: {
-    color: color.darkGrey
+    color: color.yesterdayGrey
   },
 
   outline: {
