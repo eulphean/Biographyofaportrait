@@ -1,7 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { withOrientationChange } from 'react-device-detect'
 import Today from './Today.js'
 import Yesterday from './Yesterday.js'
 import Tomorrow from './Tomorrow.js'
@@ -36,100 +35,213 @@ const styles = {
   }
 };
 
-const App = (props) => {
-  const { isLandscape, isPortrait } = props; 
-  let videoRef = React.createRef(); 
-
-  return (
-    <div style={styles.container}>
-      <img style={styles.graph} alt='graph' src={graph} />
-      <Router>
-          <VideoCanvas 
-            ref={videoRef}
-            src={''} />
-        <Switch>
-          <Route path="/Monday">
-            <Monday 
-              setupVideo={setupVideo.bind(this)}
-              removeVideo={removeVideo.bind(this)} 
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/Tuesday">
-            <Tuesday 
-              setupVideo={setupVideo.bind(this)}
-              removeVideo={removeVideo.bind(this)} 
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/Wednesday">
-            <Wednesday 
-              setupVideo={setupVideo.bind(this)} 
-              removeVideo={removeVideo.bind(this)}
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/Thursday">
-            <Thursday 
-              setupVideo={setupVideo.bind(this)} 
-              removeVideo={removeVideo.bind(this)} 
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/Friday">
-            <Friday 
-              setupVideo={setupVideo.bind(this)}
-              removeVideo={removeVideo.bind(this)} 
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/Saturday">
-            <Saturday 
-              setupVideo={setupVideo.bind(this)} 
-              removeVideo={removeVideo.bind(this)} 
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/Sunday">
-            <Sunday 
-              setupVideo={setupVideo.bind(this)} 
-              removeVideo={removeVideo.bind(this)} 
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/Tomorrow">
-            <Tomorrow 
-              setupVideo = {setupVideo.bind(this)} 
-              removeVideo = {removeVideo.bind(this)}
-              isPortrait = { isPortrait }
-              isLandscape = { isLandscape }
-            />
-          </Route>
-          <Route path="/Yesterday">
-            <Yesterday 
-              setupVideo = {setupVideo.bind(this)} 
-              removeVideo = {removeVideo.bind(this)} 
-              isLandscape = { isLandscape } 
-              isPortrait = { isPortrait } />
-          </Route>
-          <Route path="/">
-            <Today 
-              isLandscape = { isLandscape }
-              isPortrait = { isPortrait }
-              removeVideo = {removeVideo.bind(this)} />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
-
-
-  function setupVideo(src, target) {
-    videoRef.current.showCanvas(src, target);
+class App extends React.Component {
+  constructor(props) {
+    super(props); 
+    this.videoRef = React.createRef(); 
+    this.state = {
+      isLandscape: this.isLandscape(),
+      isPortrait: this.isPortrait()
+    }; 
   }
 
-  function removeVideo() {
-    videoRef.current.removeVideo();
+  render() {
+    return (
+      <div style={styles.container}>
+        <img style={styles.graph} alt='graph' src={graph} />
+        <Router>
+            <VideoCanvas 
+              ref={this.videoRef}
+              src={''} />
+          <Switch>
+            <Route path="/Monday">
+              <Monday 
+                setupVideo={this.setupVideo.bind(this)}
+                removeVideo={this.removeVideo.bind(this)} 
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/Tuesday">
+              <Tuesday 
+                setupVideo={this.setupVideo.bind(this)}
+                removeVideo={this.removeVideo.bind(this)} 
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/Wednesday">
+              <Wednesday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)}
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/Thursday">
+              <Thursday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)} 
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/Friday">
+              <Friday 
+                setupVideo={this.setupVideo.bind(this)}
+                removeVideo={this.removeVideo.bind(this)} 
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/Saturday">
+              <Saturday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)} 
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/Sunday">
+              <Sunday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)} 
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/Tomorrow">
+              <Tomorrow 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)}
+                isPortrait={this.state.isPortrait}
+                isLandscape={this.state.isLandscape}
+              />
+            </Route>
+            <Route path="/Yesterday">
+              <Yesterday 
+                setupVideo={this.setupVideo.bind(this)} 
+                removeVideo={this.removeVideo.bind(this)} 
+                isLandscape={this.state.isLandscape} 
+                isPortrait={this.state.isPortrait} />
+            </Route>
+            <Route path="/">
+              <Today 
+                isLandscape={this.state.isLandscape}
+                isPortrait={this.state.isPortrait}
+                removeVideo={this.removeVideo.bind(this)} />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+
+  setupVideo(src, target) {
+    this.videoRef.current.showCanvas(src, target);
+  }
+
+  removeVideo() {
+    this.videoRef.current.removeVideo();
+  }
+
+  handleResize() {
+    if (window.matchMedia("(orientation: portrait)").matches) {
+        console.log("Portrait mode");
+    } else {
+        console.log("Landscape mode"); 
+    }
+  }
+
+  isLandscape() {
+    return (window.matchMedia("(orientation: landscape").matches); 
+  }
+
+  isPortrait() {
+    return (window.matchMedia("(orientation: portrait").matches);
   }
 }
-export default Radium(withOrientationChange(App));
+
+export default Radium(App);
+
+
+// const App = (props) => {
+//   const { isLandscape, isPortrait } = props; 
+//   let videoRef = React.createRef(); 
+
+//   return (
+//     <div style={styles.container}>
+//       <Orientation />
+//       <img style={styles.graph} alt='graph' src={graph} />
+//       <Router>
+//           <VideoCanvas 
+//             ref={videoRef}
+//             src={''} />
+//         <Switch>
+//           <Route path="/Monday">
+//             <Monday 
+//               setupVideo={setupVideo.bind(this)}
+//               removeVideo={removeVideo.bind(this)} 
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/Tuesday">
+//             <Tuesday 
+//               setupVideo={setupVideo.bind(this)}
+//               removeVideo={removeVideo.bind(this)} 
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/Wednesday">
+//             <Wednesday 
+//               setupVideo={setupVideo.bind(this)} 
+//               removeVideo={removeVideo.bind(this)}
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/Thursday">
+//             <Thursday 
+//               setupVideo={setupVideo.bind(this)} 
+//               removeVideo={removeVideo.bind(this)} 
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/Friday">
+//             <Friday 
+//               setupVideo={setupVideo.bind(this)}
+//               removeVideo={removeVideo.bind(this)} 
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/Saturday">
+//             <Saturday 
+//               setupVideo={setupVideo.bind(this)} 
+//               removeVideo={removeVideo.bind(this)} 
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/Sunday">
+//             <Sunday 
+//               setupVideo={setupVideo.bind(this)} 
+//               removeVideo={removeVideo.bind(this)} 
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/Tomorrow">
+//             <Tomorrow 
+//               setupVideo = {setupVideo.bind(this)} 
+//               removeVideo = {removeVideo.bind(this)}
+//               isPortrait = { isPortrait }
+//               isLandscape = { isLandscape }
+//             />
+//           </Route>
+//           <Route path="/Yesterday">
+//             <Yesterday 
+//               setupVideo = {setupVideo.bind(this)} 
+//               removeVideo = {removeVideo.bind(this)} 
+//               isLandscape = { isLandscape } 
+//               isPortrait = { isPortrait } />
+//           </Route>
+//           <Route path="/">
+//             <Today 
+//               isLandscape = { isLandscape }
+//               isPortrait = { isPortrait }
+//               removeVideo = {removeVideo.bind(this)} />
+//           </Route>
+//         </Switch>
+//       </Router>
+//     </div>
+//   );
