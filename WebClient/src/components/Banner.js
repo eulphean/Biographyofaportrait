@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 // Styles
 import { fontFamily, color, fontSize, padding } from './CommonStyles.js'
-import { isMobile } from 'react-device-detect'
+import { isMobile, isIPad13 } from 'react-device-detect'
 import gifMobile from '../images/cloudsPortrait.gif'
 import gifDesktop from '../images/cloudsLandscape.gif'
 import { ReactComponent as Close } from '../svg/close.svg'
@@ -245,7 +245,7 @@ class Banner extends React.Component {
       containerStyle = [styles.container];
     }
 
-    let source = isMobile ? gifMobile : gifDesktop; 
+    let source = (isMobile || isIPad13) ? gifMobile : gifDesktop; 
 
     return (
       <div 

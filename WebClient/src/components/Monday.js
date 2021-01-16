@@ -1,7 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 
-import { isMobile } from 'react-device-detect'
+import { isMobile, isIpad13 } from 'react-device-detect'
 import portrait from '../videos/portrait/1_Monday.mp4'
 import landscape from '../videos/landscape/1_Monday.mp4'
 import Folder from './Folder.js'
@@ -70,7 +70,7 @@ class Monday extends React.Component {
   }
 
   getVideo(props) {
-    if (isMobile) {
+    if (isMobile || isIpad13) {
       if (props.isLandscape) {
         console.log('Landscape');
         return landscape;
