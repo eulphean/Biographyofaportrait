@@ -69,7 +69,6 @@ var sketch = (s) => {
     // Remove the capture. 
     if (capture.height > 0 && capture.elt) {
       capture.elt.remove();
-      capture.remove();
     }
 
     s.setupCamera(); 
