@@ -69,8 +69,13 @@ var sketch = (s) => {
     // Remove the capture. 
     if (capture.height > 0 && capture.elt) {
       capture.elt.remove();
-    }
+      setTimeout(s.setupNewCamera, 1000); 
 
+    }
+  }
+
+  s.setupNewCamera = () => {
+    console.log('Creating new camera');
     s.setupCamera(); 
     s.resizeCanvas(window.innerWidth, window.innerHeight);
   }
