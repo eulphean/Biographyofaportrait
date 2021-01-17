@@ -39,7 +39,7 @@ class App extends React.Component {
   constructor(props) {
     super(props); 
     this.videoRef = React.createRef(); 
-    console.log('Version: 10');
+    console.log('Version: 11');
     window.addEventListener('resize', this.handleResize.bind(this));
     this.state = {
       isLandscape: this.isLandscape(),

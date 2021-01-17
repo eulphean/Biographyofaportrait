@@ -52,6 +52,7 @@ var sketch = (s) => {
       console.log('Removing camera canvas'); 
       if (capture.elt) {
         capture.elt.remove();
+        capture.remove();
       }
       s.remove();
       timeouts.forEach(t => {
@@ -70,7 +71,6 @@ var sketch = (s) => {
     if (capture.height > 0 && capture.elt) {
       capture.elt.remove();
       setTimeout(s.setupNewCamera, 1000); 
-
     }
   }
 
