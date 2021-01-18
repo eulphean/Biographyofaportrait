@@ -51,8 +51,8 @@ var sketch = (s) => {
     if (capture.height > 0) {
       console.log('Removing camera canvas'); 
       if (capture.elt) {
-        capture.elt.remove();
-        capture.remove();
+        capture.elt.remove(); // This only removes the video element associated with the camera. 
+        capture.remove(); // This removes the camera and the light that is there. 
       }
       s.remove();
       timeouts.forEach(t => {
@@ -69,7 +69,7 @@ var sketch = (s) => {
     console.log('Screen Resized - Resetting camera');
     // Remove the capture. 
     if (capture.height > 0 && capture.elt) {
-      capture.elt.remove();
+      capture.elt.remove(); // Only remove the 
       setTimeout(s.setupNewCamera, 1000); 
     }
   }
