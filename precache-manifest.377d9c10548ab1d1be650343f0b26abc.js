@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "63e52a2283d49c33e96b403a2f4ac476",
+    "revision": "e06113fb7157c57d04abd22144f001b3",
     "url": "/index.html"
   },
   {
-    "revision": "530bf6217e2f40e82531",
-    "url": "/static/css/main.aa6c59a5.chunk.css"
+    "revision": "45bdb44a6fddb418faf6",
+    "url": "/static/css/main.4358998e.chunk.css"
   },
   {
-    "revision": "e07009b847e438cef397",
-    "url": "/static/js/2.a68e53d2.chunk.js"
+    "revision": "e5e38f6cc5280ac9a360",
+    "url": "/static/js/2.4597b336.chunk.js"
   },
   {
-    "revision": "8ab8970bbf466d4267280d4590c87b0f",
-    "url": "/static/js/2.a68e53d2.chunk.js.LICENSE.txt"
+    "revision": "7394186c78c74bd60264b20e3b2b8afb",
+    "url": "/static/js/2.4597b336.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "530bf6217e2f40e82531",
-    "url": "/static/js/main.7663851b.chunk.js"
+    "revision": "45bdb44a6fddb418faf6",
+    "url": "/static/js/main.83854c66.chunk.js"
   },
   {
     "revision": "cc8c22a03749e0ab42de",
@@ -41,7 +41,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "a79c36c56cf645e58330118923370003",
-    "url": "/static/media/2_Tuesday.a79c36c5.mp4"
+    "url": "/static/media/2_Tuesday.a79c36c5.MP4"
   },
   {
     "revision": "ea6e8ba543fc9a42a19da88528ac0933",
@@ -53,7 +53,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "ecf11147cf50a67cb1baec1801878502",
-    "url": "/static/media/3_Wednesday.ecf11147.mp4"
+    "url": "/static/media/3_Wednesday.ecf11147.MP4"
   },
   {
     "revision": "46c9f462cba0af9f2cba8af651c2a9d5",
@@ -69,11 +69,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "d4d2c70eb70cc63c75676b5b64454566",
-    "url": "/static/media/5_Friday.d4d2c70e.mp4"
+    "url": "/static/media/5_Friday.d4d2c70e.MP4"
   },
   {
     "revision": "a66358c0ef3c0346d53441fb6fa025cc",
-    "url": "/static/media/6_Saturday.a66358c0.mp4"
+    "url": "/static/media/6_Saturday.a66358c0.MP4"
   },
   {
     "revision": "debf5b6fadbdb8e1cd34ae098cb545e1",
@@ -144,8 +144,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/elliotsix-webfont.e1c11592.woff"
   },
   {
-    "revision": "d138ae18f07c5ceb39819747ef43cdd3",
-    "url": "/static/media/folder.d138ae18.svg"
+    "revision": "c1e1344b651c9e370154e2a6336b9b32",
+    "url": "/static/media/folder.c1e1344b.svg"
   },
   {
     "revision": "08b0f55509539659fe3bfbab9aed1e41",
