@@ -73,11 +73,12 @@ const styles = {
       // backgroundColor: color.darkGrey,
       color: color.lightGrey,
       // padding: padding.extraSmall,
-      paddingLeft: padding.big,
-      paddingRight: padding.big,
+      paddingLeft: padding.lessBig,
+      paddingRight: padding.lessBig,
       fontFamily: fontFamily.helvetica,
       letterSpacing: '1px',
       zIndex: '2',
+      paddingTop: padding.extraSmall,
 
       // Default
       fontSize: fontSize.verySmall,

@@ -20,7 +20,7 @@ const styles = {
   video: {
     zIndex: '2',
     position: 'absolute',
-    objectFit: 'cover',
+    objectFit: 'fill',
     height: '100vh'
   }
 };

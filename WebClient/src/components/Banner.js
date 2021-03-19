@@ -173,8 +173,8 @@ const styles = {
 
     '@media (min-width: 1200px) and (orientation: landscape)': {    
       marginRight: padding.verySmall,
-      height: fontSize.huge,
-      width: fontSize.huge
+      height: fontSize.veryBig,
+      width: fontSize.veryBig
     }
   },
 
@@ -245,7 +245,8 @@ class Banner extends React.Component {
       containerStyle = [styles.container];
     }
 
-    let source = (isMobile || isIPad13 || isTablet) ? gifMobile : gifDesktop; 
+    // Banner source (use the desktop banner all the time)
+    let source = (isMobile || isIPad13 || isTablet) ? gifDesktop : gifDesktop; 
 
     return (
       <div 

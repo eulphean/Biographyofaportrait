@@ -339,7 +339,7 @@ const styles={
             marginLeft: '0px',
         },
 
-        '@media (min-width: 667px) and (orientation: landscape)': {
+        '@media (min-width: 667px)': {
             marginLeft: '-' + padding.verySmall,
         },
 

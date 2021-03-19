@@ -6,7 +6,7 @@ const color = {
     selected: '#0091FF',
     greyBack: '#8C97A5',
     jenGrey: '#b3b3b3',
-    yesterdayGrey: '#828282'
+    yesterdayGrey: '#999999'
 };
 
 const fontSize = {
@@ -41,6 +41,7 @@ const padding = {
     kindaSmall: '6px',
     verySmall: '8px',
     small: '12px',
+    lessBig: '16px',
     // Incremenets of 8
     big : '20px',
     veryBig : '28px',

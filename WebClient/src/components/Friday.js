@@ -3,7 +3,7 @@ import Radium from 'radium'
 import Folder from './Folder.js'
 
 import { isMobile, isIPad13, isTablet } from 'react-device-detect'
-import portrait from '../videos/portrait/5_Friday.mp4'
+import portrait from '../videos/portrait/5_Friday.MP4'
 import landscape from '../videos/landscape/5_Friday.mp4'
 
 const styles = {
@@ -14,13 +14,13 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     width: '100vw',
-    height: '100vh'
+  height: '100vh'
   },
 
   video: {
     zIndex: '2',
     position: 'absolute',
-    objectFit: 'cover',
+    objectFit: 'fill',
     height: '100vh'
   }
 };

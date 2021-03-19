@@ -71,7 +71,7 @@ var sketch = (s) => {
 const styles = {
   container: {
     position: 'absolute',
-    objectFit: 'cover',
+    objectFit: 'fill',
     width: '100vw',
     height: '100vh',
     top: '0%',
