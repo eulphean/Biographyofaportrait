@@ -246,7 +246,7 @@ class Banner extends React.Component {
     }
 
     // Banner source (use the desktop banner all the time)
-    let source = (isMobile || isIPad13 || isTablet) ? gifDesktop : gifDesktop; 
+    let source = (isMobile) ? gifMobile : gifDesktop; 
 
     return (
       <div 
