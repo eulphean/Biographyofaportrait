@@ -28,7 +28,7 @@ const styles = {
 
   graph: {
     position: 'absolute',
-    objectFit: 'fill',
+    objectFit: 'cover',
     height: '100vh',
     width: '100vw',
     zIndex: '1'

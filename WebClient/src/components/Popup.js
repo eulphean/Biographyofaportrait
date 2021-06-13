@@ -251,8 +251,8 @@ const styles={
 
         '@media (min-width: 1200px)': {  
             marginRight: '-124px',
-            height: fontSize.massive, 
-            width: fontSize.massive,
+            // height: fontSize.massive, 
+            // width: fontSize.massive,
             // fontSize: fontSize.big,
         }
     },
